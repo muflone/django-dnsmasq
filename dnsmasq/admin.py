@@ -20,7 +20,9 @@
 
 from django.contrib import admin
 
-from .models import Interface, InterfaceAdmin
+from .models import (Interface, InterfaceAdmin,
+                     ListenAddress, ListenAddressAdmin)
 
 
 admin.site.register(Interface, InterfaceAdmin)
+admin.site.register(ListenAddress, ListenAddressAdmin)

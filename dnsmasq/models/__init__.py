@@ -19,3 +19,4 @@
 ##
 
 from .interface import Interface, InterfaceAdmin                   # noqa: F401
+from .listen_address import ListenAddress, ListenAddressAdmin      # noqa: F401

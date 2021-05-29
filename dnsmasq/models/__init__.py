@@ -18,5 +18,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from .domain import Domain, DomainAdmin                            # noqa: F401
 from .interface import Interface, InterfaceAdmin                   # noqa: F401
 from .listen_address import ListenAddress, ListenAddressAdmin      # noqa: F401

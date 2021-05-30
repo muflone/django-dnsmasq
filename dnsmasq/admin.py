@@ -20,12 +20,14 @@
 
 from django.contrib import admin
 
-from .models import (DhcpRange, DhcpRangeAdmin,
+from .models import (DhcpOptionType, DhcpOptionTypeAdmin,
+                     DhcpRange, DhcpRangeAdmin,
                      Domain, DomainAdmin,
                      Interface, InterfaceAdmin,
                      ListenAddress, ListenAddressAdmin)
 
 
+admin.site.register(DhcpOptionType, DhcpOptionTypeAdmin)
 admin.site.register(DhcpRange, DhcpRangeAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Interface, InterfaceAdmin)

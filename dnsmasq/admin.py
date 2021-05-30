@@ -20,13 +20,15 @@
 
 from django.contrib import admin
 
-from .models import (DhcpOptionType, DhcpOptionTypeAdmin,
+from .models import (DhcpDefaultOption, DhcpDefaultOptionAdmin,
+                     DhcpOptionType, DhcpOptionTypeAdmin,
                      DhcpRange, DhcpRangeAdmin,
                      Domain, DomainAdmin,
                      Interface, InterfaceAdmin,
                      ListenAddress, ListenAddressAdmin)
 
 
+admin.site.register(DhcpDefaultOption, DhcpDefaultOptionAdmin)
 admin.site.register(DhcpOptionType, DhcpOptionTypeAdmin)
 admin.site.register(DhcpRange, DhcpRangeAdmin)
 admin.site.register(Domain, DomainAdmin)

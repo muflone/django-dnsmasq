@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from django.contrib import admin
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
@@ -58,3 +59,11 @@ class DhcpDefaultOptionIpV4(BaseModel):
 
 class DhcpDefaultOptionIpV4Admin(BaseModelAdmin):
     pass
+
+
+class DhcpDefaultOptionIpV4InlineAdmin(admin.TabularInline):
+    """
+    Admin Inline to show children rows for DhcpDefaultOptionIpV4
+    """
+    model = DhcpDefaultOptionIpV4
+    fields = ('address', 'order', 'status')

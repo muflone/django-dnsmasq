@@ -21,6 +21,8 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
+from .dhcp_default_option_ipv4 import DhcpDefaultOptionIpV4InlineAdmin
+
 from utility.models import BaseModel, BaseModelAdmin
 
 
@@ -64,3 +66,17 @@ class DhcpDefaultOption(BaseModel):
 
 class DhcpDefaultOptionAdmin(BaseModelAdmin):
     pass
+
+
+class DhcpDefaultOptionProxy(DhcpDefaultOption):
+    class Meta:
+        proxy = True
+        verbose_name = pgettext_lazy('DhcpDefaultOption',
+                                     'DHCP default option (extended)')
+        verbose_name_plural = pgettext_lazy('DhcpDefaultOption',
+                                            'DHCP default options (extended)')
+
+
+class DhcpDefaultOptionProxyAdmin(BaseModelAdmin):
+    inlines = [DhcpDefaultOptionIpV4InlineAdmin]
+    list_per_page = 300

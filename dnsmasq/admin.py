@@ -21,6 +21,7 @@
 from django.contrib import admin
 
 from .models import (DhcpDefaultOption, DhcpDefaultOptionAdmin,
+                     DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin,
                      DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin,
                      DhcpOptionType, DhcpOptionTypeAdmin,
                      DhcpRange, DhcpRangeAdmin,
@@ -30,6 +31,7 @@ from .models import (DhcpDefaultOption, DhcpDefaultOptionAdmin,
 
 
 admin.site.register(DhcpDefaultOption, DhcpDefaultOptionAdmin)
+admin.site.register(DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin)
 admin.site.register(DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin)
 admin.site.register(DhcpOptionType, DhcpOptionTypeAdmin)
 admin.site.register(DhcpRange, DhcpRangeAdmin)

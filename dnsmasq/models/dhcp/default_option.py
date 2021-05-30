@@ -21,7 +21,7 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
-from .dhcp_default_option_ipv4 import DhcpDefaultOptionIpV4InlineAdmin
+from .default_option_ipv4 import DhcpDefaultOptionIpV4InlineAdmin
 
 from utility.models import BaseModel, BaseModelAdmin
 

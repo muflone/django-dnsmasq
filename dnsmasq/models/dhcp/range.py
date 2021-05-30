@@ -38,9 +38,9 @@ class DhcpRange(BaseModel):
                                         verbose_name=pgettext_lazy(
                                             'DhcpRange',
                                             'order'))
-    stating_ip = models.GenericIPAddressField(verbose_name=pgettext_lazy(
-                                                  'DhcpRange',
-                                                  'starting IP range'))
+    starting_ip = models.GenericIPAddressField(verbose_name=pgettext_lazy(
+                                                   'DhcpRange',
+                                                   'starting IP range'))
     ending_ip = models.GenericIPAddressField(verbose_name=pgettext_lazy(
                                                  'DhcpRange',
                                                  'ending IP range'))

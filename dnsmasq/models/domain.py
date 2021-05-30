@@ -46,11 +46,11 @@ class Domain(BaseModel):
                                                    verbose_name=pgettext_lazy(
                                                        'Domain',
                                                        'subnet CIDR'))
-    stating_ip = models.GenericIPAddressField(blank=True,
-                                              null=True,
-                                              verbose_name=pgettext_lazy(
-                                                  'Domain',
-                                                  'starting IP range'))
+    starting_ip = models.GenericIPAddressField(blank=True,
+                                               null=True,
+                                               verbose_name=pgettext_lazy(
+                                                   'Domain',
+                                                   'starting IP range'))
     ending_ip = models.GenericIPAddressField(blank=True,
                                              null=True,
                                              verbose_name=pgettext_lazy(

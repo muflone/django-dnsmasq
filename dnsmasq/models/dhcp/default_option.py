@@ -23,7 +23,7 @@ from django.utils.translation import pgettext_lazy
 
 from .default_option_ipv4 import DhcpDefaultOptionIpV4InlineAdmin
 
-from utility.models import BaseModel, BaseModelAdmin
+from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpDefaultOption(BaseModel):
@@ -51,6 +51,10 @@ class DhcpDefaultOption(BaseModel):
                                  verbose_name=pgettext_lazy(
                                      'DhcpDefaultOption',
                                      'status'))
+
+    # Set the managers for the model
+    objects = models.Manager()
+    objects_enabled = ManagerEnabled()
 
     class Meta:
         # Define the database table

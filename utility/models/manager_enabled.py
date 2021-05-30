@@ -18,5 +18,12 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .base_model import BaseModel, BaseModelAdmin                 # noqa: F401
-from .manager_enabled import ManagerEnabled                       # noqa: F401
+from django.db import models
+
+
+class ManagerEnabled(models.Manager):
+    """
+    Filter the data with the enabled status only
+    """
+    def get_queryset(self):
+        return super().get_queryset().filter(status=True)

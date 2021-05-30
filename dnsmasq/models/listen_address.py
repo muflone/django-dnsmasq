@@ -21,7 +21,7 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
-from utility.models import BaseModel, BaseModelAdmin
+from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class ListenAddress(BaseModel):
@@ -42,6 +42,10 @@ class ListenAddress(BaseModel):
                                  verbose_name=pgettext_lazy(
                                      'ListenAddress',
                                      'status'))
+
+    # Set the managers for the model
+    objects = models.Manager()
+    objects_enabled = ManagerEnabled()
 
     class Meta:
         # Define the database table

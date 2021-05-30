@@ -21,7 +21,7 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
-from utility.models import BaseModel, BaseModelAdmin
+from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpOptionType(BaseModel):
@@ -64,6 +64,10 @@ class DhcpOptionType(BaseModel):
                                  verbose_name=pgettext_lazy(
                                      'DhcpOptionType',
                                      'status'))
+
+    # Set the managers for the model
+    objects = models.Manager()
+    objects_enabled = ManagerEnabled()
 
     class Meta:
         # Define the database table

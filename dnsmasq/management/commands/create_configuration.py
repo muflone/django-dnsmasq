@@ -128,4 +128,4 @@ class Command(BaseCommand):
                 else:
                     value = str(item.numeric_value)
                 add_description(item.option.description)
-                file.write(f'dhcp-option={item.option.option}={value}\n')
+                file.write(f'dhcp-option={item.option.option},{value}\n')

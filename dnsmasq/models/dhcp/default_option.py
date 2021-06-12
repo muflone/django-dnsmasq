@@ -27,11 +27,11 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpDefaultOption(BaseModel):
-    option = models.ForeignKey(to='DhcpOptionType',
-                               verbose_name=pgettext_lazy(
-                                   'DhcpDefaultOption',
-                                   'option'),
-                               on_delete=models.PROTECT)
+    option = models.OneToOneField(to='DhcpOptionType',
+                                  verbose_name=pgettext_lazy(
+                                      'DhcpDefaultOption',
+                                      'option'),
+                                  on_delete=models.PROTECT)
     description = models.TextField(blank=True,
                                    verbose_name=pgettext_lazy(
                                        'DhcpDefaultOption',

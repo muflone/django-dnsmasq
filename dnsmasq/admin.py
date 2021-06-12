@@ -28,7 +28,8 @@ from .models import (Action, ActionAdmin,
                      DhcpRange, DhcpRangeAdmin,
                      Domain, DomainAdmin,
                      Interface, InterfaceAdmin,
-                     ListenAddress, ListenAddressAdmin)
+                     ListenAddress, ListenAddressAdmin,
+                     Option, OptionAdmin)
 
 
 admin.site.register(Action, ActionAdmin)
@@ -40,3 +41,4 @@ admin.site.register(DhcpRange, DhcpRangeAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Interface, InterfaceAdmin)
 admin.site.register(ListenAddress, ListenAddressAdmin)
+admin.site.register(Option, OptionAdmin)

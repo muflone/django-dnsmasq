@@ -29,7 +29,8 @@ from dnsmasq.models import (Action,
                             DhcpOptionType,
                             Domain,
                             Interface,
-                            ListenAddress)
+                            ListenAddress,
+                            Option)
 from project import PRODUCT_NAME, VERSION
 
 
@@ -101,6 +102,12 @@ class Command(BaseCommand):
                 for item in queryset:
                     add_description(item.description)
                     file.write(f'{item.action}\n')
+            # Options
+            if queryset := Option.objects_enabled.order_by('order'):
+                add_header('Options')
+                for item in queryset:
+                    add_description(item.description)
+                    file.write(f'{item.option}={item.value}\n')
             # Domains
             if queryset := Domain.objects_enabled.order_by('order'):
                 add_header('Domains')

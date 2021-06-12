@@ -25,6 +25,7 @@ from django.utils.translation import pgettext_lazy
 
 from dnsmasq.models import (DhcpRange,
                             DhcpDefaultOption,
+                            DhcpOptionType,
                             Domain,
                             Interface,
                             ListenAddress)
@@ -108,12 +109,14 @@ class Command(BaseCommand):
             # DHCP default options
             add_header('DHCP default options')
             for item in DhcpDefaultOption.objects_enabled.all():
-                if item.option.type in ('ipv4x1', 'ipv4x2', 'ipv4'):
+                if item.option.type in (DhcpOptionType.IPV4_X1,
+                                        DhcpOptionType.IPV4_X2,
+                                        DhcpOptionType.IPV4_MANY):
                     options = item.dhcpdefaultoptionipv4_set.order_by('order')
-                    if item.option.type == 'ipv4x1':
+                    if item.option.type == DhcpOptionType.IPV4_X1:
                         # Use only the first value
                         options = options[:1]
-                    elif item.option.type == 'ipv4x2':
+                    elif item.option.type == DhcpOptionType.IPV4_X2:
                         # Use only the first two values
                         options = options[:2]
                     # Format values

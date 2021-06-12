@@ -25,6 +25,15 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpOptionType(BaseModel):
+    CHARACTER = 'char'
+    BOOLEAN = 'bool'
+    INTEGER_SHORT = 'int1'
+    INTEGER = 'int2'
+    INTEGER_LONG = 'int4'
+    IPV4_X1 = 'ipv4x1'
+    IPV4_X2 = 'ipv4x2'
+    IPV4_MANY = 'ipv4'
+
     name = models.CharField(max_length=255,
                             unique=True,
                             verbose_name=pgettext_lazy(
@@ -40,22 +49,22 @@ class DhcpOptionType(BaseModel):
                                        'description'))
     type = models.CharField(max_length=10,
                             choices=(
-                                ('char', pgettext_lazy('DhcpOptionType',
-                                                       'character')),
-                                ('bool', pgettext_lazy('DhcpOptionType',
-                                                       'boolean')),
-                                ('int1', pgettext_lazy('DhcpOptionType',
-                                                       'numeric byte')),
-                                ('int2', pgettext_lazy('DhcpOptionType',
-                                                       'numeric integer')),
-                                ('int4', pgettext_lazy('DhcpOptionType',
-                                                       'numeric long')),
-                                ('ipv4x1', pgettext_lazy('DhcpOptionType',
-                                                         'IPv4 * 1')),
-                                ('ipv4x2', pgettext_lazy('DhcpOptionType',
-                                                         'IPv4 * 2')),
-                                ('ipv4', pgettext_lazy('DhcpOptionType',
-                                                       'IPv4 many')),
+                                (CHARACTER, pgettext_lazy('DhcpOptionType',
+                                                          'character')),
+                                (BOOLEAN, pgettext_lazy('DhcpOptionType',
+                                                        'boolean')),
+                                (INTEGER_SHORT, pgettext_lazy('DhcpOptionType',
+                                                              'numeric byte')),
+                                (INTEGER, pgettext_lazy('DhcpOptionType',
+                                                        'numeric integer')),
+                                (INTEGER_LONG, pgettext_lazy('DhcpOptionType',
+                                                             'numeric long')),
+                                (IPV4_X1, pgettext_lazy('DhcpOptionType',
+                                                        'IPv4 * 1')),
+                                (IPV4_X2, pgettext_lazy('DhcpOptionType',
+                                                        'IPv4 * 2')),
+                                (IPV4_MANY, pgettext_lazy('DhcpOptionType',
+                                                          'IPv4 many')),
                             ),
                             verbose_name=pgettext_lazy(
                                 'DhcpOptionType',

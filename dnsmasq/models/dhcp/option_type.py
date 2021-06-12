@@ -87,7 +87,8 @@ class DhcpOptionType(BaseModel):
                                             'DHCP option types')
 
     def __str__(self):
-        return '{NAME}'.format(NAME=self.name)
+        return '{OPTION} - {NAME}'.format(OPTION=self.option,
+                                          NAME=self.name)
 
 
 class DhcpOptionTypeAdmin(BaseModelAdmin):

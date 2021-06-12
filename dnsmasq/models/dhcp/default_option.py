@@ -65,7 +65,8 @@ class DhcpDefaultOption(BaseModel):
                                             'DHCP default options')
 
     def __str__(self):
-        return '{NAME}'.format(NAME=self.option.name)
+        return '{OPTION} - {NAME}'.format(OPTION=self.option.option,
+                                          NAME=self.option.name)
 
 
 class DhcpDefaultOptionAdmin(BaseModelAdmin):

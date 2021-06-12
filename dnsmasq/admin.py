@@ -20,7 +20,8 @@
 
 from django.contrib import admin
 
-from .models import (DhcpDefaultOption, DhcpDefaultOptionAdmin,
+from .models import (Action, ActionAdmin,
+                     DhcpDefaultOption, DhcpDefaultOptionAdmin,
                      DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin,
                      DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin,
                      DhcpOptionType, DhcpOptionTypeAdmin,
@@ -30,6 +31,7 @@ from .models import (DhcpDefaultOption, DhcpDefaultOptionAdmin,
                      ListenAddress, ListenAddressAdmin)
 
 
+admin.site.register(Action, ActionAdmin)
 admin.site.register(DhcpDefaultOption, DhcpDefaultOptionAdmin)
 admin.site.register(DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin)
 admin.site.register(DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin)

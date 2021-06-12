@@ -23,7 +23,8 @@ import argparse
 from django.core.management.base import BaseCommand
 from django.utils.translation import pgettext_lazy
 
-from dnsmasq.models import (DhcpRange,
+from dnsmasq.models import (Action,
+                            DhcpRange,
                             DhcpDefaultOption,
                             DhcpOptionType,
                             Domain,
@@ -94,6 +95,12 @@ class Command(BaseCommand):
                 for item in queryset:
                     add_description(item.description)
                     file.write(f'listen-address={item.address}\n')
+            # Actions
+            if queryset := Action.objects_enabled.order_by('order'):
+                add_header('Actions')
+                for item in queryset:
+                    add_description(item.description)
+                    file.write(f'{item.action}\n')
             # Domains
             if queryset := Domain.objects_enabled.order_by('order'):
                 add_header('Domains')

@@ -110,7 +110,8 @@ class Command(BaseCommand):
                 add_header('DHCP ranges')
                 for item in queryset:
                     add_description(item.description)
-                    file.write(f'dhcp-range={item.starting_ip},{item.ending_ip},'
+                    file.write(f'dhcp-range={item.starting_ip},'
+                               f'{item.ending_ip},'
                                f'{item.lease_time}h\n')
             # DHCP default options
             if queryset := DhcpDefaultOption.objects_enabled.all():

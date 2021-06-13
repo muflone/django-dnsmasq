@@ -25,10 +25,10 @@ from django.utils.translation import pgettext_lazy
 
 from dnsmasq.constants import MAC_ADDRESS_ZEROS, MAC_ADDRESS_ANY
 from dnsmasq.models import (Action,
-                            DhcpRange,
-                            DhcpDefaultOption,
                             DhcpHost,
+                            DhcpOption,
                             DhcpOptionType,
+                            DhcpRange,
                             Domain,
                             Interface,
                             ListenAddress,
@@ -83,9 +83,9 @@ class Command(BaseCommand):
                 else:
                     file.write(f'# {description}\n')
 
-        def get_option_value(option: DhcpDefaultOption) -> str:
+        def get_option_value(option: DhcpOption) -> str:
             """
-            Get value for a DhcpDefaultOption object
+            Get value for a DhcpOption object
 
             :param option: DHCP option to check
             :return: resulting value
@@ -173,16 +173,14 @@ class Command(BaseCommand):
                                f'{item.ending_ip},'
                                f'{item.lease_time}h\n')
             # DHCP default options
-            if queryset := DhcpDefaultOption.objects_enabled.filter(
-                    forced=False):
+            if queryset := DhcpOption.objects_enabled.filter(forced=False):
                 add_header('DHCP default options')
                 for item in queryset:
                     add_description(item.option.name, item.option.description)
                     value = get_option_value(option=item)
                     file.write(f'dhcp-option={item.option.option},{value}\n')
             # DHCP forced default options
-            if queryset := DhcpDefaultOption.objects_enabled.filter(
-                    forced=True):
+            if queryset := DhcpOption.objects_enabled.filter(forced=True):
                 add_header('DHCP forced default options')
                 for item in queryset:
                     add_description(item.option.name, item.option.description)

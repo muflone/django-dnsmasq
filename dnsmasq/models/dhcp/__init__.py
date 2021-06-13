@@ -18,11 +18,11 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .default_option import (DhcpDefaultOption,                    # noqa: F401
-                             DhcpDefaultOptionAdmin,               # noqa: F401
-                             DhcpDefaultOptionProxy,               # noqa: F401
-                             DhcpDefaultOptionProxyAdmin)          # noqa: F401
 from .host import DhcpHost, DhcpHostAdmin                          # noqa: F401
+from .option import (DhcpOption,                                   # noqa: F401
+                     DhcpOptionAdmin,                              # noqa: F401
+                     DhcpOptionProxy,                              # noqa: F401
+                     DhcpOptionProxyAdmin)                         # noqa: F401
 from .option_ipv4 import DhcpOptionIpV4, DhcpOptionIpV4Admin       # noqa: F401
 from .option_type import DhcpOptionType, DhcpOptionTypeAdmin       # noqa: F401
 from .range import DhcpRange, DhcpRangeAdmin                       # noqa: F401

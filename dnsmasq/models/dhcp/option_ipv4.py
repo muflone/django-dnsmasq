@@ -29,7 +29,7 @@ class DhcpOptionIpV4(BaseModel):
     """
     DHCP option IPv4 addresses
     """
-    option = models.ForeignKey(to='DhcpDefaultOption',
+    option = models.ForeignKey(to='DhcpOption',
                                verbose_name=pgettext_lazy(
                                    'DhcpOptionIpV4',
                                    'option'),

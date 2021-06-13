@@ -26,37 +26,37 @@ from .option_ipv4 import DhcpOptionIpV4InlineAdmin
 from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
-class DhcpDefaultOption(BaseModel):
+class DhcpOption(BaseModel):
     """
-    DHCP Default option with values
+    DHCP option with values
     """
     option = models.OneToOneField(to='DhcpOptionType',
                                   verbose_name=pgettext_lazy(
-                                      'DhcpDefaultOption',
+                                      'DhcpOption',
                                       'option'),
                                   on_delete=models.PROTECT)
     description = models.TextField(blank=True,
                                    verbose_name=pgettext_lazy(
-                                       'DhcpDefaultOption',
+                                       'DhcpOption',
                                        'description'))
     character_value = models.CharField(max_length=255,
                                        blank=True,
                                        null=True,
                                        verbose_name=pgettext_lazy(
-                                           'DhcpDefaultOption',
+                                           'DhcpOption',
                                            'character value'))
     numeric_value = models.IntegerField(blank=True,
                                         null=True,
                                         verbose_name=pgettext_lazy(
-                                            'DhcpDefaultOption',
+                                            'DhcpOption',
                                             'numeric value'))
     forced = models.BooleanField(default=False,
                                  verbose_name=pgettext_lazy(
-                                     'DhcpDefaultOption',
+                                     'DhcpOption',
                                      'forced'))
     status = models.BooleanField(default=True,
                                  verbose_name=pgettext_lazy(
-                                     'DhcpDefaultOption',
+                                     'DhcpOption',
                                      'status'))
 
     # Set the managers for the model
@@ -66,29 +66,29 @@ class DhcpDefaultOption(BaseModel):
     class Meta:
         # Define the database table
         ordering = ['option__option']
-        verbose_name = pgettext_lazy('DhcpDefaultOption',
-                                     'DHCP default option')
-        verbose_name_plural = pgettext_lazy('DhcpDefaultOption',
-                                            'DHCP default options')
+        verbose_name = pgettext_lazy('DhcpOption',
+                                     'DHCP option')
+        verbose_name_plural = pgettext_lazy('DhcpOption',
+                                            'DHCP options')
 
     def __str__(self):
         return '{OPTION} - {NAME}'.format(OPTION=self.option.option,
                                           NAME=self.option.name)
 
 
-class DhcpDefaultOptionAdmin(BaseModelAdmin):
+class DhcpOptionAdmin(BaseModelAdmin):
     pass
 
 
-class DhcpDefaultOptionProxy(DhcpDefaultOption):
+class DhcpOptionProxy(DhcpOption):
     class Meta:
         proxy = True
-        verbose_name = pgettext_lazy('DhcpDefaultOption',
-                                     'DHCP default option (extended)')
-        verbose_name_plural = pgettext_lazy('DhcpDefaultOption',
-                                            'DHCP default options (extended)')
+        verbose_name = pgettext_lazy('DhcpOption',
+                                     'DHCP option (extended)')
+        verbose_name_plural = pgettext_lazy('DhcpOption',
+                                            'DHCP options (extended)')
 
 
-class DhcpDefaultOptionProxyAdmin(BaseModelAdmin):
+class DhcpOptionProxyAdmin(BaseModelAdmin):
     inlines = [DhcpOptionIpV4InlineAdmin]
     list_per_page = 300

@@ -58,9 +58,14 @@ class Command(BaseCommand):
             separator = '-' * 77
             file.write(f'\n# {separator}\n# {title}\n# {separator}\n')
 
-        def add_description(description: str) -> None:
-            if include_descriptions and description:
-                file.write(f'# {description}\n')
+        def add_description(name: str, description: str) -> None:
+            if include_descriptions and (description or name):
+                if name and description:
+                    file.write(f'# {name}: {description}\n')
+                elif name:
+                    file.write(f'# {name}\n')
+                else:
+                    file.write(f'# {description}\n')
 
         include_descriptions = options['descriptions']
         with open(options['filename'], mode='w') as file:
@@ -74,45 +79,45 @@ class Command(BaseCommand):
                     excluded=False).order_by('order'):
                 add_header('Active interfaces')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'interface={item.name}\n')
             # Excluded Interfaces
             if queryset := Interface.objects_enabled.filter(
                     excluded=True).order_by('order'):
                 add_header('Excluded Interfaces')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'except-interface={item.name}\n')
             # No DHCP Interfaces
             if queryset := Interface.objects_enabled.filter(
                     disable_dhcp=True).order_by('order'):
                 add_header('No DHCP Interfaces')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'no-dhcp-interface={item.name}\n')
             # Listen addresses
             if queryset := ListenAddress.objects_enabled.order_by('order'):
                 add_header('Listening addresses')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'listen-address={item.address}\n')
             # Actions
             if queryset := Action.objects_enabled.order_by('order'):
                 add_header('Actions')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'{item.action}\n')
             # Options
             if queryset := Option.objects_enabled.order_by('order'):
                 add_header('Options')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'{item.option}={item.value}\n')
             # Domains
             if queryset := Domain.objects_enabled.order_by('order'):
                 add_header('Domains')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'domain={item.name}')
                     if item.subnet_ip:
                         file.write(f',{item.subnet_ip}/{item.subnet_cidr}')
@@ -123,7 +128,7 @@ class Command(BaseCommand):
             if queryset := DhcpRange.objects_enabled.order_by('order'):
                 add_header('DHCP ranges')
                 for item in queryset:
-                    add_description(item.description)
+                    add_description(item.name, item.description)
                     file.write(f'dhcp-range={item.starting_ip},'
                                f'{item.ending_ip},'
                                f'{item.lease_time}h\n')
@@ -150,5 +155,5 @@ class Command(BaseCommand):
                         value = item.character_value
                     else:
                         value = str(item.numeric_value)
-                    add_description(item.option.description)
+                    add_description(item.option.name, item.option.description)
                     file.write(f'dhcp-option={item.option.option},{value}\n')

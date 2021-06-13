@@ -25,6 +25,9 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class Domain(BaseModel):
+    """
+    Domain names offered to hosts for obtaining their FQDN
+    """
     name = models.CharField(max_length=255,
                             verbose_name=pgettext_lazy(
                                 'Domain',

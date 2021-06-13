@@ -25,6 +25,9 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpOptionType(BaseModel):
+    """
+    DHCP Option types
+    """
     CHARACTER = 'char'
     BOOLEAN = 'bool'
     INTEGER_SHORT = 'int1'

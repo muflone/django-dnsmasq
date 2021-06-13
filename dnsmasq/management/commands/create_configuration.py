@@ -56,11 +56,25 @@ class Command(BaseCommand):
                                 'Include descriptions'))
 
     def handle(self, *args, **options) -> None:
+        """
+        Create configuration file
+        """
         def add_header(title: str) -> None:
+            """
+            Add section header to the configuration file
+
+            :param title: section title
+            """
             separator = '-' * 77
             file.write(f'\n# {separator}\n# {title}\n# {separator}\n')
 
         def add_description(name: str, description: str) -> None:
+            """
+            Add name and description to the configuration file
+
+            :param name: option name
+            :param description: option description
+            """
             if include_descriptions and (description or name):
                 if name and description:
                     file.write(f'# {name}: {description}\n')

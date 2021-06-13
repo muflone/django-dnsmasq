@@ -26,6 +26,9 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpDefaultOptionIpV4(BaseModel):
+    """
+    DHCP Default option IPv4 addresses
+    """
     option = models.ForeignKey(to='DhcpDefaultOption',
                                verbose_name=pgettext_lazy(
                                    'DhcpDefaultOptionIpV4',

@@ -27,6 +27,9 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpDefaultOption(BaseModel):
+    """
+    DHCP Default option with values
+    """
     option = models.OneToOneField(to='DhcpOptionType',
                                   verbose_name=pgettext_lazy(
                                       'DhcpDefaultOption',

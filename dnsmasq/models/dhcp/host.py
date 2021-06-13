@@ -27,6 +27,9 @@ from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpHost(BaseModel):
+    """
+    DHCP host configuration
+    """
     name = models.CharField(max_length=255,
                             verbose_name=pgettext_lazy(
                                 'DhcpHost',

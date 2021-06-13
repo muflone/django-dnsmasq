@@ -245,4 +245,7 @@ class Command(BaseCommand):
                     if item.address:
                         # Add IP address
                         file.write(f',{item.address}')
+                    if item.hostname:
+                        # Add hostname
+                        file.write(f',{item.hostname}')
                     file.write('\n')

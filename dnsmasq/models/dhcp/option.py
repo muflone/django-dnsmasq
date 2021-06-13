@@ -30,11 +30,16 @@ class DhcpOption(BaseModel):
     """
     DHCP option with values
     """
-    option = models.OneToOneField(to='DhcpOptionType',
-                                  verbose_name=pgettext_lazy(
-                                      'DhcpOption',
-                                      'option'),
-                                  on_delete=models.PROTECT)
+    tag = models.ForeignKey(to='DhcpTag',
+                            verbose_name=pgettext_lazy(
+                                'DhcpOption',
+                                'tag'),
+                            on_delete=models.PROTECT)
+    option = models.ForeignKey(to='DhcpOptionType',
+                               verbose_name=pgettext_lazy(
+                                   'DhcpOption',
+                                   'option'),
+                               on_delete=models.PROTECT)
     description = models.TextField(blank=True,
                                    verbose_name=pgettext_lazy(
                                        'DhcpOption',
@@ -66,14 +71,16 @@ class DhcpOption(BaseModel):
     class Meta:
         # Define the database table
         ordering = ['option__option']
+        unique_together = [['tag', 'option']]
         verbose_name = pgettext_lazy('DhcpOption',
                                      'DHCP option')
         verbose_name_plural = pgettext_lazy('DhcpOption',
                                             'DHCP options')
 
     def __str__(self):
-        return '{OPTION} - {NAME}'.format(OPTION=self.option.option,
-                                          NAME=self.option.name)
+        return '{TAG} - {OPTION} - {NAME}'.format(TAG=self.tag,
+                                                  OPTION=self.option.option,
+                                                  NAME=self.option.name)
 
 
 class DhcpOptionAdmin(BaseModelAdmin):

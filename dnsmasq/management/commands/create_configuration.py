@@ -248,4 +248,10 @@ class Command(BaseCommand):
                     if item.hostname:
                         # Add hostname
                         file.write(f',{item.hostname}')
+                    if item.lease_time > 0:
+                        # Add lease time
+                        file.write(f',{item.lease_time}m')
+                    elif item.lease_time < 0:
+                        # Add infinite lease time
+                        file.write(',infinite')
                     file.write('\n')

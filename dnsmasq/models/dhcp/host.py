@@ -57,6 +57,10 @@ class DhcpHost(BaseModel):
                                 verbose_name=pgettext_lazy(
                                     'DhcpHost',
                                     'hostname'))
+    lease_time = models.IntegerField(default=0,
+                                     verbose_name=pgettext_lazy(
+                                         'DhcpHost',
+                                         'lease time'))
     tag = models.ForeignKey(to='DhcpTag',
                             null=True,
                             blank=True,

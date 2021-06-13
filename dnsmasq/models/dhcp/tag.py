@@ -28,6 +28,8 @@ class DhcpTag(BaseModel):
     """
     DHCP Tag for grouping options
     """
+    DEFAULT_TAG = 'default'
+
     name = models.SlugField(max_length=255,
                             unique=True,
                             verbose_name=pgettext_lazy(

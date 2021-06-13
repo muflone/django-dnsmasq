@@ -29,6 +29,7 @@ from dnsmasq.models import (Action,
                             DhcpOption,
                             DhcpOptionType,
                             DhcpRange,
+                            DhcpTag,
                             Domain,
                             Interface,
                             ListenAddress,
@@ -173,14 +174,18 @@ class Command(BaseCommand):
                                f'{item.ending_ip},'
                                f'{item.lease_time}h\n')
             # DHCP default options
-            if queryset := DhcpOption.objects_enabled.filter(forced=False):
+            if queryset := DhcpOption.objects_enabled.filter(
+                    tag__name=DhcpTag.DEFAULT_TAG,
+                    forced=False):
                 add_header('DHCP default options')
                 for item in queryset:
                     add_description(item.option.name, item.option.description)
                     value = get_option_value(option=item)
                     file.write(f'dhcp-option={item.option.option},{value}\n')
             # DHCP forced default options
-            if queryset := DhcpOption.objects_enabled.filter(forced=True):
+            if queryset := DhcpOption.objects_enabled.filter(
+                    tag__name=DhcpTag.DEFAULT_TAG,
+                    forced=True):
                 add_header('DHCP forced default options')
                 for item in queryset:
                     add_description(item.option.name, item.option.description)

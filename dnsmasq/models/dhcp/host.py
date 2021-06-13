@@ -45,6 +45,13 @@ class DhcpHost(BaseModel):
                                   verbose_name=pgettext_lazy(
                                       'DhcpHost',
                                       'mac address'))
+    tag = models.ForeignKey(to='DhcpTag',
+                            null=True,
+                            blank=True,
+                            verbose_name=pgettext_lazy(
+                                'DhcpHost',
+                                'options tag'),
+                            on_delete=models.PROTECT)
     ignored = models.BooleanField(default=False,
                                   verbose_name=pgettext_lazy(
                                       'DhcpHost',

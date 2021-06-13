@@ -23,8 +23,8 @@ from django.contrib import admin
 from .models import (Action, ActionAdmin,
                      DhcpDefaultOption, DhcpDefaultOptionAdmin,
                      DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin,
-                     DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin,
                      DhcpHost, DhcpHostAdmin,
+                     DhcpOptionIpV4, DhcpOptionIpV4Admin,
                      DhcpOptionType, DhcpOptionTypeAdmin,
                      DhcpRange, DhcpRangeAdmin,
                      DhcpTag, DhcpTagAdmin,
@@ -37,8 +37,8 @@ from .models import (Action, ActionAdmin,
 admin.site.register(Action, ActionAdmin)
 admin.site.register(DhcpDefaultOption, DhcpDefaultOptionAdmin)
 admin.site.register(DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin)
-admin.site.register(DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin)
 admin.site.register(DhcpHost, DhcpHostAdmin)
+admin.site.register(DhcpOptionIpV4, DhcpOptionIpV4Admin)
 admin.site.register(DhcpOptionType, DhcpOptionTypeAdmin)
 admin.site.register(DhcpRange, DhcpRangeAdmin)
 admin.site.register(DhcpTag, DhcpTagAdmin)

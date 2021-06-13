@@ -21,7 +21,7 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
-from .default_option_ipv4 import DhcpDefaultOptionIpV4InlineAdmin
+from .option_ipv4 import DhcpOptionIpV4InlineAdmin
 
 from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
@@ -90,5 +90,5 @@ class DhcpDefaultOptionProxy(DhcpDefaultOption):
 
 
 class DhcpDefaultOptionProxyAdmin(BaseModelAdmin):
-    inlines = [DhcpDefaultOptionIpV4InlineAdmin]
+    inlines = [DhcpOptionIpV4InlineAdmin]
     list_per_page = 300

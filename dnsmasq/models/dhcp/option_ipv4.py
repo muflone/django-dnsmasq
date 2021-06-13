@@ -25,26 +25,26 @@ from django.utils.translation import pgettext_lazy
 from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
-class DhcpDefaultOptionIpV4(BaseModel):
+class DhcpOptionIpV4(BaseModel):
     """
-    DHCP Default option IPv4 addresses
+    DHCP option IPv4 addresses
     """
     option = models.ForeignKey(to='DhcpDefaultOption',
                                verbose_name=pgettext_lazy(
-                                   'DhcpDefaultOptionIpV4',
+                                   'DhcpOptionIpV4',
                                    'option'),
                                on_delete=models.PROTECT)
     address = models.GenericIPAddressField(protocol='ipv4',
                                            verbose_name=pgettext_lazy(
-                                               'DhcpDefaultOptionIpV4',
+                                               'DhcpOptionIpV4',
                                                'address'))
     order = models.PositiveIntegerField(default=1,
                                         verbose_name=pgettext_lazy(
-                                            'DhcpDefaultOptionIpV4',
+                                            'DhcpOptionIpV4',
                                             'order'))
     status = models.BooleanField(default=True,
                                  verbose_name=pgettext_lazy(
-                                     'DhcpDefaultOption',
+                                     'DhcpOptionIpV4',
                                      'status'))
 
     # Set the managers for the model
@@ -54,23 +54,22 @@ class DhcpDefaultOptionIpV4(BaseModel):
     class Meta:
         # Define the database table
         ordering = ['option', 'order']
-        verbose_name = pgettext_lazy('DhcpDefaultOptionIpV4',
-                                     'DHCP default option IPv4 address')
-        verbose_name_plural = pgettext_lazy('DhcpDefaultOptionIpV4',
-                                            'DHCP default options IPv4 '
-                                            'addresses')
+        verbose_name = pgettext_lazy('DhcpOptionIpV4',
+                                     'DHCP option IPv4 address')
+        verbose_name_plural = pgettext_lazy('DhcpOptionIpV4',
+                                            'DHCP options IPv4 addresses')
 
     def __str__(self):
         return '{NAME}'.format(NAME=self.option)
 
 
-class DhcpDefaultOptionIpV4Admin(BaseModelAdmin):
+class DhcpOptionIpV4Admin(BaseModelAdmin):
     pass
 
 
-class DhcpDefaultOptionIpV4InlineAdmin(admin.TabularInline):
+class DhcpOptionIpV4InlineAdmin(admin.TabularInline):
     """
-    Admin Inline to show children rows for DhcpDefaultOptionIpV4
+    Admin Inline to show children rows for DhcpOptionIpV4
     """
-    model = DhcpDefaultOptionIpV4
+    model = DhcpOptionIpV4
     fields = ('address', 'order', 'status')

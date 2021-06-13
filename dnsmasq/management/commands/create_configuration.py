@@ -93,7 +93,7 @@ class Command(BaseCommand):
             if option.option.type in (DhcpOptionType.IPV4_X1,
                                       DhcpOptionType.IPV4_X2,
                                       DhcpOptionType.IPV4_MANY):
-                options = option.dhcpdefaultoptionipv4_set.order_by('order')
+                options = option.dhcpoptionipv4_set.order_by('order')
                 if option.option.type == DhcpOptionType.IPV4_X1:
                     # Use only the first value
                     options = options[:1]

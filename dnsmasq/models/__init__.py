@@ -22,10 +22,10 @@ from .dhcp import (DhcpDefaultOption,                              # noqa: F401
                    DhcpDefaultOptionAdmin,                         # noqa: F401
                    DhcpDefaultOptionProxy,                         # noqa: F401
                    DhcpDefaultOptionProxyAdmin,                    # noqa: F401
-                   DhcpDefaultOptionIpV4,                          # noqa: F401
-                   DhcpDefaultOptionIpV4Admin,                     # noqa: F401
                    DhcpHost,                                       # noqa: F401
                    DhcpHostAdmin,                                  # noqa: F401
+                   DhcpOptionIpV4,                                 # noqa: F401
+                   DhcpOptionIpV4Admin,                            # noqa: F401
                    DhcpOptionType,                                 # noqa: F401
                    DhcpOptionTypeAdmin,                            # noqa: F401
                    DhcpRange,                                      # noqa: F401

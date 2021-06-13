@@ -192,6 +192,34 @@ class Command(BaseCommand):
                     value = get_option_value(option=item)
                     file.write(f'dhcp-option-force={item.option.option},'
                                f'{value}\n')
+            # DHCP options for tags
+            if queryset := DhcpOption.objects_enabled.filter(
+                    forced=False).exclude(tag__name=DhcpTag.DEFAULT_TAG):
+                add_header('DHCP options for tags')
+                last_tag_id = None
+                for item in queryset.order_by('tag', 'option'):
+                    # Skip duplicated tags description
+                    if last_tag_id != item.tag_id:
+                        add_description(item.tag.name, item.tag.description)
+                        last_tag_id = item.tag_id
+                    add_description(item.option.name, item.option.description)
+                    value = get_option_value(option=item)
+                    file.write(f'dhcp-option=tag:{item.tag.name},'
+                               f'{item.option.option},{value}\n')
+            # DHCP forced options for tags
+            if queryset := DhcpOption.objects_enabled.filter(
+                    forced=True).exclude(tag__name=DhcpTag.DEFAULT_TAG):
+                add_header('DHCP forced options for tags')
+                last_tag_id = None
+                for item in queryset.order_by('tag', 'option'):
+                    # Skip duplicated tags description
+                    if last_tag_id != item.tag_id:
+                        add_description(item.tag.name, item.tag.description)
+                        last_tag_id = item.tag_id
+                    add_description(item.option.name, item.option.description)
+                    value = get_option_value(option=item)
+                    file.write(f'dhcp-option-force=tag:{item.tag.name},'
+                               f'{item.option.option},{value}\n')
             # Ignored DHCP hosts
             if queryset := DhcpHost.objects_enabled.filter(ignored=True):
                 add_header('Ignored hosts')
@@ -209,4 +237,9 @@ class Command(BaseCommand):
                     mac_address = (item.mac_address
                                    if item.mac_address != MAC_ADDRESS_ZEROS
                                    else MAC_ADDRESS_ANY)
-                    file.write(f'dhcp-host={mac_address}\n')
+                    # Add DHCP Host
+                    file.write(f'dhcp-host={mac_address}')
+                    if item.tag and item.tag.name != DhcpTag.DEFAULT_TAG:
+                        # Add tag
+                        file.write(f'set:{item.tag}')
+                    file.write('\n')

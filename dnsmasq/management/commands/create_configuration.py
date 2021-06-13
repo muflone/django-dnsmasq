@@ -241,5 +241,8 @@ class Command(BaseCommand):
                     file.write(f'dhcp-host={mac_address}')
                     if item.tag and item.tag.name != DhcpTag.DEFAULT_TAG:
                         # Add tag
-                        file.write(f'set:{item.tag}')
+                        file.write(f',set:{item.tag}')
+                    if item.address:
+                        # Add IP address
+                        file.write(f',{item.address}')
                     file.write('\n')

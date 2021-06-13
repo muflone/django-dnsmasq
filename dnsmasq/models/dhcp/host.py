@@ -45,6 +45,12 @@ class DhcpHost(BaseModel):
                                   verbose_name=pgettext_lazy(
                                       'DhcpHost',
                                       'mac address'))
+    address = models.GenericIPAddressField(protocol='ipv4',
+                                           blank=True,
+                                           null=True,
+                                           verbose_name=pgettext_lazy(
+                                               'DhcpHost',
+                                               'address'))
     tag = models.ForeignKey(to='DhcpTag',
                             null=True,
                             blank=True,

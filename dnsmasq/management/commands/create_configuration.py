@@ -69,6 +69,33 @@ class Command(BaseCommand):
                 else:
                     file.write(f'# {description}\n')
 
+        def get_option_value(option: DhcpDefaultOption) -> str:
+            """
+            Get value for a DhcpDefaultOption object
+
+            :param option: DHCP option to check
+            :return: resulting value
+            """
+            if option.option.type in (DhcpOptionType.IPV4_X1,
+                                      DhcpOptionType.IPV4_X2,
+                                      DhcpOptionType.IPV4_MANY):
+                options = option.dhcpdefaultoptionipv4_set.order_by('order')
+                if option.option.type == DhcpOptionType.IPV4_X1:
+                    # Use only the first value
+                    options = options[:1]
+                elif option.option.type == DhcpOptionType.IPV4_X2:
+                    # Use only the first two values
+                    options = options[:2]
+                # Format values
+                results = ','.join(option.address
+                                   for option
+                                   in options)
+            elif option.option.type == DhcpOptionType.CHARACTER:
+                results = option.character_value
+            else:
+                results = str(option.numeric_value)
+            return results
+
         include_descriptions = options['descriptions']
         with open(options['filename'], mode='w') as file:
             # Create the configuration file
@@ -135,26 +162,8 @@ class Command(BaseCommand):
             if queryset := DhcpDefaultOption.objects_enabled.all():
                 add_header('DHCP default options')
                 for item in queryset:
-                    if item.option.type in (DhcpOptionType.IPV4_X1,
-                                            DhcpOptionType.IPV4_X2,
-                                            DhcpOptionType.IPV4_MANY):
-                        options = (item.dhcpdefaultoptionipv4_set
-                                   .order_by('order'))
-                        if item.option.type == DhcpOptionType.IPV4_X1:
-                            # Use only the first value
-                            options = options[:1]
-                        elif item.option.type == DhcpOptionType.IPV4_X2:
-                            # Use only the first two values
-                            options = options[:2]
-                        # Format values
-                        value = ','.join(option.address
-                                         for option
-                                         in options)
-                    elif item.option.type == 'char':
-                        value = item.character_value
-                    else:
-                        value = str(item.numeric_value)
                     add_description(item.option.name, item.option.description)
+                    value = get_option_value(option=item)
                     file.write(f'dhcp-option={item.option.option},{value}\n')
             # Ignored DHCP hosts
             if queryset := DhcpHost.objects_enabled.filter(ignored=True):

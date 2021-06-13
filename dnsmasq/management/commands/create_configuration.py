@@ -27,7 +27,7 @@ from dnsmasq.models import (Action,
                             DhcpRange,
                             DhcpDefaultOption,
                             DhcpOptionType,
-                            Domain,
+                            Domain, Host,
                             Interface,
                             ListenAddress,
                             Option)
@@ -157,3 +157,9 @@ class Command(BaseCommand):
                         value = str(item.numeric_value)
                     add_description(item.option.name, item.option.description)
                     file.write(f'dhcp-option={item.option.option},{value}\n')
+            # Ignored hosts
+            if queryset := Host.objects_enabled.filter(ignored=True):
+                add_header('Ignored hosts')
+                for item in queryset:
+                    add_description(item.name, item.description)
+                    file.write(f'dhcp-host={item.mac_address},ignore\n')

@@ -29,7 +29,9 @@ from .dhcp import (DhcpDefaultOption,                              # noqa: F401
                    DhcpOptionType,                                 # noqa: F401
                    DhcpOptionTypeAdmin,                            # noqa: F401
                    DhcpRange,                                      # noqa: F401
-                   DhcpRangeAdmin)                                 # noqa: F401
+                   DhcpRangeAdmin,                                 # noqa: F401
+                   DhcpTag,                                        # noqa: F401
+                   DhcpTagAdmin)                                   # noqa: F401
 from .action import Action, ActionAdmin                            # noqa: F401
 from .domain import Domain, DomainAdmin                            # noqa: F401
 from .interface import Interface, InterfaceAdmin                   # noqa: F401

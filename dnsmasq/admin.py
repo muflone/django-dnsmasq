@@ -27,6 +27,7 @@ from .models import (Action, ActionAdmin,
                      DhcpHost, DhcpHostAdmin,
                      DhcpOptionType, DhcpOptionTypeAdmin,
                      DhcpRange, DhcpRangeAdmin,
+                     DhcpTag, DhcpTagAdmin,
                      Domain, DomainAdmin,
                      Interface, InterfaceAdmin,
                      ListenAddress, ListenAddressAdmin,
@@ -40,6 +41,7 @@ admin.site.register(DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin)
 admin.site.register(DhcpHost, DhcpHostAdmin)
 admin.site.register(DhcpOptionType, DhcpOptionTypeAdmin)
 admin.site.register(DhcpRange, DhcpRangeAdmin)
+admin.site.register(DhcpTag, DhcpTagAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Interface, InterfaceAdmin)
 admin.site.register(ListenAddress, ListenAddressAdmin)

@@ -24,5 +24,6 @@ from .default_option import (DhcpDefaultOption,                    # noqa: F401
                              DhcpDefaultOptionProxyAdmin)          # noqa: F401
 from .default_option_ipv4 import (DhcpDefaultOptionIpV4,           # noqa: F401
                                   DhcpDefaultOptionIpV4Admin)      # noqa: F401
+from .host import DhcpHost, DhcpHostAdmin                          # noqa: F401
 from .option_type import DhcpOptionType, DhcpOptionTypeAdmin       # noqa: F401
 from .range import DhcpRange, DhcpRangeAdmin                       # noqa: F401

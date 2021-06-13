@@ -24,13 +24,14 @@ from .dhcp import (DhcpDefaultOption,                              # noqa: F401
                    DhcpDefaultOptionProxyAdmin,                    # noqa: F401
                    DhcpDefaultOptionIpV4,                          # noqa: F401
                    DhcpDefaultOptionIpV4Admin,                     # noqa: F401
+                   DhcpHost,                                       # noqa: F401
+                   DhcpHostAdmin,                                  # noqa: F401
                    DhcpOptionType,                                 # noqa: F401
                    DhcpOptionTypeAdmin,                            # noqa: F401
                    DhcpRange,                                      # noqa: F401
                    DhcpRangeAdmin)                                 # noqa: F401
 from .action import Action, ActionAdmin                            # noqa: F401
 from .domain import Domain, DomainAdmin                            # noqa: F401
-from .host import Host, HostAdmin                                  # noqa: F401
 from .interface import Interface, InterfaceAdmin                   # noqa: F401
 from .listen_address import ListenAddress, ListenAddressAdmin      # noqa: F401
 from .option import Option, OptionAdmin                            # noqa: F401

@@ -24,10 +24,10 @@ from .models import (Action, ActionAdmin,
                      DhcpDefaultOption, DhcpDefaultOptionAdmin,
                      DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin,
                      DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin,
+                     DhcpHost, DhcpHostAdmin,
                      DhcpOptionType, DhcpOptionTypeAdmin,
                      DhcpRange, DhcpRangeAdmin,
                      Domain, DomainAdmin,
-                     Host, HostAdmin,
                      Interface, InterfaceAdmin,
                      ListenAddress, ListenAddressAdmin,
                      Option, OptionAdmin)
@@ -37,10 +37,10 @@ admin.site.register(Action, ActionAdmin)
 admin.site.register(DhcpDefaultOption, DhcpDefaultOptionAdmin)
 admin.site.register(DhcpDefaultOptionProxy, DhcpDefaultOptionProxyAdmin)
 admin.site.register(DhcpDefaultOptionIpV4, DhcpDefaultOptionIpV4Admin)
+admin.site.register(DhcpHost, DhcpHostAdmin)
 admin.site.register(DhcpOptionType, DhcpOptionTypeAdmin)
 admin.site.register(DhcpRange, DhcpRangeAdmin)
 admin.site.register(Domain, DomainAdmin)
-admin.site.register(Host, HostAdmin)
 admin.site.register(Interface, InterfaceAdmin)
 admin.site.register(ListenAddress, ListenAddressAdmin)
 admin.site.register(Option, OptionAdmin)

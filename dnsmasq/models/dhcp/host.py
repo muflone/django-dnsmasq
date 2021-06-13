@@ -26,14 +26,14 @@ from macaddress.fields import MACAddressField
 from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
-class Host(BaseModel):
+class DhcpHost(BaseModel):
     name = models.CharField(max_length=255,
                             verbose_name=pgettext_lazy(
-                                'Host',
+                                'DhcpHost',
                                 'name'))
     description = models.TextField(blank=True,
                                    verbose_name=pgettext_lazy(
-                                       'Host',
+                                       'DhcpHost',
                                        'description'))
 
     mac_address = MACAddressField(integer=True,
@@ -41,15 +41,15 @@ class Host(BaseModel):
                                   null=False,
                                   unique=True,
                                   verbose_name=pgettext_lazy(
-                                      'Host',
+                                      'DhcpHost',
                                       'mac address'))
     ignored = models.BooleanField(default=False,
                                   verbose_name=pgettext_lazy(
-                                      'Host',
+                                      'DhcpHost',
                                       'ignored'))
     status = models.BooleanField(default=True,
                                  verbose_name=pgettext_lazy(
-                                     'Host',
+                                     'DhcpHost',
                                      'status'))
 
     # Set the managers for the model
@@ -59,14 +59,14 @@ class Host(BaseModel):
     class Meta:
         # Define the database table
         ordering = ['name']
-        verbose_name = pgettext_lazy('Host',
-                                     'Host')
-        verbose_name_plural = pgettext_lazy('Host',
-                                            'Hosts')
+        verbose_name = pgettext_lazy('DhcpHost',
+                                     'DHCP host')
+        verbose_name_plural = pgettext_lazy('DhcpHost',
+                                            'DHCP hosts')
 
     def __str__(self):
         return '{NAME}'.format(NAME=self.name)
 
 
-class HostAdmin(BaseModelAdmin):
+class DhcpHostAdmin(BaseModelAdmin):
     pass

@@ -47,6 +47,10 @@ class DhcpDefaultOption(BaseModel):
                                         verbose_name=pgettext_lazy(
                                             'DhcpDefaultOption',
                                             'numeric value'))
+    forced = models.BooleanField(default=False,
+                                 verbose_name=pgettext_lazy(
+                                     'DhcpDefaultOption',
+                                     'forced'))
     status = models.BooleanField(default=True,
                                  verbose_name=pgettext_lazy(
                                      'DhcpDefaultOption',

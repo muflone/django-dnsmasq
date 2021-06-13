@@ -159,12 +159,22 @@ class Command(BaseCommand):
                                f'{item.ending_ip},'
                                f'{item.lease_time}h\n')
             # DHCP default options
-            if queryset := DhcpDefaultOption.objects_enabled.all():
+            if queryset := DhcpDefaultOption.objects_enabled.filter(
+                    forced=False):
                 add_header('DHCP default options')
                 for item in queryset:
                     add_description(item.option.name, item.option.description)
                     value = get_option_value(option=item)
                     file.write(f'dhcp-option={item.option.option},{value}\n')
+            # DHCP forced default options
+            if queryset := DhcpDefaultOption.objects_enabled.filter(
+                    forced=True):
+                add_header('DHCP forced default options')
+                for item in queryset:
+                    add_description(item.option.name, item.option.description)
+                    value = get_option_value(option=item)
+                    file.write(f'dhcp-option-force={item.option.option},'
+                               f'{value}\n')
             # Ignored DHCP hosts
             if queryset := DhcpHost.objects_enabled.filter(ignored=True):
                 add_header('Ignored hosts')

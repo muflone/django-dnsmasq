@@ -163,3 +163,9 @@ class Command(BaseCommand):
                 for item in queryset:
                     add_description(item.name, item.description)
                     file.write(f'dhcp-host={item.mac_address},ignore\n')
+            # Allowed hosts
+            if queryset := Host.objects_enabled.filter(ignored=False):
+                add_header('Allowed hosts')
+                for item in queryset:
+                    add_description(item.name, item.description)
+                    file.write(f'dhcp-host={item.mac_address}\n')

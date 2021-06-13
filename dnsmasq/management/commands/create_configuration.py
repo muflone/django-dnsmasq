@@ -23,6 +23,7 @@ import argparse
 from django.core.management.base import BaseCommand
 from django.utils.translation import pgettext_lazy
 
+from dnsmasq.constants import MAC_ADDRESS_ZEROS, MAC_ADDRESS_ANY
 from dnsmasq.models import (Action,
                             DhcpRange,
                             DhcpDefaultOption,
@@ -160,10 +161,16 @@ class Command(BaseCommand):
                 add_header('Ignored hosts')
                 for item in queryset:
                     add_description(item.name, item.description)
-                    file.write(f'dhcp-host={item.mac_address},ignore\n')
+                    mac_address = (item.mac_address
+                                   if item.mac_address != MAC_ADDRESS_ZEROS
+                                   else MAC_ADDRESS_ANY)
+                    file.write(f'dhcp-host={mac_address},ignore\n')
             # Allowed DHCP hosts
             if queryset := DhcpHost.objects_enabled.filter(ignored=False):
                 add_header('Allowed hosts')
                 for item in queryset:
                     add_description(item.name, item.description)
-                    file.write(f'dhcp-host={item.mac_address}\n')
+                    mac_address = (item.mac_address
+                                   if item.mac_address != MAC_ADDRESS_ZEROS
+                                   else MAC_ADDRESS_ANY)
+                    file.write(f'dhcp-host={mac_address}\n')

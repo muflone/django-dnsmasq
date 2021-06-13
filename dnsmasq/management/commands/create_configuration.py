@@ -172,7 +172,7 @@ class Command(BaseCommand):
                     add_description(item.name, item.description)
                     file.write(f'dhcp-range={item.starting_ip},'
                                f'{item.ending_ip},'
-                               f'{item.lease_time}h\n')
+                               f'{item.lease_time}m\n')
             # DHCP default options
             if queryset := DhcpOption.objects_enabled.filter(
                     tag__name=DhcpTag.DEFAULT_TAG,

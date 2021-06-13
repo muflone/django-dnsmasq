@@ -47,7 +47,7 @@ class DhcpRange(BaseModel):
     ending_ip = models.GenericIPAddressField(verbose_name=pgettext_lazy(
                                                  'DhcpRange',
                                                  'ending IP range'))
-    lease_time = models.PositiveIntegerField(default=12,
+    lease_time = models.PositiveIntegerField(default=300,
                                              verbose_name=pgettext_lazy(
                                                  'DhcpRange',
                                                  'lease time'))

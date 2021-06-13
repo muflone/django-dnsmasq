@@ -38,7 +38,6 @@ class DhcpHost(BaseModel):
                                    verbose_name=pgettext_lazy(
                                        'DhcpHost',
                                        'description'))
-
     mac_address = MACAddressField(integer=True,
                                   blank=False,
                                   null=False,

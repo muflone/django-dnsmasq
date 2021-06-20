@@ -1,0 +1,7 @@
+{% load static %}
+    <!-- Bootstrap -->
+{% if type == 'css' %}
+    <link href="{% static 'website/bootstrap_5.0.1/css/bootstrap.min.css' %}" rel="stylesheet">
+{% elif type == 'js' %}
+    <script src="{% static 'website/bootstrap_5.0.1/js/bootstrap.min.js' %}"></script>
+{% endif %}

@@ -1,0 +1,43 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block body %}
+  {% block content %}
+    <div class="login-form">
+        <form method="post" id="form-login" action="{% url 'website.auth.login' %}">
+            {% csrf_token %}
+            <div class="form-icon">
+                <span><i class="bi-person-circle"></i></span>
+            </div>
+    {% if form.non_field_errors %}
+      {% block feedback %}
+            <div id="feedback-message">{{ form.non_field_errors }}</div>
+      {% endblock %}
+    {% endif %}
+            <div class="form-group">
+                {{ form.username.errors }}
+                {{ form.username }}
+            </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                {{ form.password.errors }}
+                {{ form.password }}
+              </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block login-button">Login</button>
+            </div>
+        </div>
+        </form>
+    </div>
+  {% endblock %}
+
+  {% block footer_css %}
+    {{ block.super }}
+  {% endblock %}
+
+  {% block footer_js %}
+    {{ block.super }}
+  {% endblock %}
+{% endblock %}

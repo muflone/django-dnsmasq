@@ -21,7 +21,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView as DjangoLoginView
-from django.urls import reverse
+from django.urls import reverse_lazy
 
 from website.views.generic import GenericMixin
 
@@ -50,5 +50,5 @@ class LoginView(GenericMixin,
     page_title = 'Login'
 
     def get_success_url(self):
-        url = reverse('website.home')
+        url = reverse_lazy('website.home')
         return url

@@ -20,9 +20,9 @@
 
 from django.views.generic import TemplateView
 
-from website.views.generic import GenericMixin
+from website.views.require_login import RequireLoginMixin
 
 
-class HomeView(GenericMixin, TemplateView):
+class HomeView(RequireLoginMixin, TemplateView):
     template_name = 'website/home.html'
     page_title = 'Home'

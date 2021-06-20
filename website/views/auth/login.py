@@ -43,7 +43,8 @@ class LoginForm(AuthenticationForm):
         }))
 
 
-class LoginView(GenericMixin, DjangoLoginView):
+class LoginView(GenericMixin,
+                DjangoLoginView):
     authentication_form = LoginForm
     template_name = 'website/login.html'
     page_title = 'Login'

@@ -18,10 +18,10 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.contrib import admin
-from django.urls import path, include
+from django.apps import AppConfig
+from django.utils.translation import pgettext_lazy
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('website.urls')),
-]
+
+class WebsiteConfig(AppConfig):
+    name = 'website'
+    verbose_name = pgettext_lazy('WebsiteConfig', 'Website')

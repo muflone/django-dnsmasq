@@ -1,6 +1,6 @@
 ##
-#     Project: Django dnsmasq
-# Description: A Django application to create dnsmasq configuration
+#     Project: Django website
+# Description: A Django application to create website configuration
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2021 Fabio Castelli
 #     License: GPL-3+
@@ -18,10 +18,10 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('website.urls')),
-]
+from website.views.home import HomeView
+from website.views.auth.login import LoginView
+
+
+urlpatterns = []

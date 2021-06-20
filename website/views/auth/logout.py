@@ -1,6 +1,6 @@
 ##
-#     Project: Django website
-# Description: A Django application to create website configuration
+#     Project: Django dnsmasq
+# Description: A Django application to create dnsmasq configuration
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2021 Fabio Castelli
 #     License: GPL-3+
@@ -18,23 +18,12 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import path
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LogoutView as DjangoLogoutView
 
-from website.views.home import HomeView
-from website.views.auth.login import LoginView
-from website.views.auth.logout import LogoutView
+from website.views.generic import GenericMixin
 
 
-urlpatterns = []
-# Home page
-urlpatterns.append(path(route='',
-                        view=HomeView.as_view(),
-                        name='website.home'))
-# Login page
-urlpatterns.append(path(route='login',
-                        view=LoginView.as_view(),
-                        name='website.auth.login'))
-# Logout page
-urlpatterns.append(path(route='logout',
-                        view=LogoutView.as_view(),
-                        name='website.auth.logout'))
+class LogoutView(GenericMixin,
+                 DjangoLogoutView):
+    next_page = reverse_lazy('website.auth.login')

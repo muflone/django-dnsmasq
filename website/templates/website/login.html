@@ -12,7 +12,7 @@
         <form method="post" id="form-login" action="{% url 'website.auth.login' %}">
             {% csrf_token %}
             <div class="form-icon">
-                <span><i class="fa fa-user-circle"></i></span>
+                <span><i class="fas fa-user-circle"></i></span>
             </div>
     {% if form.non_field_errors %}
       {% block feedback %}

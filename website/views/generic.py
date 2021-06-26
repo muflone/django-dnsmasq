@@ -36,5 +36,6 @@ class GenericMixin(ContextMixin,
         context = super().get_context_data(**kwargs)
         context.update(ContextMixin.get_context_data(self, **kwargs))
         context['request_path'] = self.request.path
+        context['request_name'] = self.request.resolver_match.url_name
         context['page_title'] = self.page_title
         return context

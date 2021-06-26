@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 
 from website.views.generic import GenericMixin
@@ -29,3 +30,8 @@ class HomeView(RequireLoginMixin,
                TemplateView):
     template_name = 'website/home.html'
     page_title = 'Home'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['users'] = User.objects.all()
+        return context

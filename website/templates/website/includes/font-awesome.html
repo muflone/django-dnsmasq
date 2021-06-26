@@ -1,0 +1,7 @@
+{% load static %}
+    <!-- Font Awesome -->
+{% if type == 'js' %}
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+{% elif type == 'css' %}
+    <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet">
+{% endif %}

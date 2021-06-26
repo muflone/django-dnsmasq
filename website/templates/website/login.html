@@ -1,13 +1,18 @@
 {% extends 'website/base.html' %}
 {% load static %}
 
+{% block header_css %}
+  {{ block.super }}
+  {% include 'website/includes/font-awesome.html' with type='css' %}
+{% endblock %}
+
 {% block body %}
   {% block content %}
     <div class="login-form">
         <form method="post" id="form-login" action="{% url 'website.auth.login' %}">
             {% csrf_token %}
             <div class="form-icon">
-                <span><i class="bi-person-circle"></i></span>
+                <span><i class="fa fa-user-circle"></i></span>
             </div>
     {% if form.non_field_errors %}
       {% block feedback %}
@@ -39,5 +44,6 @@
 
   {% block footer_js %}
     {{ block.super }}
+    {% include 'website/includes/font-awesome.html' with type='js' %}
   {% endblock %}
 {% endblock %}

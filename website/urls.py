@@ -21,6 +21,7 @@
 from django.urls import path
 
 from website.views.home import HomeView
+from website.views.users import UsersView
 from website.views.auth.login import LoginView
 from website.views.auth.logout import LogoutView
 
@@ -38,3 +39,7 @@ urlpatterns.append(path(route='logout',
 urlpatterns.append(path(route='',
                         view=HomeView.as_view(),
                         name='website.home'))
+# Users page
+urlpatterns.append(path(route='users',
+                        view=UsersView.as_view(),
+                        name='website.users'))

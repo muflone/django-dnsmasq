@@ -18,6 +18,21 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                System configuration
+            </div>
+
+            <!-- Nav Item - Users -->
+            <li class="nav-item{% if request_name == 'website.users' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.users' %}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span></a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

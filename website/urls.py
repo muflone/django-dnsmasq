@@ -26,10 +26,6 @@ from website.views.auth.logout import LogoutView
 
 
 urlpatterns = []
-# Home page
-urlpatterns.append(path(route='',
-                        view=HomeView.as_view(),
-                        name='website.home'))
 # Login page
 urlpatterns.append(path(route='login',
                         view=LoginView.as_view(),
@@ -38,3 +34,7 @@ urlpatterns.append(path(route='login',
 urlpatterns.append(path(route='logout',
                         view=LogoutView.as_view(),
                         name='website.auth.logout'))
+# Home page
+urlpatterns.append(path(route='',
+                        view=HomeView.as_view(),
+                        name='website.home'))

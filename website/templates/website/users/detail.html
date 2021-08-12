@@ -14,10 +14,18 @@
                     <div class="card-body">
                         <!-- Username -->
                         <div class="row">
+{% if not form.username %}
                             <div class="col col-sm-2">
                                 <div class="col-form-label">Username</div>
                             </div>
                             <div class="col col-sm-2">{{ object.username }}</div>
+{% else %}
+                            <div class="col col-sm-2">
+                                <label for="{{ form.username.id_for_label }}" class="col-form-label">{{ form.username.label }}</label>
+                            </div>
+                            <div class="col col-sm-2">{{ form.username }}</div>
+                            <div class="col col-sm">{{ form.username.errors }}</div>
+{% endif %}
                         </div>
                         <!-- First name -->
                         <div class="row">
@@ -79,10 +87,12 @@
                             <div class="col col-sm-2">
                                 <input class="btn btn-success col-sm" type="submit">
                             </div>
+{% if object.pk %}
                             <!-- Delete button -->
                             <div class="col col-sm-2">
                                 <a href="{% url 'website.users.delete' pk=object.pk %}" class="btn btn-danger col-sm">Delete</a>
                             </div>
+{% endif %}
                         </div>
                     </div>
                 </div>

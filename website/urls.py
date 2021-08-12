@@ -23,6 +23,7 @@ from django.urls import path
 from website.views.home import HomeView
 from website.views.auth.login import LoginView
 from website.views.auth.logout import LogoutView
+from website.views.users.create import UsersCreateView
 from website.views.users.delete import UsersDeleteView
 from website.views.users.detail import UsersDetailView
 from website.views.users.list import UsersListView
@@ -53,3 +54,7 @@ urlpatterns.append(path(route='users/<int:pk>',
 urlpatterns.append(path(route='users/delete/<int:pk>',
                         view=UsersDeleteView.as_view(),
                         name='website.users.delete'))
+# Users create page
+urlpatterns.append(path(route='users/create',
+                        view=UsersCreateView.as_view(),
+                        name='website.users.create'))

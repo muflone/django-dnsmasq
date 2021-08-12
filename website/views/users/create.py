@@ -23,10 +23,10 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from website.views.generic import GenericMixin
-from website.views.require_login import RequireLoginMixin
+from website.views.require_superuser import RequireSuperUserMixin
 
 
-class UsersCreateView(RequireLoginMixin,
+class UsersCreateView(RequireSuperUserMixin,
                       GenericMixin,
                       CreateView):
     model = User

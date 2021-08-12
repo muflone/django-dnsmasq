@@ -25,10 +25,10 @@ from django.views.generic import UpdateView
 from website.forms.user_password import UserPasswordForm
 
 from website.views.generic import GenericMixin
-from website.views.require_login import RequireLoginMixin
+from website.views.require_superuser import RequireSuperUserMixin
 
 
-class UsersPasswordView(RequireLoginMixin,
+class UsersPasswordView(RequireSuperUserMixin,
                         GenericMixin,
                         UpdateView):
     model = User

@@ -22,10 +22,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
 
-from website.views.require_login import RequireLoginMixin
+from website.views.require_superuser import RequireSuperUserMixin
 
 
-class UsersDeleteView(RequireLoginMixin,
+class UsersDeleteView(RequireSuperUserMixin,
                       DeleteView):
     model = User
     success_url = reverse_lazy('website.users.list')

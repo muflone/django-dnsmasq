@@ -28,6 +28,6 @@ from website.views.require_login import RequireLoginMixin
 class UsersListView(RequireLoginMixin,
                     GenericMixin,
                     ListView):
+    model = User
     template_name = 'website/users/list.html'
     page_title = 'Users'
-    model = User

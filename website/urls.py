@@ -21,9 +21,9 @@
 from django.urls import path
 
 from website.views.home import HomeView
-from website.views.users.list import UsersListView
 from website.views.auth.login import LoginView
 from website.views.auth.logout import LogoutView
+from website.views.users.list import UsersListView
 
 
 urlpatterns = []

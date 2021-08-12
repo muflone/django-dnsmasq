@@ -73,6 +73,10 @@
                             <div class="col col-sm-2">
                                 <input class="btn btn-success col-sm" type="submit">
                             </div>
+                            <!-- Delete button -->
+                            <div class="col col-sm-2">
+                                <a href="{% url 'website.users.delete' pk=object.pk %}" class="btn btn-danger col-sm">Delete</a>
+                            </div>
                         </div>
                     </div>
                 </div>

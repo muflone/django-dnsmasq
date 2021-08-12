@@ -1,0 +1,82 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Personal information</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Username -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <div class="col-form-label">Username</div>
+                            </div>
+                            <div class="col">{{ object.username }}</div>
+                        </div>
+                        <!-- First name -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.first_name.id_for_label }}" class="col-form-label">{{ form.first_name.label }}</label>
+                            </div>
+                            <div class="col">{{ form.first_name }}</div>
+                        </div>
+                        <!-- Last name -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.last_name.id_for_label }}" class="col-form-label">{{ form.last_name.label }}</label>
+                            </div>
+                            <div class="col">{{ form.last_name }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Special permissions</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Active status -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.is_active.id_for_label }}" class="col-form-label">{{ form.is_active.label }}</label>
+                            </div>
+                            <div class="col">{{ form.is_active }}</div>
+                        </div>
+                        <!-- Staff status -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.is_staff.id_for_label }}" class="col-form-label">{{ form.is_staff.label }}</label>
+                            </div>
+                            <div class="col">{{ form.is_staff }}</div>
+                        </div>
+                        <!-- Superuser status -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.is_superuser.id_for_label }}" class="col-form-label">{{ form.is_superuser.label }}</label>
+                            </div>
+                            <div class="col">{{ form.is_superuser }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Cancel button -->
+                            <div class="col col-sm-2">
+                                <a href="{% url 'website.users.list' %}" class="btn btn-secondary col-sm" >Cancel</a>
+                            </div>
+                            <!-- Submit button -->
+                            <div class="col col-sm-2">
+                                <input class="btn btn-success col-sm" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

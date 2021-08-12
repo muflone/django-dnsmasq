@@ -21,8 +21,10 @@
 from django.urls import path
 
 from website.views.home import HomeView
+
 from website.views.auth.login import LoginView
 from website.views.auth.logout import LogoutView
+
 from website.views.users.create import UsersCreateView
 from website.views.users.delete import UsersDeleteView
 from website.views.users.detail import UsersDetailView

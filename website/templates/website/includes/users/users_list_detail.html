@@ -1,0 +1,7 @@
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <span class="fas fa-fw {% if item.is_superuser %}fa-star{% else %}fa-user{% endif %}"></span>
+                            <a href="{% url 'website.users.detail' pk=item.pk %}">{{ item.username }}</a>
+                        </div>
+                        <div class="col col-sm">{{ item.first_name }} {{ item.last_name }}</div>
+                    </div>

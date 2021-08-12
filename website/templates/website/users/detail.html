@@ -91,6 +91,10 @@
                                 <input class="btn btn-primary col-sm" type="submit" value="Save">
                             </div>
 {% if object.pk %}
+                            <!-- Password button -->
+                            <div class="col col-sm-2">
+                                <a href="{% url 'website.users.password' pk=object.pk %}" class="btn btn-success col-sm">Set password</a>
+                            </div>
                             <!-- Delete button -->
                             <div class="col col-sm-2">
                                 <a href="{% url 'website.users.delete' pk=object.pk %}" class="btn btn-danger col-sm">Delete user</a>

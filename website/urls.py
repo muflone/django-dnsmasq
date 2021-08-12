@@ -29,6 +29,7 @@ from website.views.users.create import UsersCreateView
 from website.views.users.delete import UsersDeleteView
 from website.views.users.detail import UsersDetailView
 from website.views.users.list import UsersListView
+from website.views.users.password import UsersPasswordView
 
 
 urlpatterns = []
@@ -60,3 +61,7 @@ urlpatterns.append(path(route='users/delete/<int:pk>',
 urlpatterns.append(path(route='users/create',
                         view=UsersCreateView.as_view(),
                         name='website.users.create'))
+# Users password set
+urlpatterns.append(path(route='users/password/<int:pk>',
+                        view=UsersPasswordView.as_view(),
+                        name='website.users.password'))

@@ -30,6 +30,11 @@ from website.views.actions.delete import ActionsDeleteView
 from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
+from website.views.interfaces.create import InterfacesCreateView
+from website.views.interfaces.delete import InterfacesDeleteView
+from website.views.interfaces.detail import InterfacesDetailView
+from website.views.interfaces.list import InterfacesListView
+
 from website.views.options.create import OptionsCreateView
 from website.views.options.delete import OptionsDeleteView
 from website.views.options.detail import OptionsDetailView
@@ -92,6 +97,23 @@ urlpatterns.append(path(route='actions/delete/<int:pk>',
 urlpatterns.append(path(route='actions/create',
                         view=ActionsCreateView.as_view(),
                         name='website.actions.create'))
+
+# Interfaces list page
+urlpatterns.append(path(route='interfaces/list',
+                        view=InterfacesListView.as_view(),
+                        name='website.interfaces.list'))
+# Interfaces detail page
+urlpatterns.append(path(route='interfaces/detail/<int:pk>',
+                        view=InterfacesDetailView.as_view(),
+                        name='website.interfaces.detail'))
+# Interfaces delete page
+urlpatterns.append(path(route='interfaces/delete/<int:pk>',
+                        view=InterfacesDeleteView.as_view(),
+                        name='website.interfaces.delete'))
+# Interfaces create page
+urlpatterns.append(path(route='interfaces/create',
+                        view=InterfacesCreateView.as_view(),
+                        name='website.interfaces.create'))
 
 # Options list page
 urlpatterns.append(path(route='options/list',

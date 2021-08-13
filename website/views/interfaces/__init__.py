@@ -17,26 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-from django.contrib.auth.models import User
-from django.views.generic import TemplateView
-
-from dnsmasq.models import Action, Interface, Option
-
-from website.views.generic import GenericMixin
-from website.views.require_login import RequireLoginMixin
-
-
-class HomeView(RequireLoginMixin,
-               GenericMixin,
-               TemplateView):
-    template_name = 'website/home.html'
-    page_title = 'Dashboard'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['users'] = User.objects.all()
-        context['actions'] = Action.objects.all()
-        context['interfaces'] = Interface.objects.all()
-        context['options'] = Option.objects.all()
-        return context

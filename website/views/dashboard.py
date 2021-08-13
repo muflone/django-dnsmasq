@@ -31,10 +31,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class HomeView(RequireLoginMixin,
-               GenericMixin,
-               TemplateView):
-    template_name = 'website/home.html'
+class DashboardView(RequireLoginMixin,
+                    GenericMixin,
+                    TemplateView):
+    template_name = 'website/dashboard.html'
     page_title = 'Dashboard'
 
     def get_context_data(self, **kwargs):

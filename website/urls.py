@@ -20,7 +20,7 @@
 
 from django.urls import path
 
-from website.views.home import HomeView
+from website.views.dashboard import DashboardView
 
 from website.views.auth.login import LoginView
 from website.views.auth.logout import LogoutView
@@ -68,7 +68,7 @@ urlpatterns.append(path(route='logout',
                         name='website.auth.logout'))
 # Home page
 urlpatterns.append(path(route='',
-                        view=HomeView.as_view(),
+                        view=DashboardView.as_view(),
                         name='website.home'))
 # Users list page
 urlpatterns.append(path(route='users/list',

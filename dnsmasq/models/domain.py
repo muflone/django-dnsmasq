@@ -29,6 +29,7 @@ class Domain(BaseModel):
     Domain names offered to hosts for obtaining their FQDN
     """
     name = models.CharField(max_length=255,
+                            unique=True,
                             verbose_name=pgettext_lazy(
                                 'Domain',
                                 'name'))

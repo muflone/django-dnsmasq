@@ -22,17 +22,14 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
 
+from website.views.generic import GenericMixin
 from website.views.require_superuser import RequireSuperUserMixin
 
 
 class UsersDeleteView(RequireSuperUserMixin,
+                      GenericMixin,
                       DeleteView):
     model = User
     success_url = reverse_lazy('website.users.list')
-
-    def get(self, request, *args, **kwargs):
-        """
-        The DeleteView will remove the object when the request was passed
-        with the POST method, else it will show a confirmation dialog
-        """
-        return self.post(request, *args, **kwargs)
+    template_name = 'website/users/delete.html'
+    page_title = 'User deletion'

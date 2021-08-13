@@ -1,0 +1,52 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Personal information</h6>
+                </div>
+                <div class="card-body">
+                    <!-- Username -->
+                    <div class="row">
+                        <div class="col col-sm-2 col-form-label">Username</div>
+                        <div class="col col-sm-2">{{ object.username }}</div>
+                    </div>
+                    <!-- First name -->
+                    <div class="row">
+                        <div class="col col-sm-2 col-form-label">First name</div>
+                        <div class="col col-sm-2">{{ object.first_name }}</div>
+                    </div>
+                    <!-- Last name -->
+                    <div class="row">
+                        <div class="col col-sm-2 col-form-label">Last name</div>
+                        <div class="col col-sm-2">{{ object.last_name }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Actions</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Cancel button -->
+                        <div class="col col-sm-2">
+                            <a href="{% url 'website.users.detail' pk=object.pk %}" class="btn btn-secondary col-sm" >Cancel</a>
+                        </div>
+                        <!-- Save button -->
+                        <div class="col col-sm-2">
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.non_field_errors }}
+                                <input class="btn btn-danger col-sm" type="submit" value="Delete user">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

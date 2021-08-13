@@ -40,19 +40,22 @@
                 Server configuration
             </div>
 
-            <!-- Nav Item - Options -->
-            <li class="nav-item{% if request_name == 'website.options.list' %} active{% endif %}">
-                <a class="nav-link" href="{% url 'website.options.list' %}">
+            <!-- Nav Item - Settings menu -->
+{% with settings_list='website.options.list|website.actions.list' %}
+            <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
+                <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse1">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Options</span></a>
+                    <span>Settings</span>
+                </a>
+                <div id="collapse1" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Server settings:</h6>
+                        <a class="collapse-item{% if request_name == 'website.options.list' %} active{% endif %}" href="{% url 'website.options.list' %}">Options</a>
+                        <a class="collapse-item{% if request_name == 'website.actions.list' %} active{% endif %}" href="{% url 'website.actions.list' %}">Actions</a>
+                    </div>
+                </div>
             </li>
-
-            <!-- Nav Item - Actions -->
-            <li class="nav-item{% if request_name == 'website.actions.list' %} active{% endif %}">
-                <a class="nav-link" href="{% url 'website.actions.list' %}">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Actions</span></a>
-            </li>
+{% endwith %}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

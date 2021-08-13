@@ -33,6 +33,21 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Server configuration
+            </div>
+
+            <!-- Nav Item - Options -->
+            <li class="nav-item{% if request_name == 'website.options.list' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.options.list' %}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Options</span></a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

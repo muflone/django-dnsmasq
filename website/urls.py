@@ -30,6 +30,11 @@ from website.views.actions.delete import ActionsDeleteView
 from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
+from website.views.domains.create import DomainsCreateView
+from website.views.domains.delete import DomainsDeleteView
+from website.views.domains.detail import DomainsDetailView
+from website.views.domains.list import DomainsListView
+
 from website.views.interfaces.create import InterfacesCreateView
 from website.views.interfaces.delete import InterfacesDeleteView
 from website.views.interfaces.detail import InterfacesDetailView
@@ -102,6 +107,23 @@ urlpatterns.append(path(route='actions/delete/<int:pk>',
 urlpatterns.append(path(route='actions/create',
                         view=ActionsCreateView.as_view(),
                         name='website.actions.create'))
+
+# Domains list page
+urlpatterns.append(path(route='domains/list',
+                        view=DomainsListView.as_view(),
+                        name='website.domains.list'))
+# Domains detail page
+urlpatterns.append(path(route='domains/detail/<int:pk>',
+                        view=DomainsDetailView.as_view(),
+                        name='website.domains.detail'))
+# Domains delete page
+urlpatterns.append(path(route='domains/delete/<int:pk>',
+                        view=DomainsDeleteView.as_view(),
+                        name='website.domains.delete'))
+# Domains create page
+urlpatterns.append(path(route='domains/create',
+                        view=DomainsCreateView.as_view(),
+                        name='website.domains.create'))
 
 # Listening addresses list page
 urlpatterns.append(path(route='listen_addresses/list',

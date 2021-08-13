@@ -18,31 +18,19 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.contrib.auth.models import User
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
 
-from dnsmasq.models import (Action,
-                            Domain,
-                            Interface,
-                            ListenAddress,
-                            Option)
+from dnsmasq.models import Domain
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class HomeView(RequireLoginMixin,
-               GenericMixin,
-               TemplateView):
-    template_name = 'website/home.html'
-    page_title = 'Dashboard'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['users'] = User.objects.all()
-        context['actions'] = Action.objects.all()
-        context['domains'] = Domain.objects.all()
-        context['interfaces'] = Interface.objects.all()
-        context['listen_addresses'] = ListenAddress.objects.all()
-        context['options'] = Option.objects.all()
-        return context
+class DomainsDeleteView(RequireLoginMixin,
+                        GenericMixin,
+                        DeleteView):
+    model = Domain
+    success_url = reverse_lazy('website.domains.list')
+    template_name = 'website/domains/delete.html'
+    page_title = 'Domain deletion'

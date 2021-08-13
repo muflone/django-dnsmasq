@@ -47,6 +47,13 @@
                     <span>Options</span></a>
             </li>
 
+            <!-- Nav Item - Actions -->
+            <li class="nav-item{% if request_name == 'website.actions.list' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.actions.list' %}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Actions</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

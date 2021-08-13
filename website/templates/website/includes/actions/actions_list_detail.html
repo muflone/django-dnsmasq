@@ -1,0 +1,7 @@
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <a href="{% url 'website.actions.detail' pk=item.pk %}">{{ item.name }}</a>
+                        </div>
+                        <div class="col col-sm-2">{{ item.action }}</div>
+                        <div class="col col-sm">{{ item.description }}</div>
+                    </div>

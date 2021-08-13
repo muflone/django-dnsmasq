@@ -25,6 +25,11 @@ from website.views.home import HomeView
 from website.views.auth.login import LoginView
 from website.views.auth.logout import LogoutView
 
+from website.views.actions.create import ActionsCreateView
+from website.views.actions.delete import ActionsDeleteView
+from website.views.actions.detail import ActionsDetailView
+from website.views.actions.list import ActionsListView
+
 from website.views.options.create import OptionsCreateView
 from website.views.options.delete import OptionsDeleteView
 from website.views.options.detail import OptionsDetailView
@@ -70,6 +75,23 @@ urlpatterns.append(path(route='users/create',
 urlpatterns.append(path(route='users/password/<int:pk>',
                         view=UsersPasswordView.as_view(),
                         name='website.users.password'))
+
+# Actions list page
+urlpatterns.append(path(route='actions/list',
+                        view=ActionsListView.as_view(),
+                        name='website.actions.list'))
+# Actions detail page
+urlpatterns.append(path(route='actions/detail/<int:pk>',
+                        view=ActionsDetailView.as_view(),
+                        name='website.actions.detail'))
+# Actions delete page
+urlpatterns.append(path(route='actions/delete/<int:pk>',
+                        view=ActionsDeleteView.as_view(),
+                        name='website.actions.delete'))
+# Actions create page
+urlpatterns.append(path(route='actions/create',
+                        view=ActionsCreateView.as_view(),
+                        name='website.actions.create'))
 
 # Options list page
 urlpatterns.append(path(route='options/list',

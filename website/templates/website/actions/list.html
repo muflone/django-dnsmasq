@@ -15,7 +15,7 @@
                 <div class="card-body">
   {% for item in object_list %}
     {% if item.status %}
-      {% include 'website/includes/actions/actions_list_detail.html' with item=item %}
+      {% include 'website/includes/actions/list_detail.html' with item=item %}
     {% endif %}
   {% endfor %}
                 </div>
@@ -32,7 +32,7 @@
                 <div class="card-body">
   {% for item in object_list %}
     {% if not item.status %}
-      {% include 'website/includes/actions/actions_list_detail.html' with item=item %}
+      {% include 'website/includes/actions/list_detail.html' with item=item %}
     {% endif %}
   {% endfor %}
                 </div>

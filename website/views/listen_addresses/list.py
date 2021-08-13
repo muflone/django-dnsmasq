@@ -18,21 +18,17 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import ListView
 
-from dnsmasq.models import Interface
+from dnsmasq.models import ListenAddress
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class InterfacesCreateView(RequireLoginMixin,
-                           GenericMixin,
-                           CreateView):
-    model = Interface
-    fields = ['name', 'description', 'order',
-              'excluded', 'disable_dhcp', 'status']
-    success_url = reverse_lazy('website.interfaces.list')
-    template_name = 'website/interfaces/detail.html'
-    page_title = 'Create new interface'
+class ListenAddressesListView(RequireLoginMixin,
+                              GenericMixin,
+                              ListView):
+    model = ListenAddress
+    template_name = 'website/listen_addresses/list.html'
+    page_title = 'Listening addresses'

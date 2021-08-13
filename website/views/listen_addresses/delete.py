@@ -19,20 +19,18 @@
 ##
 
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import DeleteView
 
-from dnsmasq.models import Interface
+from dnsmasq.models import ListenAddress
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class InterfacesCreateView(RequireLoginMixin,
-                           GenericMixin,
-                           CreateView):
-    model = Interface
-    fields = ['name', 'description', 'order',
-              'excluded', 'disable_dhcp', 'status']
-    success_url = reverse_lazy('website.interfaces.list')
-    template_name = 'website/interfaces/detail.html'
-    page_title = 'Create new interface'
+class ListenAddressesDeleteView(RequireLoginMixin,
+                                GenericMixin,
+                                DeleteView):
+    model = ListenAddress
+    success_url = reverse_lazy('website.listen_addresses.list')
+    template_name = 'website/listen_addresses/delete.html'
+    page_title = 'Listening address deletion'

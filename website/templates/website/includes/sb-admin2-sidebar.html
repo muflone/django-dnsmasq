@@ -58,7 +58,7 @@
 {% endwith %}
 
             <!-- Nav Item - DNSmasq menu -->
-{% with settings_list='website.interfaces.list' %}
+{% with settings_list='website.interfaces.list|website.listen_addresses.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse2">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -68,6 +68,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">DNSmasq components:</h6>
                         <a class="collapse-item{% if request_name == 'website.interfaces.list' %} active{% endif %}" href="{% url 'website.interfaces.list' %}">Interfaces</a>
+                        <a class="collapse-item{% if request_name == 'website.listen_addresses.list' %} active{% endif %}" href="{% url 'website.listen_addresses.list' %}">Listening addresses</a>
                     </div>
                 </div>
             </li>

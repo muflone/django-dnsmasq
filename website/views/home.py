@@ -21,7 +21,7 @@
 from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 
-from dnsmasq.models import Action, Interface, Option
+from dnsmasq.models import Action, Interface, ListenAddress, Option
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -38,5 +38,6 @@ class HomeView(RequireLoginMixin,
         context['users'] = User.objects.all()
         context['actions'] = Action.objects.all()
         context['interfaces'] = Interface.objects.all()
+        context['listen_addresses'] = ListenAddress.objects.all()
         context['options'] = Option.objects.all()
         return context

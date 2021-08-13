@@ -1,0 +1,7 @@
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <strong><a href="{% url 'website.listen_addresses.detail' pk=item.pk %}">{{ item.address }}</a></strong>
+                        </div>
+                        <div class="col col-sm">{{ item.description }}</div>
+                    </div>
+                    <hr />

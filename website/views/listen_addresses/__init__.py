@@ -17,22 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
-
-from dnsmasq.models import Interface
-
-from website.views.generic import GenericMixin
-from website.views.require_login import RequireLoginMixin
-
-
-class InterfacesCreateView(RequireLoginMixin,
-                           GenericMixin,
-                           CreateView):
-    model = Interface
-    fields = ['name', 'description', 'order',
-              'excluded', 'disable_dhcp', 'status']
-    success_url = reverse_lazy('website.interfaces.list')
-    template_name = 'website/interfaces/detail.html'
-    page_title = 'Create new interface'

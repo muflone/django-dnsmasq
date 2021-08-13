@@ -14,7 +14,7 @@
             <li class="nav-item{% if request_name == 'website.home' %} active{% endif %}">
                 <a href="{% url 'website.home' %}" class="nav-link">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Home</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -41,17 +41,17 @@
             </div>
 
             <!-- Nav Item - Settings menu -->
-{% with settings_list='website.options.list|website.actions.list' %}
+{% with settings_list='website.actions.list|website.options.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse1">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-cogs"></i>
                     <span>Settings</span>
                 </a>
                 <div id="collapse1" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Server settings:</h6>
-                        <a class="collapse-item{% if request_name == 'website.options.list' %} active{% endif %}" href="{% url 'website.options.list' %}">Options</a>
                         <a class="collapse-item{% if request_name == 'website.actions.list' %} active{% endif %}" href="{% url 'website.actions.list' %}">Actions</a>
+                        <a class="collapse-item{% if request_name == 'website.options.list' %} active{% endif %}" href="{% url 'website.options.list' %}">Options</a>
                     </div>
                 </div>
             </li>

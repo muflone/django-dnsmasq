@@ -29,7 +29,7 @@ class HomeView(RequireLoginMixin,
                GenericMixin,
                TemplateView):
     template_name = 'website/home.html'
-    page_title = 'Home'
+    page_title = 'Dashboard'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

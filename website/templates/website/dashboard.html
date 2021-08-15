@@ -11,22 +11,22 @@
     {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='Server settings' %}
     <div class="row">
         {% url 'website.actions.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Actions' items=actions url=destination_url tint='primary' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Actions' items=actions url=destination_url tint='secondary' %}
 
         {% url 'website.options.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='primary' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='secondary' %}
     </div>
 
     {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='DNSmasq components' %}
     <div class="row">
         {% url 'website.interfaces.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Interfaces' items=interfaces url=destination_url tint='primary' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Interfaces' items=interfaces url=destination_url tint='info' %}
 
         {% url 'website.listen_addresses.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Listening addresses' items=listen_addresses url=destination_url tint='primary' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Listening addresses' items=listen_addresses url=destination_url tint='info' %}
 
         {% url 'website.domains.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Domains' items=domains url=destination_url tint='primary' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Domains' items=domains url=destination_url tint='info' %}
     </div>
     <div class="row">
         {% url 'website.dhcp_hosts.list' as destination_url %}

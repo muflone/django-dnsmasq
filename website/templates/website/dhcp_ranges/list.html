@@ -1,0 +1,42 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Create new DHCP range -->
+    <div class="mb-4">
+        <a class="btn btn-primary" href="{% url 'website.dhcp_ranges.create' %}">Create new DHCP range</a>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Active DHCP ranges</h6>
+                </div>
+                <div class="card-body">
+  {% for item in object_list %}
+    {% if item.status %}
+      {% include 'website/includes/dhcp_ranges/list_detail.html' with item=item %}
+    {% endif %}
+  {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Inactive DHCP ranges</h6>
+                </div>
+                <div class="card-body">
+  {% for item in object_list %}
+    {% if not item.status %}
+      {% include 'website/includes/dhcp_ranges/list_detail.html' with item=item %}
+    {% endif %}
+  {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

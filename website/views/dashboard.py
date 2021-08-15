@@ -22,6 +22,7 @@ from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 
 from dnsmasq.models import (Action,
+                            DhcpRange,
                             Domain,
                             Interface,
                             ListenAddress,
@@ -41,6 +42,7 @@ class DashboardView(RequireLoginMixin,
         context = super().get_context_data(**kwargs)
         context['users'] = User.objects.all()
         context['actions'] = Action.objects.all()
+        context['dhcp_ranges'] = DhcpRange.objects.all()
         context['domains'] = Domain.objects.all()
         context['interfaces'] = Interface.objects.all()
         context['listen_addresses'] = ListenAddress.objects.all()

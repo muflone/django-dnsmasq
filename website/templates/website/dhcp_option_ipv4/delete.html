@@ -11,13 +11,13 @@
                 <div class="card-body">
                     <!-- Option -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Option</div>
-                        <div class="col col-sm-2">{{ object.option }}</div>
+                        <div class="col-sm-2 col-form-label">Option</div>
+                        <div class="col-sm-2">{{ object.option }}</div>
                     </div>
                     <!-- Address -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Address</div>
-                        <div class="col col-sm-2">{{ object.address }}</div>
+                        <div class="col-sm-2 col-form-label">Address</div>
+                        <div class="col-sm-2">{{ object.address }}</div>
                     </div>
                 </div>
             </div>
@@ -28,11 +28,11 @@
                 <div class="card-body">
                     <div class="row">
                         <!-- Cancel button -->
-                        <div class="col col-sm-2">
-                            <a href="{% url 'website.dhcp_option_ipv4.detail' pk=object.pk %}" class="btn btn-secondary col-sm" >Cancel</a>
+                        <div class="col-sm-2">
+                            <a href="{% url 'website.dhcp_option_ipv4.detail' pk=object.pk %}" class="btn btn-secondary col-sm">Cancel</a>
                         </div>
                         <!-- Save button -->
-                        <div class="col col-sm-2">
+                        <div class="col-sm-2">
                             <form method="post">
                                 {% csrf_token %}
                                 {{ form.non_field_errors }}

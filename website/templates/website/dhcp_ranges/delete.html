@@ -11,23 +11,23 @@
                 <div class="card-body">
                     <!-- Address -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Name</div>
-                        <div class="col col-sm-2">{{ object.name }}</div>
+                        <div class="col-sm-2 col-form-label">Name</div>
+                        <div class="col-sm-2">{{ object.name }}</div>
                     </div>
                     <!-- Description -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Description</div>
-                        <div class="col col-sm-2">{{ object.description }}</div>
+                        <div class="col-sm-2 col-form-label">Description</div>
+                        <div class="col-sm-2">{{ object.description }}</div>
                     </div>
                     <!-- Starting IP address -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Starting IP address</div>
-                        <div class="col col-sm-2">{{ object.starting_ip }}</div>
+                        <div class="col-sm-2 col-form-label">Starting IP address</div>
+                        <div class="col-sm-2">{{ object.starting_ip }}</div>
                     </div>
                     <!-- Ending IP address -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Ending IP address</div>
-                        <div class="col col-sm-2">{{ object.ending_ip }}</div>
+                        <div class="col-sm-2 col-form-label">Ending IP address</div>
+                        <div class="col-sm-2">{{ object.ending_ip }}</div>
                     </div>
                 </div>
             </div>
@@ -38,11 +38,11 @@
                 <div class="card-body">
                     <div class="row">
                         <!-- Cancel button -->
-                        <div class="col col-sm-2">
-                            <a href="{% url 'website.dhcp_ranges.detail' pk=object.pk %}" class="btn btn-secondary col-sm" >Cancel</a>
+                        <div class="col-sm-2">
+                            <a href="{% url 'website.dhcp_ranges.detail' pk=object.pk %}" class="btn btn-secondary col-sm">Cancel</a>
                         </div>
                         <!-- Save button -->
-                        <div class="col col-sm-2">
+                        <div class="col-sm-2">
                             <form method="post">
                                 {% csrf_token %}
                                 {{ form.non_field_errors }}

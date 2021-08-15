@@ -11,33 +11,33 @@
                 <div class="card-body">
                     <!-- Name -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Name</div>
-                        <div class="col col-sm-2">{{ object.name }}</div>
+                        <div class="col-sm-2 col-form-label">Name</div>
+                        <div class="col-sm-2">{{ object.name }}</div>
                     </div>
                     <!-- Description -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Description</div>
-                        <div class="col col-sm-2">{{ object.description }}</div>
+                        <div class="col-sm-2 col-form-label">Description</div>
+                        <div class="col-sm-2">{{ object.description }}</div>
                     </div>
                     <!-- MAC address -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">MAC address</div>
-                        <div class="col col-sm-2">{{ object.mac_address }}</div>
+                        <div class="col-sm-2 col-form-label">MAC address</div>
+                        <div class="col-sm-2">{{ object.mac_address }}</div>
                     </div>
                     <!-- Address -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Address</div>
-                        <div class="col col-sm-2">{{ object.address }}</div>
+                        <div class="col-sm-2 col-form-label">Address</div>
+                        <div class="col-sm-2">{{ object.address }}</div>
                     </div>
                     <!-- Hostname -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Hostname</div>
-                        <div class="col col-sm-2">{{ object.hostname }}</div>
+                        <div class="col-sm-2 col-form-label">Hostname</div>
+                        <div class="col-sm-2">{{ object.hostname }}</div>
                     </div>
                     <!-- Tag -->
                     <div class="row">
-                        <div class="col col-sm-2 col-form-label">Tag</div>
-                        <div class="col col-sm-2">{{ object.tag }}</div>
+                        <div class="col-sm-2 col-form-label">Tag</div>
+                        <div class="col-sm-2">{{ object.tag }}</div>
                     </div>
                 </div>
             </div>
@@ -48,11 +48,11 @@
                 <div class="card-body">
                     <div class="row">
                         <!-- Cancel button -->
-                        <div class="col col-sm-2">
-                            <a href="{% url 'website.dhcp_hosts.detail' pk=object.pk %}" class="btn btn-secondary col-sm" >Cancel</a>
+                        <div class="col-sm-2">
+                            <a href="{% url 'website.dhcp_hosts.detail' pk=object.pk %}" class="btn btn-secondary col-sm">Cancel</a>
                         </div>
                         <!-- Save button -->
-                        <div class="col col-sm-2">
+                        <div class="col-sm-2">
                             <form method="post">
                                 {% csrf_token %}
                                 {{ form.non_field_errors }}

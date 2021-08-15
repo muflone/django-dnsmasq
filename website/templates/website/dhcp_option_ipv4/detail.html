@@ -46,29 +46,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Actions</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <!-- Cancel button -->
-                            <div class="col-sm-2">
-                                <a href="{% url 'website.dhcp_option_ipv4.list' %}" class="btn btn-secondary col-sm">Cancel</a>
-                            </div>
-                            <!-- Save button -->
-                            <div class="col-sm-2">
-                                <input class="btn btn-primary col-sm" type="submit" value="Save">
-                            </div>
-{% if object.pk %}
-                            <!-- Delete button -->
-                            <div class="col-sm-2">
-                                <a href="{% url 'website.dhcp_option_ipv4.delete' pk=object.pk %}" class="btn btn-danger col-sm">Delete</a>
-                            </div>
-{% endif %}
-                        </div>
-                    </div>
-                </div>
+                {% url 'website.dhcp_option_ipv4.list' as destination_url_cancel %}
+                {% url 'website.dhcp_option_ipv4.delete' pk=object.pk as destination_url_delete %}
+                {% include 'website/includes/crud/toolbar_detail.html' with url_cancel=destination_url_cancel url_delete=destination_url_delete %}
             </form>
         </div>
     </div>

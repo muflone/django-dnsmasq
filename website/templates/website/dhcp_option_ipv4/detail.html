@@ -1,0 +1,75 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">DHCP option IPv4 address details</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Option -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.option.id_for_label }}" class="col-form-label">{{ form.option.label }}</label>
+                            </div>
+                            <div class="col col-sm-2">{{ form.option }}</div>
+                            <div class="col col-sm">{{ form.option.errors }}</div>
+                        </div>
+                        <!-- Address -->
+                        <div class="row mb-2">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.address.id_for_label }}" class="col-form-label">{{ form.address.label }}</label>
+                            </div>
+                            <div class="col col-sm-2">{{ form.address }}</div>
+                            <div class="col col-sm">{{ form.address.errors }}</div>
+                        </div>
+                        <!-- Order -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.order.id_for_label }}" class="col-form-label">{{ form.order.label }}</label>
+                            </div>
+                            <div class="col col-sm-2">{{ form.order }}</div>
+                            <div class="col col-sm">{{ form.order.errors }}</div>
+                        </div>
+                        <!-- Status -->
+                        <div class="row">
+                            <div class="col col-sm-2">
+                                <label for="{{ form.status.id_for_label }}" class="col-form-label">{{ form.status.label }}</label>
+                            </div>
+                            <div class="col col-sm-2">{{ form.status }}</div>
+                            <div class="col col-sm">{{ form.status.errors }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Actions</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Cancel button -->
+                            <div class="col col-sm-2">
+                                <a href="{% url 'website.dhcp_option_ipv4.list' %}" class="btn btn-secondary col-sm" >Cancel</a>
+                            </div>
+                            <!-- Save button -->
+                            <div class="col col-sm-2">
+                                <input class="btn btn-primary col-sm" type="submit" value="Save">
+                            </div>
+{% if object.pk %}
+                            <!-- Delete button -->
+                            <div class="col col-sm-2">
+                                <a href="{% url 'website.dhcp_option_ipv4.delete' pk=object.pk %}" class="btn btn-danger col-sm">Delete</a>
+                            </div>
+{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -30,6 +30,11 @@ from website.views.actions.delete import ActionsDeleteView
 from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
+from website.views.dhcp_option_ipv4.create import DhcpOptionIpV4CreateView
+from website.views.dhcp_option_ipv4.delete import DhcpOptionIpV4DeleteView
+from website.views.dhcp_option_ipv4.detail import DhcpOptionIpV4DetailView
+from website.views.dhcp_option_ipv4.list import DhcpOptionIpV4ListView
+
 from website.views.dhcp_option_types.create import DhcpOptionTypesCreateView
 from website.views.dhcp_option_types.delete import DhcpOptionTypesDeleteView
 from website.views.dhcp_option_types.detail import DhcpOptionTypesDetailView
@@ -161,6 +166,23 @@ urlpatterns.append(path(route='dhcp_options/delete/<int:pk>',
 urlpatterns.append(path(route='dhcp_options/create',
                         view=DhcpOptionsCreateView.as_view(),
                         name='website.dhcp_options.create'))
+
+# DHCP option IPv4 addresses list page
+urlpatterns.append(path(route='dhcp_option_ipv4/list',
+                        view=DhcpOptionIpV4ListView.as_view(),
+                        name='website.dhcp_option_ipv4.list'))
+# DHCP option IPv4 addresses detail page
+urlpatterns.append(path(route='dhcp_option_ipv4/detail/<int:pk>',
+                        view=DhcpOptionIpV4DetailView.as_view(),
+                        name='website.dhcp_option_ipv4.detail'))
+# DHCP option IPv4 addresses delete page
+urlpatterns.append(path(route='dhcp_option_ipv4/delete/<int:pk>',
+                        view=DhcpOptionIpV4DeleteView.as_view(),
+                        name='website.dhcp_option_ipv4.delete'))
+# DHCP option IPv4 addresses create page
+urlpatterns.append(path(route='dhcp_option_ipv4/create',
+                        view=DhcpOptionIpV4CreateView.as_view(),
+                        name='website.dhcp_option_ipv4.create'))
 
 # DHCP option types list page
 urlpatterns.append(path(route='dhcp_option_types/list',

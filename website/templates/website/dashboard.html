@@ -31,6 +31,8 @@
     <div class="row">
         {% url 'website.dhcp_options.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP options' items=dhcp_options url=destination_url tint='primary' %}
+        {% url 'website.dhcp_option_ipv4.list' as destination_url %}
+        {% include 'website/includes/dashboard/section_card.html' with title='DHCP option IPv4 addresses' items=dhcp_option_ipv4 url=destination_url tint='primary' %}
         {% url 'website.dhcp_option_types.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP option types' items=dhcp_option_types url=destination_url tint='primary' %}
         {% url 'website.dhcp_ranges.list' as destination_url %}

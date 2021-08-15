@@ -40,6 +40,11 @@ from website.views.dhcp_ranges.delete import DhcpRangesDeleteView
 from website.views.dhcp_ranges.detail import DhcpRangesDetailView
 from website.views.dhcp_ranges.list import DhcpRangesListView
 
+from website.views.dhcp_tags.create import DhcpTagsCreateView
+from website.views.dhcp_tags.delete import DhcpTagsDeleteView
+from website.views.dhcp_tags.detail import DhcpTagsDetailView
+from website.views.dhcp_tags.list import DhcpTagsListView
+
 from website.views.domains.create import DomainsCreateView
 from website.views.domains.delete import DomainsDeleteView
 from website.views.domains.detail import DomainsDetailView
@@ -168,6 +173,23 @@ urlpatterns.append(path(route='dhcp_ranges/delete/<int:pk>',
 urlpatterns.append(path(route='dhcp_ranges/create',
                         view=DhcpRangesCreateView.as_view(),
                         name='website.dhcp_ranges.create'))
+
+# DHCP tags list page
+urlpatterns.append(path(route='dhcp_tags/list',
+                        view=DhcpTagsListView.as_view(),
+                        name='website.dhcp_tags.list'))
+# DHCP tags detail page
+urlpatterns.append(path(route='dhcp_tags/detail/<int:pk>',
+                        view=DhcpTagsDetailView.as_view(),
+                        name='website.dhcp_tags.detail'))
+# DHCP tags delete page
+urlpatterns.append(path(route='dhcp_tags/delete/<int:pk>',
+                        view=DhcpTagsDeleteView.as_view(),
+                        name='website.dhcp_tags.delete'))
+# DHCP tags create page
+urlpatterns.append(path(route='dhcp_tags/create',
+                        view=DhcpTagsCreateView.as_view(),
+                        name='website.dhcp_tags.create'))
 
 # Listening addresses list page
 urlpatterns.append(path(route='listen_addresses/list',

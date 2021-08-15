@@ -24,6 +24,7 @@ from django.views.generic import TemplateView
 from dnsmasq.models import (Action,
                             DhcpOptionType,
                             DhcpRange,
+                            DhcpTag,
                             Domain,
                             Interface,
                             ListenAddress,
@@ -45,6 +46,7 @@ class DashboardView(RequireLoginMixin,
         context['actions'] = Action.objects.all()
         context['dhcp_option_types'] = DhcpOptionType.objects.all()
         context['dhcp_ranges'] = DhcpRange.objects.all()
+        context['dhcp_tags'] = DhcpTag.objects.all()
         context['domains'] = Domain.objects.all()
         context['interfaces'] = Interface.objects.all()
         context['listen_addresses'] = ListenAddress.objects.all()

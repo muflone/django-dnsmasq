@@ -77,7 +77,7 @@
 
 
             <!-- Nav Item - DHCP menu -->
-{% with settings_list='website.dhcp_ranges.list|website.dhcp_option_types.list' %}
+{% with settings_list='website.dhcp_ranges.list|website.dhcp_option_types.list|website.dhcp_tags.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse3">
                     <i class="fas fa-fw fa-address-book"></i>
@@ -88,6 +88,7 @@
                         <h6 class="collapse-header">DHCP configuration:</h6>
                         <a class="collapse-item{% if request_name == 'website.dhcp_option_types.list' %} active{% endif %}" href="{% url 'website.dhcp_option_types.list' %}">Option types</a>
                         <a class="collapse-item{% if request_name == 'website.dhcp_ranges.list' %} active{% endif %}" href="{% url 'website.dhcp_ranges.list' %}">Ranges</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp_tags.list' %} active{% endif %}" href="{% url 'website.dhcp_tags.list' %}">Tags</a>
                     </div>
                 </div>
             </li>

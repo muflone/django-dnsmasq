@@ -30,6 +30,11 @@ from website.views.actions.delete import ActionsDeleteView
 from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
+from website.views.dhcp_hosts.create import DhcpHostsCreateView
+from website.views.dhcp_hosts.delete import DhcpHostsDeleteView
+from website.views.dhcp_hosts.detail import DhcpHostsDetailView
+from website.views.dhcp_hosts.list import DhcpHostsListView
+
 from website.views.dhcp_option_ipv4.create import DhcpOptionIpV4CreateView
 from website.views.dhcp_option_ipv4.delete import DhcpOptionIpV4DeleteView
 from website.views.dhcp_option_ipv4.detail import DhcpOptionIpV4DetailView
@@ -149,6 +154,23 @@ urlpatterns.append(path(route='domains/delete/<int:pk>',
 urlpatterns.append(path(route='domains/create',
                         view=DomainsCreateView.as_view(),
                         name='website.domains.create'))
+
+# DHCP hosts list page
+urlpatterns.append(path(route='dhcp_hosts/list',
+                        view=DhcpHostsListView.as_view(),
+                        name='website.dhcp_hosts.list'))
+# DHCP hosts detail page
+urlpatterns.append(path(route='dhcp_hosts/detail/<int:pk>',
+                        view=DhcpHostsDetailView.as_view(),
+                        name='website.dhcp_hosts.detail'))
+# DHCP hosts delete page
+urlpatterns.append(path(route='dhcp_hosts/delete/<int:pk>',
+                        view=DhcpHostsDeleteView.as_view(),
+                        name='website.dhcp_hosts.delete'))
+# DHCP hosts create page
+urlpatterns.append(path(route='dhcp_hosts/create',
+                        view=DhcpHostsCreateView.as_view(),
+                        name='website.dhcp_hosts.create'))
 
 # DHCP options list page
 urlpatterns.append(path(route='dhcp_options/list',

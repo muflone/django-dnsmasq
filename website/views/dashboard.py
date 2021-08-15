@@ -22,6 +22,7 @@ from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 
 from dnsmasq.models import (Action,
+                            DhcpHost,
                             DhcpOption,
                             DhcpOptionIpV4,
                             DhcpOptionType,
@@ -46,6 +47,7 @@ class DashboardView(RequireLoginMixin,
         context = super().get_context_data(**kwargs)
         context['users'] = User.objects.all()
         context['actions'] = Action.objects.all()
+        context['dhcp_hosts'] = DhcpHost.objects.all()
         context['dhcp_options'] = DhcpOption.objects.all()
         context['dhcp_option_ipv4'] = DhcpOptionIpV4.objects.all()
         context['dhcp_option_types'] = DhcpOptionType.objects.all()

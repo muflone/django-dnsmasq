@@ -48,27 +48,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Actions</h6>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <!-- Cancel button -->
-                        <div class="col-sm-2">
-                            <a href="{% url 'website.domains.detail' pk=object.pk %}" class="btn btn-secondary col-sm">Cancel</a>
-                        </div>
-                        <!-- Save button -->
-                        <div class="col-sm-2">
-                            <form method="post">
-                                {% csrf_token %}
-                                {{ form.non_field_errors }}
-                                <input class="btn btn-danger col-sm" type="submit" value="Delete">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% url 'website.domains.detail' pk=object.pk as destination_url %}
+            {% include 'website/includes/crud/toolbar_delete.html' with url=destination_url %}
         </div>
     </div>
 {% endblock %}

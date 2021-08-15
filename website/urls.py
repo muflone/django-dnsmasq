@@ -30,6 +30,11 @@ from website.views.actions.delete import ActionsDeleteView
 from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
+from website.views.dhcp_option_types.create import DhcpOptionTypesCreateView
+from website.views.dhcp_option_types.delete import DhcpOptionTypesDeleteView
+from website.views.dhcp_option_types.detail import DhcpOptionTypesDetailView
+from website.views.dhcp_option_types.list import DhcpOptionTypesListView
+
 from website.views.dhcp_ranges.create import DhcpRangesCreateView
 from website.views.dhcp_ranges.delete import DhcpRangesDeleteView
 from website.views.dhcp_ranges.detail import DhcpRangesDetailView
@@ -129,6 +134,23 @@ urlpatterns.append(path(route='domains/delete/<int:pk>',
 urlpatterns.append(path(route='domains/create',
                         view=DomainsCreateView.as_view(),
                         name='website.domains.create'))
+
+# DHCP option types list page
+urlpatterns.append(path(route='dhcp_option_types/list',
+                        view=DhcpOptionTypesListView.as_view(),
+                        name='website.dhcp_option_types.list'))
+# DHCP option types detail page
+urlpatterns.append(path(route='dhcp_option_types/detail/<int:pk>',
+                        view=DhcpOptionTypesDetailView.as_view(),
+                        name='website.dhcp_option_types.detail'))
+# DHCP option types delete page
+urlpatterns.append(path(route='dhcp_option_types/delete/<int:pk>',
+                        view=DhcpOptionTypesDeleteView.as_view(),
+                        name='website.dhcp_option_types.delete'))
+# DHCP option types create page
+urlpatterns.append(path(route='dhcp_option_types/create',
+                        view=DhcpOptionTypesCreateView.as_view(),
+                        name='website.dhcp_option_types.create'))
 
 # DHCP ranges list page
 urlpatterns.append(path(route='dhcp_ranges/list',

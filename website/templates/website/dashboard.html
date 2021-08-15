@@ -29,6 +29,8 @@
         {% include 'website/includes/dashboard/section_card.html' with title='Domains' items=domains url=destination_url tint='primary' %}
     </div>
     <div class="row">
+        {% url 'website.dhcp_option_types.list' as destination_url %}
+        {% include 'website/includes/dashboard/section_card.html' with title='DHCP option types' items=dhcp_option_types url=destination_url tint='primary' %}
         {% url 'website.dhcp_ranges.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP ranges' items=dhcp_ranges url=destination_url tint='primary' %}
     </div>

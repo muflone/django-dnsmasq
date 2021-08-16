@@ -18,18 +18,23 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.contrib.auth.models import User
-from django.views.generic import ListView
-
-from website.views.enabled_disabled_mixin import EnabledDisabledMixin
-from website.views.generic import GenericMixin
-from website.views.require_login import RequireLoginMixin
+from django.views.generic.base import ContextMixin
 
 
-class UsersListView(RequireLoginMixin,
-                    EnabledDisabledMixin,
-                    GenericMixin,
-                    ListView):
-    model = User
-    template_name = 'website/users/list.html'
-    page_title = 'Users'
+class EnabledDisabledMixin(ContextMixin):
+    """Mixin with enabled and disabled rows"""
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(ContextMixin.get_context_data(self, **kwargs))
+        # Add objects_enabled using ObjectsEnabled or using filter
+        context['object_enabled_list'] = (
+            self.model.objects_enabled.all()
+            if hasattr(self.model, 'objects_enabled')
+            else self.model.objects.filter(is_active=True))
+        # Add objects_disabled using ObjectsDisabled or using filter
+        context['object_disabled_list'] = (
+            self.model.objects_disabled.all()
+            if hasattr(self.model, 'objects_disabled')
+            else self.model.objects.filter(is_active=False))
+        return context

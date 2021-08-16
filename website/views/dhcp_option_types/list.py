@@ -22,11 +22,13 @@ from django.views.generic import ListView
 
 from dnsmasq.models import DhcpOptionType
 
+from website.views.enabled_disabled_mixin import EnabledDisabledMixin
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
 class DhcpOptionTypesListView(RequireLoginMixin,
+                              EnabledDisabledMixin,
                               GenericMixin,
                               ListView):
     model = DhcpOptionType

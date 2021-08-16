@@ -21,7 +21,8 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
-from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
+from utility.models import (BaseModel, BaseModelAdmin,
+                            ManagerEnabled, ManagerDisabled)
 
 
 class DhcpRange(BaseModel):
@@ -59,6 +60,7 @@ class DhcpRange(BaseModel):
     # Set the managers for the model
     objects = models.Manager()
     objects_enabled = ManagerEnabled()
+    objects_disabled = ManagerDisabled()
 
     class Meta:
         # Define the database table

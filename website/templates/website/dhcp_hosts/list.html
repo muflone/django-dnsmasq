@@ -1,42 +1,6 @@
 {% extends 'website/base/base_admin.html' %}
-{% load static %}
 
 {% block content %}
-    <!-- Create new DHCP host -->
-    <div class="mb-4">
-        <a class="btn btn-primary" href="{% url 'website.dhcp_hosts.create' %}">Create new DHCP host</a>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Active DHCP hosts</h6>
-                </div>
-                <div class="card-body">
-  {% for item in object_list %}
-    {% if item.is_active %}
-      {% include 'website/includes/dhcp_hosts/list_detail.html' with item=item %}
-    {% endif %}
-  {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <div class="card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Inactive DHCP hosts</h6>
-                </div>
-                <div class="card-body">
-  {% for item in object_list %}
-    {% if not item.is_active %}
-      {% include 'website/includes/dhcp_hosts/list_detail.html' with item=item %}
-    {% endif %}
-  {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
+  {% url 'website.dhcp_hosts.create' as destination_url_create %}
+  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='DHCP host' list_detail_include='website/includes/dhcp_hosts/list_detail.html' %}
 {% endblock %}

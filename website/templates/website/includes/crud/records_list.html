@@ -1,0 +1,37 @@
+    <div class="mb-4">
+        <a class="btn btn-primary" href="{{ create_url }}">Create new {{ title }}</a>
+    </div>
+
+  {% if object_enabled_list %}
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Active</h6>
+                </div>
+                <div class="card-body">
+    {% for item in object_enabled_list %}
+      {% include list_detail_include with item=item %}
+    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+  {% if object_disabled_list %}
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Inactive</h6>
+                </div>
+                <div class="card-body">
+    {% for item in object_disabled_list %}
+      {% include list_detail_include with item=item %}
+    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endif %}

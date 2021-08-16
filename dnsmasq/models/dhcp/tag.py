@@ -21,7 +21,7 @@
 from django.db import models
 from django.utils.translation import pgettext_lazy
 
-from utility.models import BaseModel, BaseModelAdmin
+from utility.models import BaseModel, BaseModelAdmin, ManagerEnabled
 
 
 class DhcpTag(BaseModel):
@@ -43,6 +43,10 @@ class DhcpTag(BaseModel):
                                     verbose_name=pgettext_lazy(
                                         'DhcpTag',
                                         'active'))
+
+    # Set the managers for the model
+    objects = models.Manager()
+    objects_enabled = ManagerEnabled()
 
     class Meta:
         # Define the database table

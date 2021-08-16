@@ -33,6 +33,8 @@ from dnsmasq.models import (Action,
                             ListenAddress,
                             Option)
 
+from utility.misc import group_by_is_active
+
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
@@ -45,16 +47,16 @@ class DashboardView(RequireLoginMixin,
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['users'] = User.objects.all()
-        context['actions'] = Action.objects.all()
-        context['dhcp_hosts'] = DhcpHost.objects.all()
-        context['dhcp_options'] = DhcpOption.objects.all()
-        context['dhcp_option_ipv4'] = DhcpOptionIpV4.objects.all()
-        context['dhcp_option_types'] = DhcpOptionType.objects.all()
-        context['dhcp_ranges'] = DhcpRange.objects.all()
-        context['dhcp_tags'] = DhcpTag.objects.all()
-        context['domains'] = Domain.objects.all()
-        context['interfaces'] = Interface.objects.all()
-        context['listen_addresses'] = ListenAddress.objects.all()
-        context['options'] = Option.objects.all()
+        context['users'] = group_by_is_active(User)
+        context['actions'] = group_by_is_active(Action)
+        context['dhcp_hosts'] = group_by_is_active(DhcpHost)
+        context['dhcp_options'] = group_by_is_active(DhcpOption)
+        context['dhcp_option_ipv4'] = group_by_is_active(DhcpOptionIpV4)
+        context['dhcp_option_types'] = group_by_is_active(DhcpOptionType)
+        context['dhcp_ranges'] = group_by_is_active(DhcpRange)
+        context['dhcp_tags'] = group_by_is_active(DhcpTag)
+        context['domains'] = group_by_is_active(Domain)
+        context['interfaces'] = group_by_is_active(Interface)
+        context['listen_addresses'] = group_by_is_active(ListenAddress)
+        context['options'] = group_by_is_active(Option)
         return context

@@ -50,10 +50,10 @@ class Option(BaseModel):
                                         verbose_name=pgettext_lazy(
                                             'Option',
                                             'order'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'Option',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'Option',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

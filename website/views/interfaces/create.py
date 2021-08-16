@@ -32,7 +32,7 @@ class InterfacesCreateView(RequireLoginMixin,
                            CreateView):
     model = Interface
     fields = ['name', 'description', 'order',
-              'excluded', 'disable_dhcp', 'status']
+              'excluded', 'disable_dhcp', 'is_active']
     success_url = reverse_lazy('website.interfaces.list')
     template_name = 'website/interfaces/detail.html'
     page_title = 'Create new interface'

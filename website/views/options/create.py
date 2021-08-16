@@ -31,7 +31,7 @@ class OptionsCreateView(RequireLoginMixin,
                         GenericMixin,
                         CreateView):
     model = Option
-    fields = ['name', 'description', 'option', 'value', 'order', 'status']
+    fields = ['name', 'description', 'option', 'value', 'order', 'is_active']
     success_url = reverse_lazy('website.options.list')
     template_name = 'website/options/detail.html'
     page_title = 'Create new option'

@@ -31,7 +31,7 @@ class ActionsCreateView(RequireLoginMixin,
                         GenericMixin,
                         CreateView):
     model = Action
-    fields = ['name', 'description', 'action', 'order', 'status']
+    fields = ['name', 'description', 'action', 'order', 'is_active']
     success_url = reverse_lazy('website.actions.list')
     template_name = 'website/actions/detail.html'
     page_title = 'Create new action'

@@ -49,10 +49,10 @@ class Interface(BaseModel):
                                        verbose_name=pgettext_lazy(
                                            'Interface',
                                            'disable for DHCP'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'Interface',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'Interface',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

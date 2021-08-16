@@ -31,7 +31,7 @@ class DhcpOptionIpV4DetailView(RequireLoginMixin,
                                GenericMixin,
                                UpdateView):
     model = DhcpOptionIpV4
-    fields = ['option', 'address', 'order', 'status']
+    fields = ['option', 'address', 'order', 'is_active']
     success_url = reverse_lazy('website.dhcp_option_ipv4.list')
     template_name = 'website/dhcp_option_ipv4/detail.html'
     page_title = 'DHCP option IPv4 address detail'

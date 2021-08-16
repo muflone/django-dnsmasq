@@ -31,7 +31,7 @@ class ListenAddressesCreateView(RequireLoginMixin,
                                 GenericMixin,
                                 CreateView):
     model = ListenAddress
-    fields = ['address', 'description', 'order', 'status']
+    fields = ['address', 'description', 'order', 'is_active']
     success_url = reverse_lazy('website.listen_addresses.list')
     template_name = 'website/listen_addresses/detail.html'
     page_title = 'Create new listening address'

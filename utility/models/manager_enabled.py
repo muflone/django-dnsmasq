@@ -23,7 +23,7 @@ from django.db import models
 
 class ManagerEnabled(models.Manager):
     """
-    Filter the data with the enabled status only
+    Filter the data with the active status only
     """
     def get_queryset(self):
-        return super().get_queryset().filter(status=True)
+        return super().get_queryset().filter(is_active=True)

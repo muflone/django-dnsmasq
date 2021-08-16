@@ -39,10 +39,10 @@ class DhcpTag(BaseModel):
                                    verbose_name=pgettext_lazy(
                                        'DhcpTag',
                                        'description'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'DhcpTag',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'DhcpTag',
+                                        'active'))
 
     class Meta:
         # Define the database table

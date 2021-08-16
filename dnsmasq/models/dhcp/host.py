@@ -72,10 +72,10 @@ class DhcpHost(BaseModel):
                                   verbose_name=pgettext_lazy(
                                       'DhcpHost',
                                       'ignored'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'DhcpHost',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'DhcpHost',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

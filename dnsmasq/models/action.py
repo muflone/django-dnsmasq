@@ -46,10 +46,10 @@ class Action(BaseModel):
                                         verbose_name=pgettext_lazy(
                                             'Action',
                                             'order'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'Action',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'Action',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

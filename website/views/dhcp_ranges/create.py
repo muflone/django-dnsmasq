@@ -32,7 +32,7 @@ class DhcpRangesCreateView(RequireLoginMixin,
                            CreateView):
     model = DhcpRange
     fields = ['name', 'description', 'order',
-              'starting_ip', 'ending_ip', 'lease_time', 'status']
+              'starting_ip', 'ending_ip', 'lease_time', 'is_active']
     success_url = reverse_lazy('website.dhcp_ranges.list')
     template_name = 'website/dhcp_ranges/detail.html'
     page_title = 'Create new DHCP range'

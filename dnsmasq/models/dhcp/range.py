@@ -51,10 +51,10 @@ class DhcpRange(BaseModel):
                                              verbose_name=pgettext_lazy(
                                                  'DhcpRange',
                                                  'lease time'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'DhcpRange',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'DhcpRange',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

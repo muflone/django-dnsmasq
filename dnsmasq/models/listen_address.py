@@ -41,10 +41,10 @@ class ListenAddress(BaseModel):
                                         verbose_name=pgettext_lazy(
                                             'ListenAddress',
                                             'order'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'ListenAddress',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'ListenAddress',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

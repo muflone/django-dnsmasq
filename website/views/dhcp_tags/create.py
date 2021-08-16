@@ -31,7 +31,7 @@ class DhcpTagsCreateView(RequireLoginMixin,
                          GenericMixin,
                          CreateView):
     model = DhcpTag
-    fields = ['name', 'description', 'status']
+    fields = ['name', 'description', 'is_active']
     success_url = reverse_lazy('website.dhcp_tags.list')
     template_name = 'website/dhcp_tags/detail.html'
     page_title = 'Create new DHCP tag'

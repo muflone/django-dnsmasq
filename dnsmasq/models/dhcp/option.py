@@ -59,10 +59,10 @@ class DhcpOption(BaseModel):
                                  verbose_name=pgettext_lazy(
                                      'DhcpOption',
                                      'forced'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'DhcpOption',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'DhcpOption',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

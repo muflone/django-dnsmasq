@@ -33,7 +33,7 @@ class DhcpHostsDetailView(RequireLoginMixin,
     model = DhcpHost
     fields = ['name', 'description',
               'mac_address', 'address', 'hostname', 'lease_time',
-              'tag', 'ignored', 'status']
+              'tag', 'ignored', 'is_active']
     success_url = reverse_lazy('website.dhcp_hosts.list')
     template_name = 'website/dhcp_hosts/detail.html'
     page_title = 'DHCP host detail'

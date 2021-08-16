@@ -42,10 +42,10 @@ class DhcpOptionIpV4(BaseModel):
                                         verbose_name=pgettext_lazy(
                                             'DhcpOptionIpV4',
                                             'order'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'DhcpOptionIpV4',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'DhcpOptionIpV4',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()
@@ -72,4 +72,4 @@ class DhcpOptionIpV4InlineAdmin(admin.TabularInline):
     Admin Inline to show children rows for DhcpOptionIpV4
     """
     model = DhcpOptionIpV4
-    fields = ('address', 'order', 'status')
+    fields = ('address', 'order', 'is_active')

@@ -34,7 +34,7 @@ class DomainsDetailView(RequireLoginMixin,
     fields = ['name', 'description', 'order',
               'subnet_ip', 'subnet_cidr',
               'starting_ip', 'ending_ip',
-              'status']
+              'is_active']
     success_url = reverse_lazy('website.domains.list')
     template_name = 'website/domains/detail.html'
     page_title = 'Domain detail'

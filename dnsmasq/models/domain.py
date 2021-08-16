@@ -60,10 +60,10 @@ class Domain(BaseModel):
                                              verbose_name=pgettext_lazy(
                                                  'Domain',
                                                  'ending IP range'))
-    status = models.BooleanField(default=True,
-                                 verbose_name=pgettext_lazy(
-                                     'Domain',
-                                     'status'))
+    is_active = models.BooleanField(default=True,
+                                    verbose_name=pgettext_lazy(
+                                        'Domain',
+                                        'active'))
 
     # Set the managers for the model
     objects = models.Manager()

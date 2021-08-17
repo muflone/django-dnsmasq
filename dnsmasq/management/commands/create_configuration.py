@@ -140,7 +140,7 @@ class Command(BaseCommand):
             if queryset := ListenAddress.objects_enabled.all():
                 add_header('Listening addresses')
                 for item in queryset.order_by('order'):
-                    add_description(item.name, item.description)
+                    add_description(item.address, item.description)
                     file.write(f'listen-address={item.address}\n')
             # Actions
             if queryset := Action.objects_enabled.all():

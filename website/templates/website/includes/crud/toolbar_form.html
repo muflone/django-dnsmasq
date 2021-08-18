@@ -1,0 +1,17 @@
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Actions</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+{% block before_save %}
+{% endblock %}
+                            <!-- Save button -->
+                            <div class="col-sm-2">
+                                <input class="btn btn-primary col-sm" type="submit" value="Save">
+                            </div>
+{% block after_save %}
+{% endblock %}
+                        </div>
+                    </div>
+                </div>

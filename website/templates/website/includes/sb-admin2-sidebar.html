@@ -98,6 +98,21 @@
 {% endwith %}
 
             <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Tools
+            </div>
+
+            <!-- Nav Item - Configuration -->
+            <li class="nav-item{% if request_name == 'website.tools.configuration' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.tools.configuration' %}">
+                    <i class="fas fa-fw fa-file-import"></i>
+                    <span>Generate configuration</span></a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

@@ -80,6 +80,8 @@ from website.views.options.delete import OptionsDeleteView
 from website.views.options.detail import OptionsDetailView
 from website.views.options.list import OptionsListView
 
+from website.views.tools.configuration import ConfigurationView
+
 from website.views.users.create import UsersCreateView
 from website.views.users.delete import UsersDeleteView
 from website.views.users.detail import UsersDetailView
@@ -307,3 +309,8 @@ urlpatterns.append(path(route='options/delete/<int:pk>',
 urlpatterns.append(path(route='options/create',
                         view=OptionsCreateView.as_view(),
                         name='website.options.create'))
+
+# Configuration generator page
+urlpatterns.append(path(route='tools/configuration',
+                        view=ConfigurationView.as_view(),
+                        name='website.tools.configuration'))

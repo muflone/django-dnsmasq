@@ -14,7 +14,7 @@
         {% include 'website/includes/dashboard/section_card.html' with title='Actions' items=actions url=destination_url tint='secondary' icon='fa-cog' %}
 
         {% url 'website.options.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='secondary' icon='fa-wrench' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='secondary' icon='fa-ellipsis-h' %}
     </div>
 
     {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='DNSmasq components' %}
@@ -34,7 +34,7 @@
         {% url 'website.dhcp_options.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP options' items=dhcp_options url=destination_url tint='primary' icon='fa-toggle-on' %}
         {% url 'website.dhcp_option_ipv4.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='DHCP option IPv4 addresses' items=dhcp_option_ipv4 url=destination_url tint='primary' icon='fa-bars' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='DHCP option IPv4 addresses' items=dhcp_option_ipv4 url=destination_url tint='primary' icon='fa-exchange-alt' %}
         {% url 'website.dhcp_option_types.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP option types' items=dhcp_option_types url=destination_url tint='primary' icon='fa-shapes' %}
         {% url 'website.dhcp_ranges.list' as destination_url %}

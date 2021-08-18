@@ -61,7 +61,7 @@
 {% with settings_list='website.interfaces.list|website.listen_addresses.list|website.domains.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse2">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-fw fa-cubes"></i>
                     <span>Components</span>
                 </a>
                 <div id="collapse2" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
@@ -75,12 +75,11 @@
             </li>
 {% endwith %}
 
-
             <!-- Nav Item - DHCP menu -->
 {% with settings_list='website.dhcp_hosts.list|website.dhcp_options.list|website.dhcp_option_ipv4.list|website.dhcp_option_types.list|website.dhcp_ranges.list|website.dhcp_tags.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse3">
-                    <i class="fas fa-fw fa-address-book"></i>
+                    <i class="fas fa-fw fa-atlas"></i>
                     <span>DHCP setup</span>
                 </a>
                 <div id="collapse3" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">

@@ -18,7 +18,20 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-MAC_ADDRESS_ZEROS = '00:00:00:00:00:00'
-MAC_ADDRESS_ANY = '*:*:*:*:*:*'
+from django.urls import reverse_lazy
+from django.views.generic import UpdateView
 
-SETTING_CONFIGURATION_PATH = 'configuration_path'
+from dnsmasq.models import Setting
+
+from website.views.generic import GenericMixin
+from website.views.require_login import RequireLoginMixin
+
+
+class SettingsDetailView(RequireLoginMixin,
+                        GenericMixin,
+                        UpdateView):
+    model = Setting
+    fields = ['name', 'description', 'value', 'is_active']
+    success_url = reverse_lazy('website.settings.list')
+    template_name = 'website/settings/detail.html'
+    page_title = 'Setting detail'

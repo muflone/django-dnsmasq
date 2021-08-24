@@ -1,0 +1,6 @@
+{% extends 'website/base/base_admin.html' %}
+
+{% block content %}
+  {% url 'website.settings.create' as destination_url_create %}
+  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='setting' list_detail_include='website/includes/settings/list_detail.html' %}
+{% endblock %}

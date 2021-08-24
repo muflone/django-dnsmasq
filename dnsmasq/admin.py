@@ -31,7 +31,8 @@ from .models import (Action, ActionAdmin,
                      Domain, DomainAdmin,
                      Interface, InterfaceAdmin,
                      ListenAddress, ListenAddressAdmin,
-                     Option, OptionAdmin)
+                     Option, OptionAdmin,
+                     Setting, SettingAdmin)
 
 
 admin.site.register(Action, ActionAdmin)
@@ -46,3 +47,4 @@ admin.site.register(Domain, DomainAdmin)
 admin.site.register(Interface, InterfaceAdmin)
 admin.site.register(ListenAddress, ListenAddressAdmin)
 admin.site.register(Option, OptionAdmin)
+admin.site.register(Setting, SettingAdmin)

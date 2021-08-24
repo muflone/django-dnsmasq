@@ -31,7 +31,8 @@ from dnsmasq.models import (Action,
                             Domain,
                             Interface,
                             ListenAddress,
-                            Option)
+                            Option,
+                            Setting)
 
 from utility.misc import group_by_is_active
 
@@ -59,4 +60,5 @@ class DashboardView(RequireLoginMixin,
         context['interfaces'] = group_by_is_active(Interface)
         context['listen_addresses'] = group_by_is_active(ListenAddress)
         context['options'] = group_by_is_active(Option)
+        context['settings'] = group_by_is_active(Setting)
         return context

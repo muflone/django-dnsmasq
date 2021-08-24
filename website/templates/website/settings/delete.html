@@ -1,0 +1,33 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Setting details</h6>
+                </div>
+                <div class="card-body">
+                    <!-- Name -->
+                    <div class="row">
+                        <div class="col-sm-2 col-form-label">Name</div>
+                        <div class="col-sm-2">{{ object.name }}</div>
+                    </div>
+                    <!-- Description -->
+                    <div class="row">
+                        <div class="col-sm-2 col-form-label">Description</div>
+                        <div class="col-sm-2">{{ object.description }}</div>
+                    </div>
+                    <!-- Value -->
+                    <div class="row">
+                        <div class="col-sm-2 col-form-label">Value</div>
+                        <div class="col-sm-2">{{ object.value }}</div>
+                    </div>
+                </div>
+            </div>
+            {% url 'website.settings.detail' pk=object.pk as destination_url %}
+            {% include 'website/includes/crud/toolbar_delete.html' with url=destination_url %}
+        </div>
+    </div>
+{% endblock %}

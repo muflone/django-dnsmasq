@@ -82,6 +82,11 @@ from website.views.options.delete import OptionsDeleteView
 from website.views.options.detail import OptionsDetailView
 from website.views.options.list import OptionsListView
 
+from website.views.settings.create import SettingsCreateView
+from website.views.settings.delete import SettingsDeleteView
+from website.views.settings.detail import SettingsDetailView
+from website.views.settings.list import SettingsListView
+
 from website.views.users.create import UsersCreateView
 from website.views.users.delete import UsersDeleteView
 from website.views.users.detail import UsersDetailView
@@ -309,6 +314,23 @@ urlpatterns.append(path(route='options/delete/<int:pk>',
 urlpatterns.append(path(route='options/create',
                         view=OptionsCreateView.as_view(),
                         name='website.options.create'))
+
+# Settings list page
+urlpatterns.append(path(route='settings/list',
+                        view=SettingsListView.as_view(),
+                        name='website.settings.list'))
+# Settings detail page
+urlpatterns.append(path(route='settings/detail/<int:pk>',
+                        view=SettingsDetailView.as_view(),
+                        name='website.settings.detail'))
+# Settings delete page
+urlpatterns.append(path(route='settings/delete/<int:pk>',
+                        view=SettingsDeleteView.as_view(),
+                        name='website.settings.delete'))
+# Settings create page
+urlpatterns.append(path(route='settings/create',
+                        view=SettingsCreateView.as_view(),
+                        name='website.settings.create'))
 
 # Configuration display page
 urlpatterns.append(path(route='configuration/display',

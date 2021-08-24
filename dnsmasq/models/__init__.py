@@ -37,3 +37,4 @@ from .domain import Domain, DomainAdmin                            # noqa: F401
 from .interface import Interface, InterfaceAdmin                   # noqa: F401
 from .listen_address import ListenAddress, ListenAddressAdmin      # noqa: F401
 from .option import Option, OptionAdmin                            # noqa: F401
+from .setting import Setting, SettingAdmin                         # noqa: F401

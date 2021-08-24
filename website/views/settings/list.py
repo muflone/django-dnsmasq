@@ -18,7 +18,19 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-MAC_ADDRESS_ZEROS = '00:00:00:00:00:00'
-MAC_ADDRESS_ANY = '*:*:*:*:*:*'
+from django.views.generic import ListView
 
-SETTING_CONFIGURATION_PATH = 'configuration_path'
+from dnsmasq.models import Setting
+
+from website.views.enabled_disabled_mixin import EnabledDisabledMixin
+from website.views.generic import GenericMixin
+from website.views.require_login import RequireLoginMixin
+
+
+class SettingsListView(RequireLoginMixin,
+                       EnabledDisabledMixin,
+                       GenericMixin,
+                       ListView):
+    model = Setting
+    template_name = 'website/settings/list.html'
+    page_title = 'Settings'

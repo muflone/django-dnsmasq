@@ -17,8 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-MAC_ADDRESS_ZEROS = '00:00:00:00:00:00'
-MAC_ADDRESS_ANY = '*:*:*:*:*:*'
-
-SETTING_CONFIGURATION_PATH = 'configuration_path'

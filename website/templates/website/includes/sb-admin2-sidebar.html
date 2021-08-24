@@ -104,11 +104,12 @@
                 Tools
             </div>
 
-            <!-- Nav Item - Configuration -->
-            <li class="nav-item{% if request_name == 'website.configuration.configuration' %} active{% endif %}">
-                <a class="nav-link" href="{% url 'website.configuration.configuration' %}">
+            <!-- Nav Item - Tools -->
+            <li class="nav-item{% if request_name == 'website.configuration.display' %} active{% endif %}">
+                <!-- Nav Item - Display Configuration -->
+                <a class="nav-link" href="{% url 'website.configuration.display' %}">
                     <i class="fas fa-fw fa-file-import"></i>
-                    <span>Generate configuration</span></a>
+                    <span>Display configuration</span></a>
             </li>
 
             <!-- Divider -->

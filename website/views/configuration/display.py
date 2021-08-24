@@ -28,12 +28,12 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class ConfigurationView(RequireLoginMixin,
-                        GenericMixin,
-                        FormView):
+class ConfigurationDisplayView(RequireLoginMixin,
+                               GenericMixin,
+                               FormView):
     form_class = ConfigurationForm
-    template_name = 'website/tools/configuration.html'
-    page_title = 'Generate configuration'
+    template_name = 'website/configuration/display.html'
+    page_title = 'Display configuration'
 
     def form_valid(self, form):
         """

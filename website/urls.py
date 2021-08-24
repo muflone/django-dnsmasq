@@ -30,6 +30,8 @@ from website.views.actions.delete import ActionsDeleteView
 from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
+from website.views.configuration.display import ConfigurationDisplayView
+
 from website.views.dhcp_hosts.create import DhcpHostsCreateView
 from website.views.dhcp_hosts.delete import DhcpHostsDeleteView
 from website.views.dhcp_hosts.detail import DhcpHostsDetailView
@@ -79,8 +81,6 @@ from website.views.options.create import OptionsCreateView
 from website.views.options.delete import OptionsDeleteView
 from website.views.options.detail import OptionsDetailView
 from website.views.options.list import OptionsListView
-
-from website.views.configuration.configuration import ConfigurationView
 
 from website.views.users.create import UsersCreateView
 from website.views.users.delete import UsersDeleteView
@@ -310,7 +310,7 @@ urlpatterns.append(path(route='options/create',
                         view=OptionsCreateView.as_view(),
                         name='website.options.create'))
 
-# Configuration generator page
-urlpatterns.append(path(route='configuration/configuration',
-                        view=ConfigurationView.as_view(),
-                        name='website.configuration.configuration'))
+# Configuration display page
+urlpatterns.append(path(route='configuration/display',
+                        view=ConfigurationDisplayView.as_view(),
+                        name='website.configuration.display'))

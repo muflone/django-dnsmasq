@@ -22,7 +22,7 @@ from django.views.generic.edit import FormView
 
 from dnsmasq.misc.configuration_generator import ConfigurationGenerator
 
-from website.forms.configuration import ConfigurationForm
+from website.forms.configuration.display import ConfigurationDisplayForm
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -31,7 +31,7 @@ from website.views.require_login import RequireLoginMixin
 class ConfigurationDisplayView(RequireLoginMixin,
                                GenericMixin,
                                FormView):
-    form_class = ConfigurationForm
+    form_class = ConfigurationDisplayForm
     template_name = 'website/configuration/display.html'
     page_title = 'Display configuration'
 

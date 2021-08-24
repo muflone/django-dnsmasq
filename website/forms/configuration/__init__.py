@@ -17,10 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-from django import forms
-
-
-class ConfigurationForm(forms.Form):
-    include_descriptions = forms.BooleanField(label='Include descriptions',
-                                              required=False)

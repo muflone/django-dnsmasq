@@ -44,10 +44,8 @@
                 <div class="card-body">
                     <!-- Results -->
     {% for message in messages %}
-                    <div class="row">
-                        <div class="col-sm">
-                            {{ message }}
-                        </div>
+                    <div class="row card-body col-sm{% if message.tags == 'success' %} border-left-success{% endif %}">
+                        {{ message }}
                     </div>
     {% endfor %}
                 </div>

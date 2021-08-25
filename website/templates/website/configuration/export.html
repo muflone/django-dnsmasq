@@ -1,0 +1,58 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Options</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Options -->
+                        {{ form.configuration_path }}
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label class="col-form-label">{{ form.configuration_path.label }}</label>
+                            </div>
+                            <div class="col-sm-2 col-form-label">{{ form.configuration_path.value }}</div>
+                            <div class="col-sm">{{ form.configuration_path.errors }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="{{ form.include_descriptions.id_for_label }}" class="col-form-label">{{ form.include_descriptions.label }}</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.include_descriptions }}</div>
+                            <div class="col-sm">{{ form.include_descriptions.errors }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'website/includes/crud/toolbar_form.html' %}
+            </form>
+        </div>
+    </div>
+    {% if messages %}
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Results</h6>
+                </div>
+                <div class="card-body">
+                    <!-- Results -->
+    {% for message in messages %}
+                    <div class="row">
+                        <div class="col-sm">
+                            {{ message }}
+                        </div>
+                    </div>
+    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -31,6 +31,7 @@ from website.views.actions.detail import ActionsDetailView
 from website.views.actions.list import ActionsListView
 
 from website.views.configuration.display import ConfigurationDisplayView
+from website.views.configuration.export import ConfigurationExportView
 
 from website.views.dhcp_hosts.create import DhcpHostsCreateView
 from website.views.dhcp_hosts.delete import DhcpHostsDeleteView
@@ -336,3 +337,7 @@ urlpatterns.append(path(route='settings/create',
 urlpatterns.append(path(route='configuration/display',
                         view=ConfigurationDisplayView.as_view(),
                         name='website.configuration.display'))
+# Configuration export page
+urlpatterns.append(path(route='configuration/export',
+                        view=ConfigurationExportView.as_view(),
+                        name='website.configuration.export'))

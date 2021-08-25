@@ -112,6 +112,13 @@
                     <span>Display configuration</span></a>
             </li>
 
+            <!-- Nav Item - Export Configuration -->
+            <li class="nav-item{% if request_name == 'website.configuration.export' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.configuration.export' %}">
+                    <i class="fas fa-fw fa-file-export"></i>
+                    <span>Export configuration</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

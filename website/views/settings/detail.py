@@ -28,8 +28,8 @@ from website.views.require_login import RequireLoginMixin
 
 
 class SettingsDetailView(RequireLoginMixin,
-                        GenericMixin,
-                        UpdateView):
+                         GenericMixin,
+                         UpdateView):
     model = Setting
     fields = ['name', 'description', 'value', 'is_active']
     success_url = reverse_lazy('website.settings.list')

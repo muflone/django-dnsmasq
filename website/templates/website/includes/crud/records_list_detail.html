@@ -1,0 +1,18 @@
+                    <div class="row">
+                        <div class="col-sm-3">
+{% block column_first %}
+{% endblock %}
+                        </div>
+
+{% block column_middle %}
+{% endblock %}
+
+                        <div class="col-sm">
+{% block column_last %}
+                            {{ item.description }}
+{% endblock %}
+                        </div>
+                    </div>
+{% if not last %}
+                    <hr />
+{% endif %}

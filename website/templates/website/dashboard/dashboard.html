@@ -31,12 +31,21 @@
         {% include 'website/dashboard/section_card.html' with title='DHCP tags' items=dhcp_tags url=destination_url tint='primary' icon='fa-tags' %}
     </div>
 
+    {% include 'website/dashboard/section_header.html' with title='Tools' %}
+    <div class="row">
+        {% url 'website.configuration.display' as destination_url %}
+        {% include 'website/dashboard/section_card.html' with title='Display configuration' url=destination_url tint='success' icon='fa-file-import' %}
+
+        {% url 'website.configuration.export' as destination_url %}
+        {% include 'website/dashboard/section_card.html' with title='Export configuration' url=destination_url tint='success' icon='fa-file-export' %}
+    </div>
+
     {% include 'website/dashboard/section_header.html' with title='System configuration' %}
     <div class="row">
         {% url 'website.users.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Users' items=users url=destination_url tint='success' icon='fa-user' %}
+        {% include 'website/dashboard/section_card.html' with title='Users' items=users url=destination_url tint='secondary' icon='fa-user' %}
 
         {% url 'website.settings.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='success' icon='fa-bolt' %}
+        {% include 'website/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='secondary' icon='fa-bolt' %}
     </div>
 {% endblock %}

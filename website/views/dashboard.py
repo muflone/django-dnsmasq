@@ -42,7 +42,7 @@ from website.views.require_login import RequireLoginMixin
 class DashboardView(RequireLoginMixin,
                     GenericMixin,
                     TemplateView):
-    template_name = 'website/dashboard.html'
+    template_name = 'website/dashboard/dashboard.html'
     page_title = 'Dashboard'
 
     def get_context_data(self, **kwargs):

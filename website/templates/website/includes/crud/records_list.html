@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
     {% for item in object_enabled_list %}
-      {% include list_detail_include with item=item %}
+      {% include list_detail_include with item=item last=forloop.last %}
     {% endfor %}
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
     {% for item in object_disabled_list %}
-      {% include list_detail_include with item=item %}
+      {% include list_detail_include with item=item last=forloop.last %}
     {% endfor %}
                 </div>
             </div>

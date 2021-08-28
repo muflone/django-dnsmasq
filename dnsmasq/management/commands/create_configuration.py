@@ -44,13 +44,20 @@ class Command(BaseCommand):
                             help=pgettext_lazy(
                                 'CreateConfiguration',
                                 'Include descriptions'))
+        parser.add_argument('--disabled',
+                            action='store_true',
+                            required=False,
+                            help=pgettext_lazy(
+                                'CreateConfiguration',
+                                'Show disabled options'))
 
     def handle(self, *args, **options) -> None:
         """
         Create configuration file
         """
         configuration = ConfigurationGenerator(
-            include_descriptions=options['descriptions'])
+            include_descriptions=options['descriptions'],
+            include_disabled=options['disabled'])
         # Save configuration
         with open(options['filename'], mode='w') as file:
             file.write(configuration.process())

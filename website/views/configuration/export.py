@@ -50,7 +50,8 @@ class ConfigurationExportView(RequireLoginMixin,
         if setting_value:
             # Export configuration
             configuration_generator = ConfigurationGenerator(
-                include_descriptions=form.cleaned_data['include_descriptions'])
+                include_descriptions=form.cleaned_data['include_descriptions'],
+                show_disabled=form.cleaned_data['show_disabled'])
             with open(setting_value, 'w') as file:
                 file.write(configuration_generator.process())
             # Add status message

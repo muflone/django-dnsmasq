@@ -43,7 +43,8 @@ class ConfigurationDisplayView(RequireLoginMixin,
         :return: HttpResponse object
         """
         configuration_generator = ConfigurationGenerator(
-            include_descriptions=form.cleaned_data['include_descriptions'])
+            include_descriptions=form.cleaned_data['include_descriptions'],
+            show_disabled=form.cleaned_data['show_disabled'])
         results = configuration_generator.process()
         return self.render_to_response(
             self.get_context_data(results=results))

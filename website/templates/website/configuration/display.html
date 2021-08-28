@@ -20,6 +20,13 @@
                             <div class="col-sm-2">{{ form.include_descriptions }}</div>
                             <div class="col-sm">{{ form.include_descriptions.errors }}</div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="{{ form.show_disabled.id_for_label }}" class="col-form-label">{{ form.show_disabled.label }}</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.show_disabled }}</div>
+                            <div class="col-sm">{{ form.show_disabled.errors }}</div>
+                        </div>
                     </div>
                 </div>
                 {% include 'website/includes/crud/toolbar_form.html' %}

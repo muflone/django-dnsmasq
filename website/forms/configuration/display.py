@@ -24,3 +24,5 @@ from django import forms
 class ConfigurationDisplayForm(forms.Form):
     include_descriptions = forms.BooleanField(label='Include descriptions',
                                               required=False)
+    show_disabled = forms.BooleanField(label='Show disabled options',
+                                       required=False)

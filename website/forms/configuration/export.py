@@ -28,6 +28,8 @@ from utility.misc.get_setting_value import get_setting_value
 class ConfigurationExportForm(forms.Form):
     include_descriptions = forms.BooleanField(label='Include descriptions',
                                               required=False)
+    show_disabled = forms.BooleanField(label='Show disabled options',
+                                       required=False)
     configuration_path = forms.CharField(label='Configuration path',
                                          required=False,
                                          widget=forms.HiddenInput)

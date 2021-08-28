@@ -2,5 +2,5 @@
 
 {% block content %}
   {% url 'website.interfaces.create' as destination_url_create %}
-  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='interface' list_detail_include='website/includes/interfaces/list_detail.html' %}
+  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='interface' list_detail_include='website/interfaces/list_detail.html' %}
 {% endblock %}

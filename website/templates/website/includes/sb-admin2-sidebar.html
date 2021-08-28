@@ -22,32 +22,10 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                System configuration
-            </div>
-
-            <!-- Nav Item - Users -->
-            <li class="nav-item{% if request_name == 'website.users.list' %} active{% endif %}">
-                <a class="nav-link" href="{% url 'website.users.list' %}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Users</span></a>
-            </li>
-
-            <!-- Nav Item - Settings -->
-            <li class="nav-item{% if request_name == 'website.settings.list' %} active{% endif %}">
-                <a class="nav-link" href="{% url 'website.settings.list' %}">
-                    <i class="fas fa-fw fa-bolt"></i>
-                    <span>Settings</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
                 Server configuration
             </div>
 
-            <!-- Nav Item - DNSmasq menu -->
+            <!-- Nav Item - DNSmasq components menu -->
 {% with settings_list='website.options.list|website.interfaces.list|website.listen_addresses.list|website.domains.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse2">
@@ -66,7 +44,7 @@
             </li>
 {% endwith %}
 
-            <!-- Nav Item - DHCP menu -->
+            <!-- Nav Item - DNSmasq DHCP menu -->
 {% with settings_list='website.dhcp_hosts.list|website.dhcp_options.list|website.dhcp_option_ipv4.list|website.dhcp_option_types.list|website.dhcp_ranges.list|website.dhcp_tags.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse3">
@@ -110,9 +88,31 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                System configuration
+            </div>
+
+            <!-- Nav Item - Users -->
+            <li class="nav-item{% if request_name == 'website.users.list' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.users.list' %}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span></a>
+            </li>
+
+            <!-- Nav Item - Settings -->
+            <li class="nav-item{% if request_name == 'website.settings.list' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.settings.list' %}">
+                    <i class="fas fa-fw fa-bolt"></i>
+                    <span>Settings</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>

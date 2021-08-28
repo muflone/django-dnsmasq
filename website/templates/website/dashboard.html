@@ -2,15 +2,6 @@
 {% load static %}
 
 {% block content %}
-    {% include 'website/includes/dashboard/section_header.html' with has_splitter=False title='System configuration' %}
-    <div class="row">
-        {% url 'website.users.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Users' items=users url=destination_url tint='success' icon='fa-user' %}
-
-        {% url 'website.settings.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='success' icon='fa-bolt' %}
-    </div>
-
     {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='Server configuration' %}
     <div class="row">
         {% url 'website.options.list' as destination_url %}
@@ -38,5 +29,14 @@
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP ranges' items=dhcp_ranges url=destination_url tint='primary' icon='fa-sliders-h' %}
         {% url 'website.dhcp_tags.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='DHCP tags' items=dhcp_tags url=destination_url tint='primary' icon='fa-tags' %}
+    </div>
+
+    {% include 'website/includes/dashboard/section_header.html' with has_splitter=False title='System configuration' %}
+    <div class="row">
+        {% url 'website.users.list' as destination_url %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Users' items=users url=destination_url tint='success' icon='fa-user' %}
+
+        {% url 'website.settings.list' as destination_url %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='success' icon='fa-bolt' %}
     </div>
 {% endblock %}

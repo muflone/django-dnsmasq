@@ -1,6 +1,0 @@
-{% extends 'website/base/base_admin.html' %}
-
-{% block content %}
-  {% url 'website.actions.create' as destination_url_create %}
-  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='action' list_detail_include='website/includes/actions/list_detail.html' %}
-{% endblock %}

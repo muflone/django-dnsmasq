@@ -19,8 +19,7 @@
 ##
 
 from dnsmasq.constants import MAC_ADDRESS_ZEROS, MAC_ADDRESS_ANY
-from dnsmasq.models import (Action,
-                            DhcpHost,
+from dnsmasq.models import (DhcpHost,
                             DhcpOption,
                             DhcpOptionType,
                             DhcpRange,
@@ -131,20 +130,18 @@ class ConfigurationGenerator(object):
                 results.append(self.add_description(item.address,
                                                     item.description))
                 results.append(f'listen-address={item.address}')
-        # Actions
-        if queryset := Action.objects_enabled.all():
-            results.append(self.add_header('Actions'))
-            for item in queryset.order_by('order'):
-                results.append(self.add_description(item.name,
-                                                    item.description))
-                results.append(f'{item.action}')
         # Options
         if queryset := Option.objects_enabled.all():
             results.append(self.add_header('Options'))
             for item in queryset.order_by('order'):
                 results.append(self.add_description(item.name,
                                                     item.description))
-                results.append(f'{item.option}={item.value}')
+                if len(item.value):
+                    # Option with value
+                    results.append(f'{item.option}={item.value}')
+                else:
+                    # Option with no value
+                    results.append(f'{item.option}')
         # Domains
         if queryset := Domain.objects_enabled.all():
             results.append(self.add_header('Domains'))

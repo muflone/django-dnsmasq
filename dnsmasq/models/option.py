@@ -43,6 +43,7 @@ class Option(BaseModel):
                                   'Option',
                                   'option'))
     value = models.CharField(max_length=255,
+                             blank=True,
                              verbose_name=pgettext_lazy(
                                  'Option',
                                  'value'))

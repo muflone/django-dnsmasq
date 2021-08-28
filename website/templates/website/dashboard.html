@@ -6,22 +6,16 @@
     <div class="row">
         {% url 'website.users.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='Users' items=users url=destination_url tint='success' icon='fa-user' %}
-    </div>
-
-    {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='Server settings' %}
-    <div class="row">
-        {% url 'website.actions.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Actions' items=actions url=destination_url tint='secondary' icon='fa-bolt' %}
-
-        {% url 'website.options.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='secondary' icon='fa-ellipsis-h' %}
 
         {% url 'website.settings.list' as destination_url %}
-        {% include 'website/includes/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='secondary' icon='fa-cog' %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='success' icon='fa-bolt' %}
     </div>
 
-    {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='DNSmasq components' %}
+    {% include 'website/includes/dashboard/section_header.html' with has_splitter=True title='Server configuration' %}
     <div class="row">
+        {% url 'website.options.list' as destination_url %}
+        {% include 'website/includes/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='info' icon='fa-cogs' %}
+
         {% url 'website.interfaces.list' as destination_url %}
         {% include 'website/includes/dashboard/section_card.html' with title='Interfaces' items=interfaces url=destination_url tint='info' icon='fa-network-wired' %}
 

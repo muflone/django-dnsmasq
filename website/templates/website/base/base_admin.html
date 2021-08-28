@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +15,10 @@
     {% include 'website/includes/sb-admin2.html' with type='css' %}
     <!-- Custom styles -->
     <link href="{% static 'website/styles.css' %}" rel="stylesheet">
+    <!-- Scripts -->
+{% block header_js %}
+    {% include 'website/includes/font-awesome.html' with type='js' %}
+{% endblock %}
 </head>
 
 <body id="page-top">
@@ -121,7 +124,6 @@
     </div>
 
 {% block footer_js %}
-    {% include 'website/includes/font-awesome.html' with type='js' %}
     {% include 'website/includes/jquery.html' with type='js' %}
     {% include 'website/includes/jquery-easing.html' with type='js' %}
     {% include 'website/includes/bootstrap.html' with type='js' %}

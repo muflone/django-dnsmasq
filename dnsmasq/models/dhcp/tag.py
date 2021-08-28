@@ -52,7 +52,7 @@ class DhcpTag(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['name']
+        ordering = ['-is_active', 'name']
         verbose_name = pgettext_lazy('DhcpTag',
                                      'DHCP tag')
         verbose_name_plural = pgettext_lazy('DhcpTag',

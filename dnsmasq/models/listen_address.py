@@ -54,7 +54,7 @@ class ListenAddress(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['order', 'address']
+        ordering = ['order', '-is_active', 'address']
         verbose_name = pgettext_lazy('ListenAddress',
                                      'Listen address')
         verbose_name_plural = pgettext_lazy('ListenAddress',

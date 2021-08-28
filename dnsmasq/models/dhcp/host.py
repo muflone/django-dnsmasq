@@ -85,7 +85,7 @@ class DhcpHost(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['name']
+        ordering = ['-is_active', 'name']
         verbose_name = pgettext_lazy('DhcpHost',
                                      'DHCP host')
         verbose_name_plural = pgettext_lazy('DhcpHost',

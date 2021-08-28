@@ -62,7 +62,7 @@ class Interface(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['order', 'name']
+        ordering = ['order', '-is_active', 'name']
         verbose_name = pgettext_lazy('Interface',
                                      'Interface')
         verbose_name_plural = pgettext_lazy('Interface',

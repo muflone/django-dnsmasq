@@ -56,7 +56,7 @@ class Setting(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['name']
+        ordering = ['-is_active', 'name']
         verbose_name = pgettext_lazy('Setting',
                                      'Setting')
         verbose_name_plural = pgettext_lazy('Setting',

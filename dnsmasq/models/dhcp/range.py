@@ -64,7 +64,7 @@ class DhcpRange(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['order', 'name']
+        ordering = ['order', '-is_active', 'name']
         verbose_name = pgettext_lazy('DhcpRange',
                                      'DHCP range')
         verbose_name_plural = pgettext_lazy('DhcpRange',

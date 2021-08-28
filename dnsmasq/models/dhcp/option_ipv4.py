@@ -55,7 +55,7 @@ class DhcpOptionIpV4(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['option', 'order']
+        ordering = ['option', 'order', '-is_active']
         verbose_name = pgettext_lazy('DhcpOptionIpV4',
                                      'DHCP option IPv4 address')
         verbose_name_plural = pgettext_lazy('DhcpOptionIpV4',

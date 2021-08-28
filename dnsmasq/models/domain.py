@@ -73,7 +73,7 @@ class Domain(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['order', 'name']
+        ordering = ['order', '-is_active', 'name']
         verbose_name = pgettext_lazy('Domain',
                                      'Domain')
         verbose_name_plural = pgettext_lazy('Domain',

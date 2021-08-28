@@ -72,7 +72,7 @@ class DhcpOption(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['tag', 'option__option']
+        ordering = ['tag', '-is_active', 'option__option']
         unique_together = [['tag', 'option']]
         verbose_name = pgettext_lazy('DhcpOption',
                                      'DHCP option')

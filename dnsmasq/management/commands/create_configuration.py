@@ -55,20 +55,14 @@ class Command(BaseCommand):
         """
         Create configuration file
         """
-        configuration_generator = ConfigurationGenerator(
+        generator = ConfigurationGenerator(
             include_descriptions=options['descriptions'],
             show_disabled=options['disabled'])
         # Save configuration
         with open(options['filename'], mode='w') as file:
             results = []
-            results.extend(configuration_generator.process_headers())
-            results.extend(configuration_generator.process_options())
-            results.extend(configuration_generator.process_interfaces())
-            results.extend(configuration_generator.process_listen_addresses())
-            results.extend(configuration_generator.process_domains())
-            results.extend(configuration_generator.process_dhcp_ranges())
-            results.extend(configuration_generator.process_dhcp_options())
-            results.extend(configuration_generator.process_dhcp_hosts())
-            file.write(configuration_generator.format_results(results))
+            for method in generator.configuration_blocks_map.values():
+                results.extend(method())
+            file.write(generator.format_results(results))
             file.write('\n')
             file.write('\n')

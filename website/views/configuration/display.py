@@ -42,17 +42,11 @@ class ConfigurationDisplayView(RequireLoginMixin,
         :param form: form object
         :return: HttpResponse object
         """
-        configuration_generator = ConfigurationGenerator(
+        generator = ConfigurationGenerator(
             include_descriptions=form.cleaned_data['include_descriptions'],
             show_disabled=form.cleaned_data['show_disabled'])
         results = []
-        results.extend(configuration_generator.process_headers())
-        results.extend(configuration_generator.process_options())
-        results.extend(configuration_generator.process_interfaces())
-        results.extend(configuration_generator.process_listen_addresses())
-        results.extend(configuration_generator.process_domains())
-        results.extend(configuration_generator.process_dhcp_ranges())
-        results.extend(configuration_generator.process_dhcp_options())
-        results.extend(configuration_generator.process_dhcp_hosts())
+        for method in generator.configuration_blocks_map.values():
+            results.extend(method())
         return self.render_to_response(self.get_context_data(
-            results=configuration_generator.format_results(results)))
+            results=generator.format_results(results)))

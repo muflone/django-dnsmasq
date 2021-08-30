@@ -246,6 +246,9 @@ class ConfigurationGenerator(object):
             for item in queryset:
                 # Skip duplicated tags description
                 if last_tag_id != item.tag_id:
+                    # Add line separator between tags
+                    if last_tag_id is not None:
+                        results.append('')
                     results.append(self.add_description(item.tag.name,
                                                         item.tag.description))
                     last_tag_id = item.tag_id
@@ -266,6 +269,9 @@ class ConfigurationGenerator(object):
             for item in queryset:
                 # Skip duplicated tags description
                 if last_tag_id != item.tag_id:
+                    # Add line separator between tags
+                    if last_tag_id is not None:
+                        results.append('')
                     results.append(self.add_description(item.tag.name,
                                                         item.tag.description))
                     last_tag_id = item.tag_id

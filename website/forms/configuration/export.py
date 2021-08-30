@@ -30,6 +30,8 @@ class ConfigurationExportForm(forms.Form):
                                               required=False)
     show_disabled = forms.BooleanField(label='Show disabled options',
                                        required=False)
+    multiple_files = forms.BooleanField(label='Export in multiple files',
+                                        required=False)
     configuration_path = forms.CharField(label='Configuration path',
                                          required=False,
                                          widget=forms.HiddenInput)

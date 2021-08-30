@@ -23,6 +23,13 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-2">
+                                <label for="{{ form.multiple_files.id_for_label }}" class="col-form-label">{{ form.multiple_files.label }}</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.multiple_files }}</div>
+                            <div class="col-sm">{{ form.multiple_files.errors }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
                                 <label for="{{ form.include_descriptions.id_for_label }}" class="col-form-label">{{ form.include_descriptions.label }}</label>
                             </div>
                             <div class="col-sm-2">{{ form.include_descriptions }}</div>

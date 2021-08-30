@@ -33,11 +33,30 @@ from dnsmasq.models import (DhcpHost,
 
 from project import PRODUCT_NAME, VERSION
 
+SECTION_HEADERS = 'headers'
+SECTION_OPTIONS = 'options'
+SECTION_INTERFACES = 'interfaces'
+SECTION_LISTEN_ADDRESSES = 'listen_addresses'
+SECTION_DOMAINS = 'domains'
+SECTION_DHCP_RANGES = 'dhcp_ranges'
+SECTION_DHCP_OPTIONS = 'dhcp_options'
+SECTION_DHCP_HOSTS = 'dhcp_hosts'
+
 
 class ConfigurationGenerator(object):
     def __init__(self, include_descriptions: bool, show_disabled: bool):
         self.include_descriptions = include_descriptions
         self.show_disabled = show_disabled
+        self.configuration_blocks_map = {
+            SECTION_HEADERS: self.process_headers,
+            SECTION_OPTIONS: self.process_options,
+            SECTION_INTERFACES: self.process_interfaces,
+            SECTION_LISTEN_ADDRESSES: self.process_listen_addresses,
+            SECTION_DOMAINS: self.process_domains,
+            SECTION_DHCP_RANGES: self.process_dhcp_ranges,
+            SECTION_DHCP_OPTIONS: self.process_dhcp_options,
+            SECTION_DHCP_HOSTS: self.process_dhcp_hosts
+        }
 
     @staticmethod
     def add_header(title: str) -> str:

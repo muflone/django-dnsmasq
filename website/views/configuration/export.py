@@ -24,7 +24,8 @@ from django.contrib import messages
 from django.views.generic.edit import FormView
 
 from dnsmasq.constants import SETTING_CONFIGURATION_PATH
-from dnsmasq.misc.configuration_generator import ConfigurationGenerator
+from dnsmasq.misc.configuration_generator import (ConfigurationGenerator,
+                                                  SECTION_HEADERS)
 
 from utility.misc.get_setting_value import get_setting_value
 
@@ -50,23 +51,33 @@ class ConfigurationExportView(RequireLoginMixin,
         """
         if setting_value := get_setting_value(name=SETTING_CONFIGURATION_PATH):
             # Export configuration
-            configuration_generator = ConfigurationGenerator(
+            generator = ConfigurationGenerator(
                 include_descriptions=form.cleaned_data['include_descriptions'],
                 show_disabled=form.cleaned_data['show_disabled'])
-            results = []
-            results.extend(configuration_generator.process_headers())
-            results.extend(configuration_generator.process_options())
-            results.extend(configuration_generator.process_interfaces())
-            results.extend(configuration_generator.process_listen_addresses())
-            results.extend(configuration_generator.process_domains())
-            results.extend(configuration_generator.process_dhcp_ranges())
-            results.extend(configuration_generator.process_dhcp_options())
-            results.extend(configuration_generator.process_dhcp_hosts())
+            results = {key: method()
+                       for key, method
+                       in generator.configuration_blocks_map.items()}
             # Export configuration to file
             settings_path = pathlib.Path(setting_value)
-            settings_filename = settings_path / 'dnsmasq.conf'
-            with open(settings_filename, 'w') as file:
-                file.write(configuration_generator.format_results(results))
+            if not form.cleaned_data['multiple_files']:
+                # Single file configuration
+                conf_filename = settings_path / 'dnsmasq.conf'
+                # Write file
+                with open(conf_filename, 'w') as file:
+                    # Add each block
+                    for block in generator.configuration_blocks_map.keys():
+                        file.write(generator.format_results(results[block]))
+            else:
+                # Multiple files configuration
+                for block in generator.configuration_blocks_map.keys():
+                    if block != SECTION_HEADERS:
+                        conf_filename = settings_path / f'dnsmasq_{block}.conf'
+                        # Write file
+                        with open(conf_filename, 'w') as file:
+                            file.write(generator.format_results(
+                                results[SECTION_HEADERS]))
+                            file.write(generator.format_results(
+                                results[block]))
             # Add status message
             messages.add_message(request=self.request,
                                  level=messages.SUCCESS,

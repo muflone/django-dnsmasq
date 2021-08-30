@@ -18,6 +18,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import pathlib
+
 from django.contrib import messages
 from django.views.generic.edit import FormView
 
@@ -60,7 +62,10 @@ class ConfigurationExportView(RequireLoginMixin,
             results.extend(configuration_generator.process_dhcp_ranges())
             results.extend(configuration_generator.process_dhcp_options())
             results.extend(configuration_generator.process_dhcp_hosts())
-            with open(setting_value, 'w') as file:
+            # Export configuration to file
+            settings_path = pathlib.Path(setting_value)
+            settings_filename = settings_path / 'dnsmasq.conf'
+            with open(settings_filename, 'w') as file:
                 file.write(configuration_generator.format_results(results))
             # Add status message
             messages.add_message(request=self.request,

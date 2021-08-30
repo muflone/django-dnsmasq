@@ -57,7 +57,7 @@ class Command(BaseCommand):
         """
         configuration_generator = ConfigurationGenerator(
             include_descriptions=options['descriptions'],
-            include_disabled=options['disabled'])
+            show_disabled=options['disabled'])
         # Save configuration
         with open(options['filename'], mode='w') as file:
             results = []

@@ -52,8 +52,17 @@ class ConfigurationExportView(RequireLoginMixin,
             configuration_generator = ConfigurationGenerator(
                 include_descriptions=form.cleaned_data['include_descriptions'],
                 show_disabled=form.cleaned_data['show_disabled'])
+            results = []
+            results.extend(configuration_generator.process_headers())
+            results.extend(configuration_generator.process_options())
+            results.extend(configuration_generator.process_interfaces())
+            results.extend(configuration_generator.process_listen_addresses())
+            results.extend(configuration_generator.process_domains())
+            results.extend(configuration_generator.process_dhcp_ranges())
+            results.extend(configuration_generator.process_dhcp_options())
+            results.extend(configuration_generator.process_dhcp_hosts())
             with open(setting_value, 'w') as file:
-                file.write(configuration_generator.process())
+                file.write(configuration_generator.format_results(results))
             # Add status message
             messages.add_message(request=self.request,
                                  level=messages.SUCCESS,

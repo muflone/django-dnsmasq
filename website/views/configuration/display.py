@@ -45,6 +45,14 @@ class ConfigurationDisplayView(RequireLoginMixin,
         configuration_generator = ConfigurationGenerator(
             include_descriptions=form.cleaned_data['include_descriptions'],
             show_disabled=form.cleaned_data['show_disabled'])
-        results = configuration_generator.process()
-        return self.render_to_response(
-            self.get_context_data(results=results))
+        results = []
+        results.extend(configuration_generator.process_headers())
+        results.extend(configuration_generator.process_options())
+        results.extend(configuration_generator.process_interfaces())
+        results.extend(configuration_generator.process_listen_addresses())
+        results.extend(configuration_generator.process_domains())
+        results.extend(configuration_generator.process_dhcp_ranges())
+        results.extend(configuration_generator.process_dhcp_options())
+        results.extend(configuration_generator.process_dhcp_hosts())
+        return self.render_to_response(self.get_context_data(
+            results=configuration_generator.format_results(results)))

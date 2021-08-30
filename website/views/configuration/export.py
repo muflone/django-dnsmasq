@@ -46,8 +46,7 @@ class ConfigurationExportView(RequireLoginMixin,
         :param form: form object
         :return: HttpResponse object
         """
-        setting_value = get_setting_value(name=SETTING_CONFIGURATION_PATH)
-        if setting_value:
+        if setting_value := get_setting_value(name=SETTING_CONFIGURATION_PATH):
             # Export configuration
             configuration_generator = ConfigurationGenerator(
                 include_descriptions=form.cleaned_data['include_descriptions'],

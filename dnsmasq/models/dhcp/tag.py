@@ -40,6 +40,10 @@ class DhcpTag(BaseModel):
                                    verbose_name=pgettext_lazy(
                                        'DhcpTag',
                                        'description'))
+    order = models.PositiveIntegerField(default=1,
+                                        verbose_name=pgettext_lazy(
+                                            'DhcpTag',
+                                            'order'))
     is_active = models.BooleanField(default=True,
                                     verbose_name=pgettext_lazy(
                                         'DhcpTag',
@@ -52,7 +56,7 @@ class DhcpTag(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['-is_active', 'name']
+        ordering = ['order', '-is_active', 'name']
         verbose_name = pgettext_lazy('DhcpTag',
                                      'DHCP tag')
         verbose_name_plural = pgettext_lazy('DhcpTag',

@@ -1,5 +1,6 @@
 {% extends 'website/includes/crud/records_list_detail.html' %}
 
 {% block column_first %}
+                            <span class="fas fa-fw {% if not item.ignored %}fa-check{% else %}fa-ban{% endif %}"></span>
                             <strong><a href="{% url 'website.dhcp_hosts.detail' pk=item.pk %}">{{ item.name }}</a></strong>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block column_order %}
   {% if item.option.tag.order is not None %}
                         <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.option.tag.order }}&nbsp;</strong></div>
-                        &nbsp;/&nbsp;
+                        &nbsp;&gt;&nbsp;
                         <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
   {% endif %}
 {% endblock %}

@@ -6,20 +6,23 @@
         <div class="col">
             <form method="post">
                 {% csrf_token %}
-                {{ form.non_field_errors }}
                 <div class="card mb-4">
                     <div class="card-header">
                         <h6 class="m-0 font-weight-bold text-primary">Options</h6>
                     </div>
                     <div class="card-body">
                         <!-- Options -->
-                        {{ form.configuration_path }}
                         <div class="row">
                             <div class="col-sm-2">
-                                <label class="col-form-label">{{ form.configuration_path.label }}</label>
+                                <label class="col-form-label">Configuration path</label>
                             </div>
-                            <div class="col-sm-2 col-form-label">{{ form.configuration_path.value }}</div>
-                            <div class="col-sm">{{ form.configuration_path.errors }}</div>
+                            <div class="col-sm col-form-label">
+    {% if configuration_path %}
+                                <a href="{% url 'website.settings.detail' pk=configuration_path.id %}">{{ configuration_path.value }}</a>
+    {% else %}
+                              Missing configuration path, <a href="{% url 'website.settings.create' %}">add a new setting</a>
+    {% endif %}
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-2">

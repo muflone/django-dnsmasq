@@ -32,17 +32,15 @@ class ConfigurationExportForm(forms.Form):
                                        required=False)
     multiple_files = forms.BooleanField(label='Export in multiple files',
                                         required=False)
-    configuration_path = forms.CharField(label='Configuration path',
-                                         required=False,
-                                         widget=forms.HiddenInput)
 
-    def get_initial_for_field(self, field, field_name):
-        if field_name == 'configuration_path':
-            return get_setting_value(name=SETTING_CONFIGURATION_PATH)
-
-    def clean_configuration_path(self):
+    def clean(self):
+        """
+        Validate form data
+        :return: list of cleaned fields
+        """
         configuration_path = get_setting_value(name=SETTING_CONFIGURATION_PATH)
         if not configuration_path:
-            self.add_error(field='configuration_path',
+            # Check for invalid configuration data
+            self.add_error(field=None,
                            error='Missing configuration path')
-        return configuration_path
+        return self.cleaned_data

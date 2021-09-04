@@ -26,6 +26,7 @@ from django.views.generic.edit import FormView
 from dnsmasq.constants import SETTING_CONFIGURATION_PATH
 from dnsmasq.misc.configuration_generator import (ConfigurationGenerator,
                                                   SECTION_HEADERS)
+from dnsmasq.models import Setting
 
 from utility.misc.get_setting_value import get_setting_value
 
@@ -41,6 +42,10 @@ class ConfigurationExportView(RequireLoginMixin,
     form_class = ConfigurationExportForm
     template_name = 'website/configuration/export.html'
     page_title = 'Export configuration'
+    extra_context = {
+        'configuration_path': Setting.objects_enabled.filter(
+            name=SETTING_CONFIGURATION_PATH).first()
+    }
 
     def form_valid(self, form):
         """

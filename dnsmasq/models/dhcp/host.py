@@ -69,6 +69,10 @@ class DhcpHost(BaseModel):
                                 'DhcpHost',
                                 'options tag'),
                             on_delete=models.PROTECT)
+    order = models.PositiveIntegerField(default=1,
+                                        verbose_name=pgettext_lazy(
+                                            'DhcpHost',
+                                            'order'))
     ignored = models.BooleanField(default=False,
                                   verbose_name=pgettext_lazy(
                                       'DhcpHost',
@@ -85,7 +89,7 @@ class DhcpHost(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['-is_active', 'name']
+        ordering = ['order', '-is_active', 'name']
         verbose_name = pgettext_lazy('DhcpHost',
                                      'DHCP host')
         verbose_name_plural = pgettext_lazy('DhcpHost',

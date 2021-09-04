@@ -68,6 +68,14 @@
                             <div class="col-sm-2">{{ form.tag }}</div>
                             <div class="col-sm">{{ form.tag.errors }}</div>
                         </div>
+                        <!-- Order -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="{{ form.order.id_for_label }}" class="col-form-label">{{ form.order.label }}</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.order }}</div>
+                            <div class="col-sm">{{ form.order.errors }}</div>
+                        </div>
                         <!-- Ignored -->
                         <div class="row">
                             <div class="col-sm-2">

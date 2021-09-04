@@ -32,7 +32,8 @@ class DhcpOptionsDetailView(RequireLoginMixin,
                             UpdateView):
     model = DhcpOption
     fields = ['tag', 'option', 'description',
-              'character_value', 'numeric_value', 'forced', 'is_active']
+              'character_value', 'numeric_value', 'forced', 'order',
+              'is_active']
     success_url = reverse_lazy('website.dhcp_options.list')
     template_name = 'website/dhcp_options/detail.html'
     page_title = 'DHCP option detail'

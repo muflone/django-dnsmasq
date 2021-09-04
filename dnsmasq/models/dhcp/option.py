@@ -60,6 +60,10 @@ class DhcpOption(BaseModel):
                                  verbose_name=pgettext_lazy(
                                      'DhcpOption',
                                      'forced'))
+    order = models.PositiveIntegerField(default=1,
+                                        verbose_name=pgettext_lazy(
+                                            'DhcpOption',
+                                            'order'))
     is_active = models.BooleanField(default=True,
                                     verbose_name=pgettext_lazy(
                                         'DhcpOption',
@@ -72,7 +76,7 @@ class DhcpOption(BaseModel):
 
     class Meta:
         # Define the database table
-        ordering = ['tag', '-is_active', 'option__option']
+        ordering = ['tag', 'order', '-is_active', 'option__option']
         unique_together = [['tag', 'option']]
         verbose_name = pgettext_lazy('DhcpOption',
                                      'DHCP option')

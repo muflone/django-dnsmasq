@@ -1,5 +1,13 @@
 {% extends 'website/includes/crud/records_list_detail.html' %}
 
+{% block column_order %}
+  {% if item.tag.order is not None %}
+                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.tag.order }}&nbsp;</strong></div>
+                        &nbsp;/&nbsp;
+                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
+  {% endif %}
+{% endblock %}
+
 {% block column_first %}
                             <strong><a href="{% url 'website.dhcp_options.detail' pk=item.pk %}">{{ item.tag }}</a></strong>
 {% endblock %}

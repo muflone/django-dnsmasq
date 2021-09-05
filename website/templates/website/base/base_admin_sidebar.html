@@ -34,7 +34,7 @@
                 </a>
                 <div id="collapse2" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">DNSmasq components:</h6>
+                        <h6 class="collapse-header">DNSmasq components</h6>
                         <a class="collapse-item{% if request_name == 'website.options.list' %} active{% endif %}" href="{% url 'website.options.list' %}">Options</a>
                         <a class="collapse-item{% if request_name == 'website.interfaces.list' %} active{% endif %}" href="{% url 'website.interfaces.list' %}">Interfaces</a>
                         <a class="collapse-item{% if request_name == 'website.listen_addresses.list' %} active{% endif %}" href="{% url 'website.listen_addresses.list' %}">Listening addresses</a>
@@ -53,7 +53,7 @@
                 </a>
                 <div id="collapse3" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">DHCP configuration:</h6>
+                        <h6 class="collapse-header">DHCP configuration</h6>
                         <a class="collapse-item{% if request_name == 'website.dhcp_hosts.list' %} active{% endif %}" href="{% url 'website.dhcp_hosts.list' %}">Hosts</a>
                         <a class="collapse-item{% if request_name == 'website.dhcp_options.list' %} active{% endif %}" href="{% url 'website.dhcp_options.list' %}">Options</a>
                         <a class="collapse-item{% if request_name == 'website.dhcp_option_ipv4.list' %} active{% endif %}" href="{% url 'website.dhcp_option_ipv4.list' %}">Options IPv4 addresses</a>

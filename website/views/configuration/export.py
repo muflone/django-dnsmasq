@@ -23,7 +23,8 @@ import pathlib
 from django.contrib import messages
 from django.views.generic.edit import FormView
 
-from dnsmasq.constants import SETTING_CONFIGURATION_PATH
+from dnsmasq.constants import (SETTING_CONFIGURATION_FILE_PREFIX,
+                               SETTING_CONFIGURATION_PATH)
 from dnsmasq.misc.configuration_generator import (ConfigurationGenerator,
                                                   SECTION_HEADERS)
 from dnsmasq.models import Setting
@@ -76,9 +77,12 @@ class ConfigurationExportView(RequireLoginMixin,
                 # Multiple files configuration
                 for block in generator.configuration_blocks_map.keys():
                     if block != SECTION_HEADERS:
-                        conf_filename = settings_path / f'dnsmasq_{block}.conf'
+                        # Set configuration filename
+                        conf_filename = get_setting_value(
+                            name=f'{SETTING_CONFIGURATION_FILE_PREFIX}{block}',
+                            default_value=f'dnsmasq_{block}.conf')
                         # Write file
-                        with open(conf_filename, 'w') as file:
+                        with open(settings_path / conf_filename, 'w') as file:
                             file.write(generator.format_results(
                                 results[SECTION_HEADERS]))
                             file.write(generator.format_results(

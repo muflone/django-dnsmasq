@@ -68,6 +68,25 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!-- Nav Item - Easy Setup menu -->
+{% with settings_list='website.easy_setup.dhcp_default_policy' %}
+            <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
+                <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse4">
+                    <i class="fas fa-fw fa-pencil-alt"></i>
+                    <span>Easy setup</span>
+                </a>
+                <div id="collapse4" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">DHCP configuration</h6>
+                        <a class="collapse-item{% if request_name == 'website.easy_setup.dhcp_default_policy' %} active{% endif %}" href="{% url 'website.easy_setup.dhcp_default_policy' %}">Default policy</a>
+                    </div>
+                </div>
+            </li>
+{% endwith %}
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 Tools

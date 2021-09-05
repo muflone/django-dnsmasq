@@ -1,0 +1,45 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">DHCP default policy details</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="{{ form.name.id_for_label }}" class="col-form-label">{{ form.name.label }}</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.name }}</div>
+                            <div class="col-sm">{{ form.name.errors }}</div>
+                        </div>
+                        <!-- Ignored -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="{{ form.ignored.id_for_label }}" class="col-form-label">Ignore unauthorized hosts</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.ignored }}</div>
+                            <div class="col-sm">{{ form.ignored.errors }}</div>
+                        </div>
+                        <!-- Active status -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="{{ form.is_active.id_for_label }}" class="col-form-label">{{ form.is_active.label }}</label>
+                            </div>
+                            <div class="col-sm-2">{{ form.is_active }}</div>
+                            <div class="col-sm">{{ form.is_active.errors }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'website/includes/crud/toolbar_detail.html' with url_cancel=request_path url_delete=None %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

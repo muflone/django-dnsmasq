@@ -1,9 +1,4 @@
                     <div class="row">
-{% block column_order %}
-  {% if item.order is not None %}
-                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
-  {% endif %}
-{% endblock %}
                         <div class="col-sm-3">
 {% block column_first %}
 {% endblock %}
@@ -17,6 +12,11 @@
                             {{ item.description }}
 {% endblock %}
                         </div>
+{% block column_order %}
+  {% if item.order is not None %}
+                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
+  {% endif %}
+{% endblock %}
                     </div>
 {% if not last %}
                     <hr />

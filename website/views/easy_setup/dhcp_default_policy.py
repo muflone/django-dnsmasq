@@ -21,7 +21,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 
-from dnsmasq.constants import MAC_ADDRESS_ZEROS
 from dnsmasq.models import DhcpHost
 
 from website.views.generic import GenericMixin
@@ -43,7 +42,7 @@ class EasySetupDhcpDefaultPolicyView(RequireLoginMixin,
         :return: DhcpHost with the MAC address with zeros
         """
         result = self.model.objects.filter(
-            mac_address=MAC_ADDRESS_ZEROS).first()
+            mac_address=DhcpHost.MAC_ADDRESS_ZERO).first()
         return result
 
     def form_valid(self, form):
@@ -52,6 +51,6 @@ class EasySetupDhcpDefaultPolicyView(RequireLoginMixin,
         """
         if not form.instance.pk:
             # Initialize data if the object doesn't exist
-            form.instance.mac_address = MAC_ADDRESS_ZEROS
+            form.instance.mac_address = DhcpHost.MAC_ADDRESS_ZERO
             form.instance.order = 0
         return super().form_valid(form)

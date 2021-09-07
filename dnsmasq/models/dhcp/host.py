@@ -31,6 +31,9 @@ class DhcpHost(BaseModel):
     """
     DHCP host configuration
     """
+    MAC_ADDRESS_ZERO = '00:00:00:00:00:00'
+    MAC_ADDRESS_ANY = '*:*:*:*:*:*'
+
     name = models.CharField(max_length=255,
                             verbose_name=pgettext_lazy(
                                 'DhcpHost',

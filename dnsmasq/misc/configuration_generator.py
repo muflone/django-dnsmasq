@@ -18,9 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from dnsmasq.constants import (DISABLED_OPTION_PREFIX,
-                               MAC_ADDRESS_ZEROS,
-                               MAC_ADDRESS_ANY)
+from dnsmasq.constants import DISABLED_OPTION_PREFIX
 from dnsmasq.models import (DhcpHost,
                             DhcpOption,
                             DhcpOptionType,
@@ -373,8 +371,8 @@ class ConfigurationGenerator(object):
                 results.append(self.add_description(item.name,
                                                     item.description))
                 mac_address = (item.mac_address
-                               if item.mac_address != MAC_ADDRESS_ZEROS
-                               else MAC_ADDRESS_ANY)
+                               if item.mac_address != DhcpHost.MAC_ADDRESS_ZERO
+                               else DhcpHost.MAC_ADDRESS_ANY)
                 line_items.clear()
                 if not item.is_active:
                     line_items.append(DISABLED_OPTION_PREFIX)
@@ -387,8 +385,8 @@ class ConfigurationGenerator(object):
                 results.append(self.add_description(item.name,
                                                     item.description))
                 mac_address = (item.mac_address
-                               if item.mac_address != MAC_ADDRESS_ZEROS
-                               else MAC_ADDRESS_ANY)
+                               if item.mac_address != DhcpHost.MAC_ADDRESS_ZERO
+                               else DhcpHost.MAC_ADDRESS_ANY)
                 # Add DHCP Host
                 line_items.clear()
                 if not item.is_active:

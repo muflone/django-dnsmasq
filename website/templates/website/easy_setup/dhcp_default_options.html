@@ -1,0 +1,31 @@
+{% extends 'website/base/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="card mb-4">
+                    <div class="card-body">
+  {% for item in options %}
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <strong><a href="{% url 'website.dhcp_options.detail' pk=item.pk %}">{{ item.option.name }}</a></strong>
+                        </div>
+                        <div class="col-sm">
+                            {{ item.option }}
+                        </div>
+                    </div>
+    {% if not forloop.last %}
+                    <hr />
+    {% endif %}
+  {% endfor %}
+                    </div>
+                </div>
+                {% include 'website/includes/crud/toolbar_detail.html' with url_cancel=None url_delete=None %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

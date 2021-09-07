@@ -63,6 +63,8 @@ from website.views.domains.delete import DomainsDeleteView
 from website.views.domains.detail import DomainsDetailView
 from website.views.domains.list import DomainsListView
 
+from website.views.easy_setup.dhcp_default_options import (
+    EasySetupDhcpDefaultOptionsView)
 from website.views.easy_setup.dhcp_default_policy import (
     EasySetupDhcpDefaultPolicyView)
 
@@ -263,6 +265,10 @@ urlpatterns.append(path(route='listen_addresses/create',
                         view=ListenAddressesCreateView.as_view(),
                         name='website.listen_addresses.create'))
 
+# Easy Setup DHCP default options
+urlpatterns.append(path(route='easy_setup/dhcp_default_options',
+                        view=EasySetupDhcpDefaultOptionsView.as_view(),
+                        name='website.easy_setup.dhcp_default_options'))
 # Easy Setup DHCP default policy
 urlpatterns.append(path(route='easy_setup/dhcp_default_policy',
                         view=EasySetupDhcpDefaultPolicyView.as_view(),

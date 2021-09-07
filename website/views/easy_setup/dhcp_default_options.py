@@ -35,6 +35,12 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
     success_url = reverse_lazy('website.easy_setup.dhcp_default_options')
     template_name = 'website/easy_setup/dhcp_default_options.html'
     page_title = 'DHCP default options'
+    extra_context = {
+        'object_enabled_list': DhcpOption.objects_enabled.filter(
+            tag__name=DhcpTag.DEFAULT_TAG),
+        'object_disabled_list': DhcpOption.objects_disabled.filter(
+            tag__name=DhcpTag.DEFAULT_TAG)
+    }
 
     def get_object(self, queryset=None):
         """
@@ -43,12 +49,6 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
         """
         result = self.model.objects.filter(name=DhcpTag.DEFAULT_TAG).first()
         return result
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['options'] = DhcpOption.objects.filter(
-            tag__name=DhcpTag.DEFAULT_TAG)
-        return context
 
     def form_valid(self, form):
         """

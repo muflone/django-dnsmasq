@@ -38,4 +38,6 @@ class GenericMixin(ContextMixin,
         context['request_path'] = self.request.path
         context['request_name'] = self.request.resolver_match.url_name
         context['page_title'] = self.page_title
+        if hasattr(self, 'column_headers'):
+            context['column_headers'] = self.column_headers
         return context

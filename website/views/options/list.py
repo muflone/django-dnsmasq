@@ -34,3 +34,6 @@ class OptionsListView(RequireLoginMixin,
     model = Option
     template_name = 'website/options/list.html'
     page_title = 'Options'
+    column_headers = [('Name', 'col-sm-3'),
+                      ('Option', 'col-sm-2'),
+                      ('Description', 'col-sm')]

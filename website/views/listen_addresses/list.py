@@ -34,3 +34,5 @@ class ListenAddressesListView(RequireLoginMixin,
     model = ListenAddress
     template_name = 'website/listen_addresses/list.html'
     page_title = 'Listening addresses'
+    column_headers = [('Address', 'col-sm-3'),
+                      ('Description', 'col-sm')]

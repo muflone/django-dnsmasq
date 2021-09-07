@@ -11,6 +11,7 @@
                         <h4 class="col-sm m-0 font-weight-bold text-primary">Active</h4>
                     </div>
                 </div>
+    {% include 'website/includes/crud/records_list_headers.html' %}
                 <div class="card-body">
     {% for item in object_enabled_list %}
       {% include list_detail_include with item=item last=forloop.last %}
@@ -34,6 +35,7 @@
                         <h4 class="col-sm m-0 font-weight-bold text-primary">Inactive</h4>
                     </div>
                 </div>
+    {% include 'website/includes/crud/records_list_headers.html' %}
                 <div class="card-body">
     {% for item in object_disabled_list %}
       {% include list_detail_include with item=item last=forloop.last %}

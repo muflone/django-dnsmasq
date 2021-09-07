@@ -1,0 +1,9 @@
+    {% if column_headers %}
+                <div class="card-header">
+                    <div class="row">
+      {% for item in column_headers %}
+                        <h5 class="font-weight-bold m-0 {{ item.1 }}">{{ item.0 }}</h5>
+      {% endfor %}
+                    </div>
+                </div>
+    {% endif %}

@@ -41,6 +41,10 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
         'object_disabled_list': DhcpOption.objects_disabled.filter(
             tag__name=DhcpTag.DEFAULT_TAG)
     }
+    column_headers = [('Tag', 'col-sm-3'),
+                      ('Option', 'col-sm-2'),
+                      ('Type', 'col-sm-2'),
+                      ('Description', 'col-sm')]
 
     def get_object(self, queryset=None):
         """

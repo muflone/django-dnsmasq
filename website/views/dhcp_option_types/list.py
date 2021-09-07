@@ -34,3 +34,5 @@ class DhcpOptionTypesListView(RequireLoginMixin,
     model = DhcpOptionType
     template_name = 'website/dhcp_option_types/list.html'
     page_title = 'DHCP option types'
+    column_headers = [('Name', 'col-sm-3'),
+                      ('Description', 'col-sm')]

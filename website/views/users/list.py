@@ -33,3 +33,5 @@ class UsersListView(RequireLoginMixin,
     model = User
     template_name = 'website/users/list.html'
     page_title = 'Users'
+    column_headers = [('Username', 'col-sm-3'),
+                      ('Description', 'col-sm')]

@@ -34,3 +34,5 @@ class SettingsListView(RequireLoginMixin,
     model = Setting
     template_name = 'website/settings/list.html'
     page_title = 'Settings'
+    column_headers = [('Name', 'col-sm-3'),
+                      ('Description', 'col-sm')]

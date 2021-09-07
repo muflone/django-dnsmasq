@@ -34,3 +34,5 @@ class DomainsListView(RequireLoginMixin,
     model = Domain
     template_name = 'website/domains/list.html'
     page_title = 'Domains'
+    column_headers = [('Name', 'col-sm-3'),
+                      ('Description', 'col-sm')]

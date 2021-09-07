@@ -5,9 +5,11 @@
   {% if object_enabled_list %}
     <div class="row">
         <div class="col">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4 border-left-success">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Active</h6>
+                    <div class="row">
+                        <h4 class="col-sm m-0 font-weight-bold text-primary">Active</h4>
+                    </div>
                 </div>
                 <div class="card-body">
     {% for item in object_enabled_list %}
@@ -26,9 +28,11 @@
   {% if object_disabled_list %}
     <div class="row">
         <div class="col">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4 border-left-danger">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Inactive</h6>
+                    <div class="row">
+                        <h4 class="col-sm m-0 font-weight-bold text-primary">Inactive</h4>
+                    </div>
                 </div>
                 <div class="card-body">
     {% for item in object_disabled_list %}

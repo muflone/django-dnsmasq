@@ -37,6 +37,23 @@ class DhcpOptionType(BaseModel):
     IPV4_X1 = 'ipv4x1'
     IPV4_X2 = 'ipv4x2'
     IPV4_MANY = 'ipv4'
+    NAMES = {CHARACTER: pgettext_lazy('DhcpOptionType',
+                                      'Character'),
+             BOOLEAN: pgettext_lazy('DhcpOptionType',
+                                    'Boolean'),
+             INTEGER_SHORT: pgettext_lazy('DhcpOptionType',
+                                          'Dhort integer'),
+             INTEGER: pgettext_lazy('DhcpOptionType',
+                                    'Integer'),
+             INTEGER_LONG: pgettext_lazy('DhcpOptionType',
+                                         'Long integer'),
+             IPV4_X1: pgettext_lazy('DhcpOptionType',
+                                    'Single IPv4 address'),
+             IPV4_X2: pgettext_lazy('DhcpOptionType',
+                                    'Double IPv4 addresses'),
+             IPV4_MANY: pgettext_lazy('DhcpOptionType',
+                                      'Multiple IPv4 addresses')
+             }
 
     name = models.CharField(max_length=255,
                             unique=True,

@@ -1,4 +1,5 @@
 {% extends 'website/includes/crud/records_list_detail.html' %}
+{% load get_option_type_name %}
 
 {% block column_order %}
   {% if item.tag.order is not None %}
@@ -13,5 +14,10 @@
 {% endblock %}
 
 {% block column_middle %}
-                            {{ item.option }}
+                            <div class="col-sm-2">
+                                {{ item.option }}
+                            </div>
+                            <div class="col-sm-2">
+                                {{ item.option.type | get_option_type_name }}
+                            </div>
 {% endblock %}

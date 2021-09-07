@@ -1,5 +1,6 @@
 {% extends 'website/base/base_admin.html' %}
 {% load static %}
+{% load get_option_type_name %}
 
 {% block content %}
     <div class="row">
@@ -10,16 +11,19 @@
                 <div class="card mb-4">
                     <div class="card-body">
   {% for item in options %}
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <strong><a href="{% url 'website.dhcp_options.detail' pk=item.pk %}">{{ item.option.name }}</a></strong>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <strong><a href="{% url 'website.dhcp_options.detail' pk=item.pk %}">{{ item.option.name }}</a></strong>
+                            </div>
+                            <div class="col-sm-2">
+                                {{ item.option.type | get_option_type_name }}
+                            </div>
+                            <div class="col-sm">
+                                {{ item.option }}
+                            </div>
                         </div>
-                        <div class="col-sm">
-                            {{ item.option }}
-                        </div>
-                    </div>
     {% if not forloop.last %}
-                    <hr />
+                        <hr />
     {% endif %}
   {% endfor %}
                     </div>

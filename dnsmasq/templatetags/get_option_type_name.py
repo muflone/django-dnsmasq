@@ -26,6 +26,7 @@ from dnsmasq.models.dhcp import DhcpOptionType
 
 register = template.Library()
 
+
 @register.filter
 def get_option_type_name(dhcp_option_type_key: str) -> str:
     """

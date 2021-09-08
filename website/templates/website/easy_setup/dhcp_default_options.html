@@ -3,7 +3,9 @@
 {% load get_option_type_name %}
 
 {% block content %}
-  {% url 'website.dhcp_options.create' as destination_url_create %}
+  {% if object.id %}
+    {% url 'website.dhcp_options.create_with_tag' tag=object.id as destination_url_create %}
+  {% endif %}
   {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='DHCP option' list_detail_include='website/dhcp_options/list_detail.html' %}
     <div class="row">
         <div class="col">

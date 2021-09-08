@@ -36,3 +36,17 @@ class DhcpOptionsCreateView(RequireLoginMixin,
     success_url = reverse_lazy('website.dhcp_options.list')
     template_name = 'website/dhcp_options/detail.html'
     page_title = 'Create new DHCP option'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # If the tag is passed set it as disabled/fixed
+        if 'tag' in self.kwargs:
+            context['form'].fields['tag'].widget.attrs['disabled'] = 'disabled'
+        return context
+
+    def get_initial(self):
+        initial = super().get_initial()
+        # If the tag is passed set it as default
+        if tag_id := self.kwargs.get('tag', None):
+            initial['tag'] = tag_id
+        return initial

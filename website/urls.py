@@ -179,6 +179,10 @@ urlpatterns.append(path(route='dhcp_options/delete/<int:pk>',
 urlpatterns.append(path(route='dhcp_options/create',
                         view=DhcpOptionsCreateView.as_view(),
                         name='website.dhcp_options.create'))
+# DHCP options create page with fixed tag
+urlpatterns.append(path(route='dhcp_options/create/<int:tag>',
+                        view=DhcpOptionsCreateView.as_view(),
+                        name='website.dhcp_options.create_with_tag'))
 
 # DHCP option IPv4 addresses list page
 urlpatterns.append(path(route='dhcp_option_ipv4/list',

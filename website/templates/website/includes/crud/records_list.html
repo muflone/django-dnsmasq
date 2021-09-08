@@ -1,6 +1,8 @@
+{% if create_url %}
     <div class="mb-4">
         <a class="btn btn-primary" href="{{ create_url }}">Create new {{ title }}</a>
     </div>
+{% endif %}
 
   {% if object_enabled_list %}
     <div class="row">

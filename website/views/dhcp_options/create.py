@@ -21,7 +21,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from dnsmasq.models import DhcpOption
+from dnsmasq.models import DhcpOption, DhcpOptionType
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -40,8 +40,13 @@ class DhcpOptionsCreateView(RequireLoginMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # If the tag is passed set it as disabled/fixed
-        if 'tag' in self.kwargs:
-            context['form'].fields['tag'].widget.attrs['disabled'] = 'disabled'
+        if tag_id := self.kwargs.get('tag', None):
+            form = context['form']
+            form.fields['tag'].widget.attrs['disabled'] = 'disabled'
+            # Exclude options already present for the same tag_id
+            options = DhcpOption.objects.filter(tag_id=tag_id)
+            form.fields['option'].queryset = DhcpOptionType.objects.exclude(
+                option__in=options.values_list('option__option', flat=True))
         return context
 
     def get_initial(self):

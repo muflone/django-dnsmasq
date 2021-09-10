@@ -34,6 +34,31 @@ class DhcpOptionsDetailView(RequireLoginMixin,
     fields = ['tag', 'option', 'description',
               'character_value', 'numeric_value', 'forced', 'order',
               'is_active']
-    success_url = reverse_lazy('website.dhcp_options.list')
     template_name = 'website/dhcp_options/detail.html'
     page_title = 'DHCP option detail'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # If the tag is passed set it as disabled/fixed
+        if tag_id := self.kwargs.get('tag', None):
+            context['tag'] = tag_id
+            form = context['form']
+            form.fields['tag'].widget.attrs['disabled'] = 'disabled'
+        return context
+
+    def get_initial(self):
+        initial = super().get_initial()
+        # If the tag is passed set it as default
+        if tag_id := self.kwargs.get('tag', None):
+            initial['tag'] = tag_id
+        return initial
+
+    def get_success_url(self):
+        """
+        Get the success URL to redirect after a successfull post.
+        When the tag is passed redirect to the Easy Setup default options page
+        """
+        success_url = reverse_lazy('website.easy_setup.dhcp_default_options'
+                                   if 'tag' in self.kwargs
+                                   else 'website.dhcp_options.list')
+        return success_url

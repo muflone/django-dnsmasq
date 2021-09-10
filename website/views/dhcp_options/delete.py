@@ -31,6 +31,20 @@ class DhcpOptionsDeleteView(RequireLoginMixin,
                             GenericMixin,
                             DeleteView):
     model = DhcpOption
-    success_url = reverse_lazy('website.dhcp_options.list')
     template_name = 'website/dhcp_options/delete.html'
     page_title = 'DHCP option deletion'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tag'] = self.kwargs.get('tag')
+        return context
+
+    def get_success_url(self):
+        """
+        Get the success URL to redirect after a successfull post.
+        When the tag is passed redirect to the Easy Setup default options page
+        """
+        success_url = reverse_lazy('website.easy_setup.dhcp_default_options'
+                                   if 'tag' in self.kwargs
+                                   else 'website.dhcp_options.list')
+        return success_url

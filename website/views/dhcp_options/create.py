@@ -40,6 +40,7 @@ class DhcpOptionsCreateView(RequireLoginMixin,
         context = super().get_context_data(**kwargs)
         # If the tag is passed set it as disabled/fixed
         if tag_id := self.kwargs.get('tag', None):
+            context['tag'] = tag_id
             form = context['form']
             form.fields['tag'].widget.attrs['disabled'] = 'disabled'
             # Exclude options already present for the same tag_id

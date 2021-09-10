@@ -171,10 +171,18 @@ urlpatterns.append(path(route='dhcp_options/list',
 urlpatterns.append(path(route='dhcp_options/detail/<int:pk>',
                         view=DhcpOptionsDetailView.as_view(),
                         name='website.dhcp_options.detail'))
+# DHCP options detail page with fixed tag
+urlpatterns.append(path(route='dhcp_options/detail/<int:pk>/<int:tag>',
+                        view=DhcpOptionsDetailView.as_view(),
+                        name='website.dhcp_options.detail_with_tag'))
 # DHCP options delete page
 urlpatterns.append(path(route='dhcp_options/delete/<int:pk>',
                         view=DhcpOptionsDeleteView.as_view(),
                         name='website.dhcp_options.delete'))
+# DHCP options delete page with fixed tag
+urlpatterns.append(path(route='dhcp_options/delete/<int:pk>/<int:tag>',
+                        view=DhcpOptionsDeleteView.as_view(),
+                        name='website.dhcp_options.delete_with_tag'))
 # DHCP options create page
 urlpatterns.append(path(route='dhcp_options/create',
                         view=DhcpOptionsCreateView.as_view(),

@@ -112,6 +112,14 @@ class DhcpOptionType(BaseModel):
         return '{OPTION} - {NAME}'.format(OPTION=self.option,
                                           NAME=self.name)
 
+    def is_type_numeric(self):
+        """
+        Check if the option type is numeric
+        """
+        return self.type in (self.INTEGER_SHORT,
+                             self.INTEGER,
+                             self.INTEGER_LONG)
+
 
 class DhcpOptionTypeAdmin(BaseModelAdmin):
     pass

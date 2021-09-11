@@ -21,7 +21,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from dnsmasq.models import DhcpOption, DhcpOptionType
+from dnsmasq.constants import MODE_EASY_SETUP
+from dnsmasq.models import DhcpOption, DhcpOptionType, DhcpTag
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -41,22 +42,22 @@ class DhcpOptionsCreateView(RequireLoginMixin,
         Get the context data (extra_content is loaded only in GenericMixin)
         """
         context = super().get_context_data(**kwargs)
-        # If the tag is passed set it as disabled/fixed
-        if tag_id := self.kwargs.get('tag', None):
-            context['tag'] = tag_id
+        # If the mode is passed set the current tag as disabled/fixed
+        if 'mode' in self.kwargs:
             form = context['form']
             form.fields['tag'].widget.attrs['disabled'] = 'disabled'
             # Exclude options already present for the same tag_id
-            options = DhcpOption.objects.filter(tag_id=tag_id)
+            options = DhcpOption.objects.filter(
+                tag_id=DhcpTag.get_default().id)
             form.fields['option'].queryset = DhcpOptionType.objects.exclude(
                 option__in=options.values_list('option__option', flat=True))
         return context
 
     def get_initial(self):
         initial = super().get_initial()
-        # If the tag is passed set it as default
-        if tag_id := self.kwargs.get('tag', None):
-            initial['tag'] = tag_id
+        # If the mode is passed set the current tag as default
+        if 'mode' in self.kwargs:
+            initial['tag'] = DhcpTag.get_default()
         return initial
 
     def get_success_url(self):
@@ -64,7 +65,8 @@ class DhcpOptionsCreateView(RequireLoginMixin,
         Get the success URL to redirect after a successfull post.
         When the tag is passed redirect to the Easy Setup default options page
         """
-        success_url = reverse_lazy('website.easy_setup.dhcp_default_options'
-                                   if 'tag' in self.kwargs
-                                   else 'website.dhcp_options.list')
+        success_url = reverse_lazy(
+            'website.easy_setup.dhcp_default_options'
+            if self.kwargs.get('mode', None) == MODE_EASY_SETUP
+            else 'website.dhcp_options.list')
         return success_url

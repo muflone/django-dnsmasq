@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-sm-2">{{ form.tag }}</div>
   {# Add a hidden field when the tag was pre-selected as disabled fields won't be submitted #}
-  {% if tag %}
+  {% if mode == easy_setup %}
                             <input type="hidden" name="{{ form.tag.name }}" value="{{ form.tag.value }}">
   {% endif %}
                             <div class="col-sm">{{ form.tag.errors }}</div>
@@ -82,9 +82,9 @@
                         </div>
                     </div>
                 </div>
-  {% if tag %}
+  {% if mode == easy_setup %}
                 {% url 'website.easy_setup.dhcp_default_options' as destination_url_cancel %}
-                {% url 'website.dhcp_options.delete_with_tag' pk=object.pk tag=form.tag.value as destination_url_delete %}
+                {% url 'website.easy_setup.dhcp_options.delete' pk=object.pk as destination_url_delete %}
   {% else %}
                 {% url 'website.dhcp_options.list' as destination_url_cancel %}
                 {% url 'website.dhcp_options.delete' pk=object.pk as destination_url_delete %}

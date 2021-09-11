@@ -21,6 +21,8 @@
 from django.views.generic import View
 from django.views.generic.base import ContextMixin
 
+from dnsmasq.constants import MODE_EASY_SETUP
+
 from project import PRODUCT_NAME, VERSION
 
 
@@ -30,6 +32,7 @@ class GenericMixin(ContextMixin,
     extra_context = {
         'app_name': PRODUCT_NAME,
         'app_version': VERSION,
+        MODE_EASY_SETUP: MODE_EASY_SETUP
     }
 
     def get_context_data(self, **kwargs):
@@ -40,6 +43,7 @@ class GenericMixin(ContextMixin,
         context['request_path'] = self.request.path
         context['request_name'] = self.request.resolver_match.url_name
         context['page_title'] = self.page_title
+        context['mode'] = self.kwargs.get('mode', None)
         if hasattr(self, 'column_headers'):
             context['column_headers'] = self.column_headers
         return context

@@ -26,8 +26,8 @@
                     </div>
                 </div>
             </div>
-  {% if tag %}
-            {% url 'website.dhcp_options.detail_with_tag' pk=object.pk tag=tag as destination_url %}
+  {% if mode == easy_setup %}
+            {% url 'website.easy_setup.dhcp_options.detail' pk=object.pk as destination_url %}
   {% else %}
             {% url 'website.dhcp_options.detail' pk=object.pk as destination_url %}
   {% endif %}

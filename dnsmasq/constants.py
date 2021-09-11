@@ -22,3 +22,5 @@ SETTING_CONFIGURATION_PATH = 'configuration_path'
 SETTING_CONFIGURATION_FILE_PREFIX = 'configuration_file_'
 
 DISABLED_OPTION_PREFIX = '# '
+
+MODE_EASY_SETUP = 'easy_setup'

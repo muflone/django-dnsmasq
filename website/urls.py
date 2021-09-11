@@ -20,6 +20,8 @@
 
 from django.urls import path
 
+from dnsmasq.constants import MODE_EASY_SETUP
+
 from website.views.dashboard import DashboardView
 
 from website.views.auth.login import LoginView
@@ -172,26 +174,28 @@ urlpatterns.append(path(route='dhcp_options/detail/<int:pk>',
                         view=DhcpOptionsDetailView.as_view(),
                         name='website.dhcp_options.detail'))
 # DHCP options detail page with fixed tag
-urlpatterns.append(path(route='dhcp_options/detail/<int:pk>/<int:tag>',
+urlpatterns.append(path(route='easy_setup/dhcp_options/detail/<int:pk>',
                         view=DhcpOptionsDetailView.as_view(),
-                        name='website.dhcp_options.detail_with_tag'))
+                        name='website.easy_setup.dhcp_options.detail',
+                        kwargs={'mode': MODE_EASY_SETUP}))
 # DHCP options delete page
 urlpatterns.append(path(route='dhcp_options/delete/<int:pk>',
                         view=DhcpOptionsDeleteView.as_view(),
                         name='website.dhcp_options.delete'))
 # DHCP options delete page with fixed tag
-urlpatterns.append(path(route='dhcp_options/delete/<int:pk>/<int:tag>',
+urlpatterns.append(path(route='easy_setup/dhcp_options/delete/<int:pk>',
                         view=DhcpOptionsDeleteView.as_view(),
-                        name='website.dhcp_options.delete_with_tag'))
+                        name='website.easy_setup.dhcp_options.delete',
+                        kwargs={'mode': MODE_EASY_SETUP}))
 # DHCP options create page
 urlpatterns.append(path(route='dhcp_options/create',
                         view=DhcpOptionsCreateView.as_view(),
                         name='website.dhcp_options.create'))
 # DHCP options create page with fixed tag
-urlpatterns.append(path(route='dhcp_options/create/<int:tag>',
+urlpatterns.append(path(route='easy_setup/dhcp_options/create',
                         view=DhcpOptionsCreateView.as_view(),
-                        name='website.dhcp_options.create_with_tag'))
-
+                        name='website.easy_setup.dhcp_options.create',
+                        kwargs={'mode': MODE_EASY_SETUP}))
 # DHCP option IPv4 addresses list page
 urlpatterns.append(path(route='dhcp_option_ipv4/list',
                         view=DhcpOptionIpV4ListView.as_view(),
@@ -280,11 +284,13 @@ urlpatterns.append(path(route='listen_addresses/create',
 # Easy Setup DHCP default options
 urlpatterns.append(path(route='easy_setup/dhcp_default_options',
                         view=EasySetupDhcpDefaultOptionsView.as_view(),
-                        name='website.easy_setup.dhcp_default_options'))
+                        name='website.easy_setup.dhcp_default_options',
+                        kwargs={'mode': MODE_EASY_SETUP}))
 # Easy Setup DHCP default policy
 urlpatterns.append(path(route='easy_setup/dhcp_default_policy',
                         view=EasySetupDhcpDefaultPolicyView.as_view(),
-                        name='website.easy_setup.dhcp_default_policy'))
+                        name='website.easy_setup.dhcp_default_policy',
+                        kwargs={'mode': MODE_EASY_SETUP}))
 
 # Interfaces list page
 urlpatterns.append(path(route='interfaces/list',

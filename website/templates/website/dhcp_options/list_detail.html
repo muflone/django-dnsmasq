@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block column_first %}
-  {% if tag %}
-    {% url 'website.dhcp_options.detail_with_tag' pk=item.pk tag=tag as detail_url %}
+  {% if mode == easy_setup %}
+    {% url 'website.easy_setup.dhcp_options.detail' pk=item.pk as detail_url %}
   {% else %}
     {% url 'website.dhcp_options.detail' pk=item.pk as detail_url %}
   {% endif %}

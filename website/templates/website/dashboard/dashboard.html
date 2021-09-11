@@ -35,6 +35,16 @@
         {% include 'website/dashboard/section_card.html' with title='DHCP tags' items=dhcp_tags url=destination_url tint='primary' icon='fa-tags' %}
     </div>
 
+    {% include 'website/dashboard/section_header.html' with title='Easy Setup' %}
+    <div class="row">
+        {% url 'website.easy_setup.dhcp.default_policy' as destination_url %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP Default policy' url=destination_url tint='info' icon='fa-balance-scale' %}
+
+        {% url 'website.easy_setup.dhcp.default_options' as destination_url %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP Default options' url=destination_url tint='info' icon='fa-list-ul' %}
+    </div>
+
+
     {% include 'website/dashboard/section_header.html' with title='Tools' %}
     <div class="row">
         {% url 'website.configuration.display' as destination_url %}

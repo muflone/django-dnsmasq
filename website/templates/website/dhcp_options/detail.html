@@ -44,6 +44,8 @@
                             <div class="col-sm-2">{{ form.description }}</div>
                             <div class="col-sm">{{ form.description.errors }}</div>
                         </div>
+  {# Hide the character value field in easy setup mode for non character fields #}
+  {% if mode == easy_setup and object.option.is_type_character or not object or not mode %}
                         <!-- Character value -->
                         <div class="row">
                             <div class="col-sm-2">
@@ -52,6 +54,7 @@
                             <div class="col-sm-2">{{ form.character_value }}</div>
                             <div class="col-sm">{{ form.character_value.errors }}</div>
                         </div>
+  {% endif %}
   {# Hide the numeric value field in easy setup mode for non numeric fields #}
   {% if mode == easy_setup and object.option.is_type_numeric or not object or not mode %}
                         <!-- Numeric value -->

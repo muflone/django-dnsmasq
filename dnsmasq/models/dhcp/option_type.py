@@ -112,6 +112,12 @@ class DhcpOptionType(BaseModel):
         return '{OPTION} - {NAME}'.format(OPTION=self.option,
                                           NAME=self.name)
 
+    def is_type_character(self):
+        """
+        Check if the option type is character
+        """
+        return self.type == self.CHARACTER
+
     def is_type_numeric(self):
         """
         Check if the option type is numeric

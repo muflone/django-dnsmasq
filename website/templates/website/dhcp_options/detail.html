@@ -66,6 +66,32 @@
                             <div class="col-sm">{{ form.numeric_value.errors }}</div>
                         </div>
   {% endif %}
+  {# Hide the boolean value field in easy setup mode for non boolean fields #}
+  {% if mode == easy_setup and object.option.is_type_boolean and object %}
+                        <!-- Boolean value -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label class="col-form-label">{{ form.numeric_value.label }}</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="{{ form.numeric_value.id_for_label }}_0"
+                                       name="{{ form.numeric_value.name }}"
+                                       type="radio"
+                                       {% if form.numeric_value.value == 0 %}checked="checked"{% endif %}
+                                       value="0">
+                                <label for="{{ form.numeric_value.id_for_label }}_0" class="col-form-label">Off</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="{{ form.numeric_value.id_for_label }}_1"
+                                       name="{{ form.numeric_value.name }}"
+                                       type="radio"
+                                       {% if form.numeric_value.value != 0 %}checked="checked"{% endif %}
+                                       value="1">
+                                <label for="{{ form.numeric_value.id_for_label }}_1" class="col-form-label">On</label>
+                            </div>
+                            <div class="col-sm">{{ form.numeric_value.errors }}</div>
+                        </div>
+  {% endif %}
                         <!-- Forced -->
                         <div class="row">
                             <div class="col-sm-2">

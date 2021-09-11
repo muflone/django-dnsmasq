@@ -112,6 +112,12 @@ class DhcpOptionType(BaseModel):
         return '{OPTION} - {NAME}'.format(OPTION=self.option,
                                           NAME=self.name)
 
+    def is_type_boolean(self):
+        """
+        Check if the option type is boolean
+        """
+        return self.type == self.BOOLEAN
+
     def is_type_character(self):
         """
         Check if the option type is character

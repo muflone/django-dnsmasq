@@ -5,28 +5,32 @@
     {% include 'website/dashboard/section_header.html' with title='Server configuration' %}
     <div class="row">
         {% url 'website.options.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='info' icon='fa-cogs' %}
+        {% include 'website/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='primary' icon='fa-cogs' %}
 
         {% url 'website.interfaces.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Interfaces' items=interfaces url=destination_url tint='info' icon='fa-network-wired' %}
+        {% include 'website/dashboard/section_card.html' with title='Interfaces' items=interfaces url=destination_url tint='primary' icon='fa-network-wired' %}
 
         {% url 'website.listen_addresses.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Listening addresses' items=listen_addresses url=destination_url tint='info' icon='fa-signal' %}
+        {% include 'website/dashboard/section_card.html' with title='Listening addresses' items=listen_addresses url=destination_url tint='primary' icon='fa-signal' %}
 
         {% url 'website.domains.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Domains' items=domains url=destination_url tint='info' icon='fa-city' %}
-    </div>
-    <div class="row">
+        {% include 'website/dashboard/section_card.html' with title='Domains' items=domains url=destination_url tint='primary' icon='fa-city' %}
+
         {% url 'website.dhcp.hosts.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='DHCP hosts' items=dhcp_hosts url=destination_url tint='primary' icon='fa-laptop' %}
+
         {% url 'website.dhcp.options.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='DHCP options' items=dhcp_options url=destination_url tint='primary' icon='fa-toggle-on' %}
+
         {% url 'website.dhcp.option_ipv4.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='DHCP option IPv4 addresses' items=dhcp_option_ipv4 url=destination_url tint='primary' icon='fa-exchange-alt' %}
+
         {% url 'website.dhcp.option_types.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='DHCP option types' items=dhcp_option_types url=destination_url tint='primary' icon='fa-shapes' %}
+
         {% url 'website.dhcp.ranges.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='DHCP ranges' items=dhcp_ranges url=destination_url tint='primary' icon='fa-sliders-h' %}
+
         {% url 'website.dhcp.tags.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='DHCP tags' items=dhcp_tags url=destination_url tint='primary' icon='fa-tags' %}
     </div>

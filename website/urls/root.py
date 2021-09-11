@@ -19,6 +19,7 @@
 ##
 
 from django.urls import path
+from django.views.generic import RedirectView
 
 from website.views.dashboard import DashboardView
 
@@ -40,3 +41,9 @@ urlpatterns.append(path(route='login',
 urlpatterns.append(path(route='logout',
                         view=LogoutView.as_view(),
                         name='website.auth.logout'))
+# Favicon redirect
+urlpatterns.append(path(route='favicon.ico',
+                        view=RedirectView.as_view(
+                            url='/static/website/img/favicon.ico',
+                            permanent=True),
+                        name='website.favicon'))

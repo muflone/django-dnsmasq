@@ -65,6 +65,13 @@ class DhcpTag(BaseModel):
     def __str__(self):
         return '{NAME}'.format(NAME=self.name)
 
+    @staticmethod
+    def get_default():
+        """
+        Get the default DhcpTag object
+        """
+        return DhcpTag.objects.filter(name=DhcpTag.DEFAULT_TAG).first()
+
 
 class DhcpTagAdmin(BaseModelAdmin):
     pass

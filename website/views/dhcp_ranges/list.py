@@ -35,4 +35,6 @@ class DhcpRangesListView(RequireLoginMixin,
     template_name = 'website/dhcp_ranges/list.html'
     page_title = 'DHCP ranges'
     column_headers = [('Name', 'col-sm-3'),
+                      ('Starting', 'col-sm-2'),
+                      ('Ending', 'col-sm-2'),
                       ('Description', 'col-sm')]

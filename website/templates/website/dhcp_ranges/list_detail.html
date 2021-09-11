@@ -3,3 +3,13 @@
 {% block column_first %}
                             <strong><a href="{% url 'website.dhcp_ranges.detail' pk=item.pk %}">{{ item.name }}</a></strong>
 {% endblock %}
+
+
+{% block column_middle %}
+                        <div class="col-sm-2">
+                            {{ item.starting_ip }}
+                        </div>
+                        <div class="col-sm-2">
+                            {{ item.ending_ip }}
+                        </div>
+{% endblock %}

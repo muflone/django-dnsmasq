@@ -33,7 +33,7 @@ class DhcpHostsCreateView(RequireLoginMixin,
     model = DhcpHost
     fields = ['name', 'description',
               'mac_address', 'address', 'hostname', 'lease_time',
-              'tag', 'ignored', 'is_active']
+              'tag', 'order', 'ignored', 'is_active']
     success_url = reverse_lazy('website.dhcp.hosts.list')
     template_name = 'website/dhcp_hosts/detail.html'
     page_title = 'Create new DHCP host'

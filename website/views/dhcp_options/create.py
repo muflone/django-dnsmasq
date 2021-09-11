@@ -33,7 +33,8 @@ class DhcpOptionsCreateView(RequireLoginMixin,
                             CreateView):
     model = DhcpOption
     fields = ['tag', 'option', 'description',
-              'character_value', 'numeric_value', 'forced', 'is_active']
+              'character_value', 'numeric_value', 'forced',
+              'order', 'is_active']
     template_name = 'website/dhcp_options/detail.html'
     page_title = 'Create new DHCP option'
 

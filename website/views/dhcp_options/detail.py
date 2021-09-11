@@ -38,6 +38,9 @@ class DhcpOptionsDetailView(RequireLoginMixin,
     page_title = 'DHCP option detail'
 
     def get_context_data(self, **kwargs):
+        """
+        Get the context data (extra_content is loaded only in GenericMixin)
+        """
         context = super().get_context_data(**kwargs)
         # If the tag is passed set it as disabled/fixed
         if tag_id := self.kwargs.get('tag', None):

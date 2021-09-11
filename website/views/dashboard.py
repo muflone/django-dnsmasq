@@ -46,6 +46,9 @@ class DashboardView(RequireLoginMixin,
     page_title = 'Dashboard'
 
     def get_context_data(self, **kwargs):
+        """
+        Get the context data (extra_content is loaded only in GenericMixin)
+        """
         context = super().get_context_data(**kwargs)
         context['users'] = group_by_is_active(User)
         context['dhcp_hosts'] = group_by_is_active(DhcpHost)

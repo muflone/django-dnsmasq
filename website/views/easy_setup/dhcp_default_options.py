@@ -45,7 +45,7 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
 
     def get_context_data(self, **kwargs):
         """
-        Get the context data (extra_content is loaded only once)
+        Get the context data (extra_content is loaded only in GenericMixin)
         """
         context = super().get_context_data(**kwargs)
         context['object_enabled_list'] = DhcpOption.objects_enabled.filter(

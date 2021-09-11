@@ -43,10 +43,6 @@ class ConfigurationExportView(RequireLoginMixin,
     form_class = ConfigurationExportForm
     template_name = 'website/configuration/export.html'
     page_title = 'Export configuration'
-    extra_context = {
-        'configuration_path': Setting.objects_enabled.filter(
-            name=SETTING_CONFIGURATION_PATH).first()
-    }
 
     def form_valid(self, form):
         """
@@ -93,3 +89,12 @@ class ConfigurationExportView(RequireLoginMixin,
                                  message='Export successful')
         return self.render_to_response(
             self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        """
+        Get the context data (extra_content is loaded only in GenericMixin)
+        """
+        context = super().get_context_data(**kwargs)
+        context['configuration_path'] = Setting.objects_enabled.filter(
+            name=SETTING_CONFIGURATION_PATH).first()
+        return context

@@ -25,8 +25,10 @@ class EnabledDisabledMixin(ContextMixin):
     """Mixin with enabled and disabled rows"""
 
     def get_context_data(self, **kwargs):
+        """
+        Get the context data (extra_content is loaded only in GenericMixin)
+        """
         context = super().get_context_data(**kwargs)
-        context.update(ContextMixin.get_context_data(self, **kwargs))
         # Add objects_enabled using ObjectsEnabled or using filter
         context['object_enabled_list'] = (
             self.model.objects_enabled.all()

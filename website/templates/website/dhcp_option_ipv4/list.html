@@ -1,6 +1,6 @@
 {% extends 'website/base/base_admin.html' %}
 
 {% block content %}
-  {% url 'website.dhcp_option_ipv4.create' as destination_url_create %}
+  {% url 'website.dhcp.option_ipv4.create' as destination_url_create %}
   {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='DHCP option IPv4 address' list_detail_include='website/dhcp_option_ipv4/list_detail.html' %}
 {% endblock %}

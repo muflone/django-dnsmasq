@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block column_first %}
-                            <strong><a href="{% url 'website.dhcp_option_ipv4.detail' pk=item.pk %}">{{ item.option }}</a></strong>
+                            <strong><a href="{% url 'website.dhcp.option_ipv4.detail' pk=item.pk %}">{{ item.option }}</a></strong>
 {% endblock %}
 
 {% block column_last %}

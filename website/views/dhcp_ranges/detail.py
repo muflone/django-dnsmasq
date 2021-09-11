@@ -33,6 +33,6 @@ class DhcpRangesDetailView(RequireLoginMixin,
     model = DhcpRange
     fields = ['name', 'description', 'order',
               'starting_ip', 'ending_ip', 'lease_time', 'is_active']
-    success_url = reverse_lazy('website.dhcp_ranges.list')
+    success_url = reverse_lazy('website.dhcp.ranges.list')
     template_name = 'website/dhcp_ranges/detail.html'
     page_title = 'DHCP range detail'

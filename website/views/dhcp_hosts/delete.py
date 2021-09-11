@@ -31,6 +31,6 @@ class DhcpHostsDeleteView(RequireLoginMixin,
                           GenericMixin,
                           DeleteView):
     model = DhcpHost
-    success_url = reverse_lazy('website.dhcp_hosts.list')
+    success_url = reverse_lazy('website.dhcp.hosts.list')
     template_name = 'website/dhcp_hosts/delete.html'
     page_title = 'DHCP host deletion'

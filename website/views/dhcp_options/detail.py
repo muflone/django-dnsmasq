@@ -62,7 +62,7 @@ class DhcpOptionsDetailView(RequireLoginMixin,
         When the tag is passed redirect to the Easy Setup default options page
         """
         success_url = reverse_lazy(
-            'website.easy_setup.dhcp_default_options'
+            'website.easy_setup.dhcp.default_options'
             if self.kwargs.get('mode', None) == MODE_EASY_SETUP
-            else 'website.dhcp_options.list')
+            else 'website.dhcp.options.list')
         return success_url

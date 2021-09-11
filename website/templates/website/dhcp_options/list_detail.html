@@ -11,9 +11,9 @@
 
 {% block column_first %}
   {% if mode == easy_setup %}
-    {% url 'website.easy_setup.dhcp_options.detail' pk=item.pk as detail_url %}
+    {% url 'website.easy_setup.dhcp.options.detail' pk=item.pk as detail_url %}
   {% else %}
-    {% url 'website.dhcp_options.detail' pk=item.pk as detail_url %}
+    {% url 'website.dhcp.options.detail' pk=item.pk as detail_url %}
   {% endif %}
                             <strong><a href="{{ detail_url }}">{{ item.tag }}</a></strong>
 {% endblock %}

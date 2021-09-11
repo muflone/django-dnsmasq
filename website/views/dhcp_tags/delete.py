@@ -31,6 +31,6 @@ class DhcpTagsDeleteView(RequireLoginMixin,
                          GenericMixin,
                          DeleteView):
     model = DhcpTag
-    success_url = reverse_lazy('website.dhcp_tags.list')
+    success_url = reverse_lazy('website.dhcp.tags.list')
     template_name = 'website/dhcp_tags/delete.html'
     page_title = 'DHCP tag deletion'

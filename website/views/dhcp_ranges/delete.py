@@ -31,6 +31,6 @@ class DhcpRangesDeleteView(RequireLoginMixin,
                            GenericMixin,
                            DeleteView):
     model = DhcpRange
-    success_url = reverse_lazy('website.dhcp_ranges.list')
+    success_url = reverse_lazy('website.dhcp.ranges.list')
     template_name = 'website/dhcp_ranges/delete.html'
     page_title = 'DHCP range deletion'

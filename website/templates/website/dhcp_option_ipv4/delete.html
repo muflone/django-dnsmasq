@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            {% url 'website.dhcp_option_ipv4.detail' pk=object.pk as destination_url %}
+            {% url 'website.dhcp.option_ipv4.detail' pk=object.pk as destination_url %}
             {% include 'website/includes/crud/toolbar_delete.html' with url=destination_url %}
         </div>
     </div>

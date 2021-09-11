@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            {% url 'website.dhcp_ranges.detail' pk=object.pk as destination_url %}
+            {% url 'website.dhcp.ranges.detail' pk=object.pk as destination_url %}
             {% include 'website/includes/crud/toolbar_delete.html' with url=destination_url %}
         </div>
     </div>

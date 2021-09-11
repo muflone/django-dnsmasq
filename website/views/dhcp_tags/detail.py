@@ -32,6 +32,6 @@ class DhcpTagsDetailView(RequireLoginMixin,
                          UpdateView):
     model = DhcpTag
     fields = ['name', 'description', 'order', 'is_active']
-    success_url = reverse_lazy('website.dhcp_tags.list')
+    success_url = reverse_lazy('website.dhcp.tags.list')
     template_name = 'website/dhcp_tags/detail.html'
     page_title = 'DHCP tag detail'

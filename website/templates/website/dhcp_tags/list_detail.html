@@ -1,5 +1,5 @@
 {% extends 'website/includes/crud/records_list_detail.html' %}
 
 {% block column_first %}
-                            <strong><a href="{% url 'website.dhcp_tags.detail' pk=item.pk %}">{{ item.name }}</a></strong>
+                            <strong><a href="{% url 'website.dhcp.tags.detail' pk=item.pk %}">{{ item.name }}</a></strong>
 {% endblock %}

@@ -83,11 +83,11 @@
                     </div>
                 </div>
   {% if mode == easy_setup %}
-                {% url 'website.easy_setup.dhcp_default_options' as destination_url_cancel %}
-                {% url 'website.easy_setup.dhcp_options.delete' pk=object.pk as destination_url_delete %}
+                {% url 'website.easy_setup.dhcp.default_options' as destination_url_cancel %}
+                {% url 'website.easy_setup.dhcp.options.delete' pk=object.pk as destination_url_delete %}
   {% else %}
-                {% url 'website.dhcp_options.list' as destination_url_cancel %}
-                {% url 'website.dhcp_options.delete' pk=object.pk as destination_url_delete %}
+                {% url 'website.dhcp.options.list' as destination_url_cancel %}
+                {% url 'website.dhcp.options.delete' pk=object.pk as destination_url_delete %}
   {% endif %}
                 {% include 'website/includes/crud/toolbar_detail.html' with url_cancel=destination_url_cancel url_delete=destination_url_delete %}
             </form>

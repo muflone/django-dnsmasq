@@ -32,6 +32,6 @@ class DhcpOptionIpV4CreateView(RequireLoginMixin,
                                CreateView):
     model = DhcpOptionIpV4
     fields = ['option', 'address', 'order', 'is_active']
-    success_url = reverse_lazy('website.dhcp_option_ipv4.list')
+    success_url = reverse_lazy('website.dhcp.option_ipv4.list')
     template_name = 'website/dhcp_option_ipv4/detail.html'
     page_title = 'Create new DHCP option IPv4 address'

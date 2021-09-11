@@ -45,7 +45,7 @@
 {% endwith %}
 
             <!-- Nav Item - DNSmasq DHCP menu -->
-{% with settings_list='website.dhcp_hosts.list|website.dhcp_options.list|website.dhcp_option_ipv4.list|website.dhcp_option_types.list|website.dhcp_ranges.list|website.dhcp_tags.list' %}
+{% with settings_list='website.dhcp.hosts.list|website.dhcp.options.list|website.dhcp.option_ipv4.list|website.dhcp.option_types.list|website.dhcp.ranges.list|website.dhcp.tags.list' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse3">
                     <i class="fas fa-fw fa-atlas"></i>
@@ -54,12 +54,12 @@
                 <div id="collapse3" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">DHCP configuration</h6>
-                        <a class="collapse-item{% if request_name == 'website.dhcp_hosts.list' %} active{% endif %}" href="{% url 'website.dhcp_hosts.list' %}">Hosts</a>
-                        <a class="collapse-item{% if request_name == 'website.dhcp_options.list' %} active{% endif %}" href="{% url 'website.dhcp_options.list' %}">Options</a>
-                        <a class="collapse-item{% if request_name == 'website.dhcp_option_ipv4.list' %} active{% endif %}" href="{% url 'website.dhcp_option_ipv4.list' %}">Options IPv4 addresses</a>
-                        <a class="collapse-item{% if request_name == 'website.dhcp_option_types.list' %} active{% endif %}" href="{% url 'website.dhcp_option_types.list' %}">Option types</a>
-                        <a class="collapse-item{% if request_name == 'website.dhcp_ranges.list' %} active{% endif %}" href="{% url 'website.dhcp_ranges.list' %}">Ranges</a>
-                        <a class="collapse-item{% if request_name == 'website.dhcp_tags.list' %} active{% endif %}" href="{% url 'website.dhcp_tags.list' %}">Tags</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp.hosts.list' %} active{% endif %}" href="{% url 'website.dhcp.hosts.list' %}">Hosts</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp.options.list' %} active{% endif %}" href="{% url 'website.dhcp.options.list' %}">Options</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp.option_ipv4.list' %} active{% endif %}" href="{% url 'website.dhcp.option_ipv4.list' %}">Options IPv4 addresses</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp.option_types.list' %} active{% endif %}" href="{% url 'website.dhcp.option_types.list' %}">Option types</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp.ranges.list' %} active{% endif %}" href="{% url 'website.dhcp.ranges.list' %}">Ranges</a>
+                        <a class="collapse-item{% if request_name == 'website.dhcp.tags.list' %} active{% endif %}" href="{% url 'website.dhcp.tags.list' %}">Tags</a>
                     </div>
                 </div>
             </li>
@@ -69,7 +69,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Easy Setup menu -->
-{% with settings_list='website.easy_setup.dhcp_default_policy|website.easy_setup.dhcp_default_options' %}
+{% with settings_list='website.easy_setup.dhcp.default_policy|website.easy_setup.dhcp.default_options' %}
             <li class="nav-item{% if request_name in settings_list %} active{% endif %}">
                 <a class="nav-link{% if request_name not in settings_list %} collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#collapse4">
                     <i class="fas fa-fw fa-pencil-alt"></i>
@@ -78,8 +78,8 @@
                 <div id="collapse4" class="collapse {% if request_name in settings_list %}show{% endif %}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">DHCP configuration</h6>
-                        <a class="collapse-item{% if request_name == 'website.easy_setup.dhcp_default_policy' %} active{% endif %}" href="{% url 'website.easy_setup.dhcp_default_policy' %}">Default policy</a>
-                        <a class="collapse-item{% if request_name == 'website.easy_setup.dhcp_default_options' %} active{% endif %}" href="{% url 'website.easy_setup.dhcp_default_options' %}">Default options</a>
+                        <a class="collapse-item{% if request_name == 'website.easy_setup.dhcp.default_policy' %} active{% endif %}" href="{% url 'website.easy_setup.dhcp.default_policy' %}">Default policy</a>
+                        <a class="collapse-item{% if request_name == 'website.easy_setup.dhcp.default_options' %} active{% endif %}" href="{% url 'website.easy_setup.dhcp.default_options' %}">Default options</a>
                     </div>
                 </div>
             </li>

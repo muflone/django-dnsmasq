@@ -33,6 +33,6 @@ class DhcpOptionTypesDetailView(RequireLoginMixin,
     model = DhcpOptionType
     fields = ['name', 'description',
               'option', 'type', 'is_active']
-    success_url = reverse_lazy('website.dhcp_option_types.list')
+    success_url = reverse_lazy('website.dhcp.option_types.list')
     template_name = 'website/dhcp_option_types/detail.html'
     page_title = 'DHCP option type detail'

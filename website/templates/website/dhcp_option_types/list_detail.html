@@ -1,5 +1,12 @@
 {% extends 'website/includes/crud/records_list_detail.html' %}
+{% load get_option_type_name %}
 
 {% block column_first %}
                             <strong><a href="{% url 'website.dhcp_option_types.detail' pk=item.pk %}">{{ item.name }}</a></strong>
+{% endblock %}
+
+{% block column_middle %}
+                        <div class="col-sm-2">
+                            {{ item.type | get_option_type_name }}
+                        </div>
 {% endblock %}

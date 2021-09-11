@@ -10,18 +10,21 @@
 {% endblock %}
 
 {% block column_first %}
+  {# When mode is set the first column will keep the option #}
   {% if mode == easy_setup %}
-    {% url 'website.easy_setup.dhcp.options.detail' pk=item.pk as detail_url %}
+                            <strong><a href="{% url 'website.easy_setup.dhcp.options.detail' pk=item.pk %}">{{ item.option }}</a></strong>
   {% else %}
-    {% url 'website.dhcp.options.detail' pk=item.pk as detail_url %}
+                            <strong><a href="{% url 'website.dhcp.options.detail' pk=item.pk %}">{{ item.tag }}</a></strong>
   {% endif %}
-                            <strong><a href="{{ detail_url }}">{{ item.tag }}</a></strong>
 {% endblock %}
 
 {% block column_middle %}
+  {# When mode is set the first column will keep the option, so this is not needed #}
+  {% if not mode %}
                             <div class="col-sm-2">
                                 {{ item.option }}
                             </div>
+  {% endif %}
                             <div class="col-sm-2">
                                 {{ item.option.type | get_option_type_name }}
                             </div>

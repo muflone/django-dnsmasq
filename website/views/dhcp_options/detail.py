@@ -47,6 +47,9 @@ class DhcpOptionsDetailView(RequireLoginMixin,
         if 'mode' in self.kwargs:
             form = context['form']
             form.fields['tag'].widget.attrs['disabled'] = 'disabled'
+            # If the object has an option set set the field as disabled/fixed
+            if self.object.option:
+                form.fields['option'].widget.attrs['disabled'] = 'disabled'
         return context
 
     def get_initial(self):

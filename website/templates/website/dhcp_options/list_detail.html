@@ -3,8 +3,11 @@
 
 {% block column_order %}
   {% if item.tag.order is not None %}
+    {# When mode is not set hide the tag order #}
+    {% if not mode %}
                         <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.tag.order }}&nbsp;</strong></div>
                         &nbsp;&gt;&nbsp;
+    {% endif %}
                         <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
   {% endif %}
 {% endblock %}

@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
                         <!-- Tag -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.tag.id_for_label }}" class="col-form-label">{{ form.tag.label }}</label>
                             </div>
@@ -25,7 +25,7 @@
                             <div class="col-sm">{{ form.tag.errors }}</div>
                         </div>
                         <!-- Option -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.option.id_for_label }}" class="col-form-label">{{ form.option.label }}</label>
                             </div>
@@ -37,7 +37,7 @@
                             <div class="col-sm">{{ form.option.errors }}</div>
                         </div>
                         <!-- Description -->
-                        <div class="row mb-2">
+                        <div class="row row-item-textarea">
                             <div class="col-sm-2">
                                 <label for="{{ form.description.id_for_label }}" class="col-form-label">{{ form.description.label }}</label>
                             </div>
@@ -47,7 +47,7 @@
   {# Hide the character value field in easy setup mode for non character fields #}
   {% if mode == easy_setup and object.option.is_type_character or not object or not mode %}
                         <!-- Character value -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.character_value.id_for_label }}" class="col-form-label">{{ form.character_value.label }}</label>
                             </div>
@@ -58,7 +58,7 @@
   {# Hide the numeric value field in easy setup mode for non numeric fields #}
   {% if mode == easy_setup and object.option.is_type_numeric or not object or not mode %}
                         <!-- Numeric value -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.numeric_value.id_for_label }}" class="col-form-label">{{ form.numeric_value.label }}</label>
                             </div>
@@ -69,7 +69,7 @@
   {# Hide the boolean value field in easy setup mode for non boolean fields #}
   {% if mode == easy_setup and object.option.is_type_boolean and object %}
                         <!-- Boolean value -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label class="col-form-label">{{ form.numeric_value.label }}</label>
                             </div>
@@ -93,7 +93,7 @@
                         </div>
   {% endif %}
                         <!-- Forced -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.forced.id_for_label }}" class="col-form-label">{{ form.forced.label }}</label>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="col-sm">{{ form.forced.errors }}</div>
                         </div>
                         <!-- Order -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.order.id_for_label }}" class="col-form-label">{{ form.order.label }}</label>
                             </div>
@@ -109,7 +109,7 @@
                             <div class="col-sm">{{ form.order.errors }}</div>
                         </div>
                         <!-- Active status -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.is_active.id_for_label }}" class="col-form-label">{{ form.is_active.label }}</label>
                             </div>

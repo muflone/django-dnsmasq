@@ -54,6 +54,15 @@ div.enable-disable {
     padding-right: 0.5rem;
 }
 
+div.row-item-field,
+div.row-item-label,
+div.row-item-record {
+    align-items: center !important;
+}
+
+div.row-item-textarea {
+}
+
 @media (max-width: 576px) {
     .login-form form{
         padding: 50px 20px;

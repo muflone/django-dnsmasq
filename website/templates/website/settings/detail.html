@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
                         <!-- Name -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.name.id_for_label }}" class="col-form-label">{{ form.name.label }}</label>
                             </div>
@@ -21,7 +21,7 @@
                             <div class="col-sm">{{ form.name.errors }}</div>
                         </div>
                         <!-- Description -->
-                        <div class="row mb-2">
+                        <div class="row row-item-textarea">
                             <div class="col-sm-2">
                                 <label for="{{ form.description.id_for_label }}" class="col-form-label">{{ form.description.label }}</label>
                             </div>
@@ -29,7 +29,7 @@
                             <div class="col-sm">{{ form.description.errors }}</div>
                         </div>
                         <!-- Value -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.value.id_for_label }}" class="col-form-label">{{ form.value.label }}</label>
                             </div>
@@ -37,7 +37,7 @@
                             <div class="col-sm">{{ form.value.errors }}</div>
                         </div>
                         <!-- Active status -->
-                        <div class="row">
+                        <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.is_active.id_for_label }}" class="col-form-label">{{ form.is_active.label }}</label>
                             </div>

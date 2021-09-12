@@ -1,6 +1,8 @@
 {% extends 'website/base/base_admin.html' %}
+{% load assign %}
 
 {% block content %}
   {% url 'website.domains.create' as create_url %}
-  {% include 'website/includes/crud/records_list.html' with title='domain' list_detail_include='website/domains/list_detail.html' %}
+  {% assign 'website/domains/list_detail.html' as list_detail_include %}
+  {% include 'website/includes/crud/records_list.html' with title='domain' %}
 {% endblock %}

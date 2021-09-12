@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class InterfacesListView(RequireLoginMixin,
-                         EnabledDisabledMixin,
-                         GenericMixin,
-                         ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = Interface
     template_name = 'website/interfaces/list.html'
     page_title = 'Interfaces'

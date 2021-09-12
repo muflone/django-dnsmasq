@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpHostsListView(RequireLoginMixin,
-                        EnabledDisabledMixin,
-                        GenericMixin,
-                        ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = DhcpHost
     template_name = 'website/dhcp_hosts/list.html'
     page_title = 'DHCP hosts'

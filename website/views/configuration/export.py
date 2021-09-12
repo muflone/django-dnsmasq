@@ -37,9 +37,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class ConfigurationExportView(RequireLoginMixin,
-                              GenericMixin,
-                              FormView):
+class ObjectExportView(RequireLoginMixin,
+                       GenericMixin,
+                       FormView):
     form_class = ConfigurationExportForm
     template_name = 'website/configuration/export.html'
     page_title = 'Export configuration'

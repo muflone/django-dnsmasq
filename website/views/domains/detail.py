@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DomainsDetailView(RequireLoginMixin,
-                        GenericMixin,
-                        UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = Domain
     fields = ['name', 'description', 'order',
               'subnet_ip', 'subnet_cidr',

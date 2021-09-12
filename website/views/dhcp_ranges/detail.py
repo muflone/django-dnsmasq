@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpRangesDetailView(RequireLoginMixin,
-                           GenericMixin,
-                           UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = DhcpRange
     fields = ['name', 'description', 'order',
               'starting_ip', 'ending_ip', 'lease_time', 'is_active']

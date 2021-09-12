@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.settings.create import SettingsCreateView
-from website.views.settings.delete import SettingsDeleteView
-from website.views.settings.detail import SettingsDetailView
-from website.views.settings.list import SettingsListView
+from website.views.settings.create import ObjectCreateView
+from website.views.settings.delete import ObjectDeleteView
+from website.views.settings.detail import ObjectDetailView
+from website.views.settings.list import ObjectListView
 
 
 urlpatterns = []
 
 # Settings create page
 urlpatterns.append(path(route='create',
-                        view=SettingsCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.settings.create'))
 # Settings delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=SettingsDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.settings.delete'))
 # Settings detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=SettingsDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.settings.detail'))
 # Settings list page
 urlpatterns.append(path(route='list',
-                        view=SettingsListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.settings.list'))

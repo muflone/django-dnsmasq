@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.dhcp_ranges.create import DhcpRangesCreateView
-from website.views.dhcp_ranges.delete import DhcpRangesDeleteView
-from website.views.dhcp_ranges.detail import DhcpRangesDetailView
-from website.views.dhcp_ranges.list import DhcpRangesListView
+from website.views.dhcp_ranges.create import ObjectCreateView
+from website.views.dhcp_ranges.delete import ObjectDeleteView
+from website.views.dhcp_ranges.detail import ObjectDetailView
+from website.views.dhcp_ranges.list import ObjectListView
 
 
 urlpatterns = []
 
 # DHCP ranges create page
 urlpatterns.append(path(route='create',
-                        view=DhcpRangesCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.dhcp.ranges.create'))
 # DHCP ranges delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=DhcpRangesDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.dhcp.ranges.delete'))
 # DHCP ranges detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=DhcpRangesDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.dhcp.ranges.detail'))
 # DHCP ranges list page
 urlpatterns.append(path(route='list',
-                        view=DhcpRangesListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.dhcp.ranges.list'))

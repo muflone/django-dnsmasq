@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DomainsListView(RequireLoginMixin,
-                      EnabledDisabledMixin,
-                      GenericMixin,
-                      ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = Domain
     template_name = 'website/domains/list.html'
     page_title = 'Domains'

@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class OptionsDetailView(RequireLoginMixin,
-                        GenericMixin,
-                        UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = Option
     fields = ['name', 'description', 'option', 'value', 'order', 'is_active']
     success_url = reverse_lazy('website.options.list')

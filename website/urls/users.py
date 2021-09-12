@@ -20,32 +20,32 @@
 
 from django.urls import path
 
-from website.views.users.create import UsersCreateView
-from website.views.users.delete import UsersDeleteView
-from website.views.users.detail import UsersDetailView
-from website.views.users.list import UsersListView
-from website.views.users.password import UsersPasswordView
+from website.views.users.create import ObjectCreateView
+from website.views.users.delete import ObjectDeleteView
+from website.views.users.detail import ObjectDetailView
+from website.views.users.list import ObjectListView
+from website.views.users.password import ObjectPasswordView
 
 
 urlpatterns = []
 
 # Users create page
 urlpatterns.append(path(route='create',
-                        view=UsersCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.users.create'))
 # Users delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=UsersDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.users.delete'))
 # Users detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=UsersDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.users.detail'))
 # Users list page
 urlpatterns.append(path(route='list',
-                        view=UsersListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.users.list'))
 # Users password set
 urlpatterns.append(path(route='password/<int:pk>',
-                        view=UsersPasswordView.as_view(),
+                        view=ObjectPasswordView.as_view(),
                         name='website.users.password'))

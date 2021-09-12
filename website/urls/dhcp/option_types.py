@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.dhcp_option_types.create import DhcpOptionTypesCreateView
-from website.views.dhcp_option_types.delete import DhcpOptionTypesDeleteView
-from website.views.dhcp_option_types.detail import DhcpOptionTypesDetailView
-from website.views.dhcp_option_types.list import DhcpOptionTypesListView
+from website.views.dhcp_option_types.create import ObjectCreateView
+from website.views.dhcp_option_types.delete import ObjectDeleteView
+from website.views.dhcp_option_types.detail import ObjectDetailView
+from website.views.dhcp_option_types.list import ObjectListView
 
 
 urlpatterns = []
 
 # DHCP option types create page
 urlpatterns.append(path(route='create',
-                        view=DhcpOptionTypesCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.dhcp.option_types.create'))
 # DHCP option types delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=DhcpOptionTypesDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.dhcp.option_types.delete'))
 # DHCP option types detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=DhcpOptionTypesDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.dhcp.option_types.detail'))
 # DHCP option types list page
 urlpatterns.append(path(route='list',
-                        view=DhcpOptionTypesListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.dhcp.option_types.list'))

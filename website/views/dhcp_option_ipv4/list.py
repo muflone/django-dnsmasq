@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpOptionIpV4ListView(RequireLoginMixin,
-                             EnabledDisabledMixin,
-                             GenericMixin,
-                             ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = DhcpOptionIpV4
     template_name = 'website/dhcp_option_ipv4/list.html'
     page_title = 'DHCP option IPv4 addresses'

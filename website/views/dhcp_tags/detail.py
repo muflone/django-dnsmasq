@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpTagsDetailView(RequireLoginMixin,
-                         GenericMixin,
-                         UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = DhcpTag
     fields = ['name', 'description', 'order', 'is_active']
     success_url = reverse_lazy('website.dhcp.tags.list')

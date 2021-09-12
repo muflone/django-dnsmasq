@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.dhcp_tags.create import DhcpTagsCreateView
-from website.views.dhcp_tags.delete import DhcpTagsDeleteView
-from website.views.dhcp_tags.detail import DhcpTagsDetailView
-from website.views.dhcp_tags.list import DhcpTagsListView
+from website.views.dhcp_tags.create import ObjectCreateView
+from website.views.dhcp_tags.delete import ObjectDeleteView
+from website.views.dhcp_tags.detail import ObjectDetailView
+from website.views.dhcp_tags.list import ObjectListView
 
 
 urlpatterns = []
 
 # DHCP tags create page
 urlpatterns.append(path(route='create',
-                        view=DhcpTagsCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.dhcp.tags.create'))
 # DHCP tags delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=DhcpTagsDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.dhcp.tags.delete'))
 # DHCP tags detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=DhcpTagsDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.dhcp.tags.detail'))
 # DHCP tags list page
 urlpatterns.append(path(route='list',
-                        view=DhcpTagsListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.dhcp.tags.list'))

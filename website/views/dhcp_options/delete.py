@@ -28,9 +28,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpOptionsDeleteView(RequireLoginMixin,
-                            GenericMixin,
-                            DeleteView):
+class ObjectDeleteView(RequireLoginMixin,
+                       GenericMixin,
+                       DeleteView):
     model = DhcpOption
     template_name = 'website/dhcp_options/delete.html'
     page_title = 'DHCP option deletion'

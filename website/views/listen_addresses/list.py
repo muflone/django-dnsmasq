@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class ListenAddressesListView(RequireLoginMixin,
-                              EnabledDisabledMixin,
-                              GenericMixin,
-                              ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = ListenAddress
     template_name = 'website/listen_addresses/list.html'
     page_title = 'Listening addresses'

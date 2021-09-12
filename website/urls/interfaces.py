@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.interfaces.create import InterfacesCreateView
-from website.views.interfaces.delete import InterfacesDeleteView
-from website.views.interfaces.detail import InterfacesDetailView
-from website.views.interfaces.list import InterfacesListView
+from website.views.interfaces.create import ObjectCreateView
+from website.views.interfaces.delete import ObjectDeleteView
+from website.views.interfaces.detail import ObjectDetailView
+from website.views.interfaces.list import ObjectListView
 
 
 urlpatterns = []
 
 # Interfaces create page
 urlpatterns.append(path(route='create',
-                        view=InterfacesCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.interfaces.create'))
 # Interfaces delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=InterfacesDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.interfaces.delete'))
 # Interfaces detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=InterfacesDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.interfaces.detail'))
 # Interfaces list page
 urlpatterns.append(path(route='list',
-                        view=InterfacesListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.interfaces.list'))

@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class OptionsListView(RequireLoginMixin,
-                      EnabledDisabledMixin,
-                      GenericMixin,
-                      ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = Option
     template_name = 'website/options/list.html'
     page_title = 'Options'

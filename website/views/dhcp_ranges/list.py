@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpRangesListView(RequireLoginMixin,
-                         EnabledDisabledMixin,
-                         GenericMixin,
-                         ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = DhcpRange
     template_name = 'website/dhcp_ranges/list.html'
     page_title = 'DHCP ranges'

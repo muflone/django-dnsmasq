@@ -26,10 +26,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class UsersListView(RequireLoginMixin,
-                    EnabledDisabledMixin,
-                    GenericMixin,
-                    ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = User
     template_name = 'website/users/list.html'
     page_title = 'Users'

@@ -26,9 +26,9 @@ from website.views.generic import GenericMixin
 from website.views.require_superuser import RequireSuperUserMixin
 
 
-class UsersDetailView(RequireSuperUserMixin,
-                      GenericMixin,
-                      UpdateView):
+class ObjectDetailView(RequireSuperUserMixin,
+                       GenericMixin,
+                       UpdateView):
     model = User
     fields = ['first_name', 'last_name', 'email',
               'is_active', 'is_staff', 'is_superuser']

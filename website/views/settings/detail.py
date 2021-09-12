@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class SettingsDetailView(RequireLoginMixin,
-                         GenericMixin,
-                         UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = Setting
     fields = ['name', 'description', 'value', 'is_active']
     success_url = reverse_lazy('website.settings.list')

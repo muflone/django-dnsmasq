@@ -27,10 +27,10 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpTagsListView(RequireLoginMixin,
-                       EnabledDisabledMixin,
-                       GenericMixin,
-                       ListView):
+class ObjectListView(RequireLoginMixin,
+                     EnabledDisabledMixin,
+                     GenericMixin,
+                     ListView):
     model = DhcpTag
     template_name = 'website/dhcp_tags/list.html'
     page_title = 'DHCP tags'

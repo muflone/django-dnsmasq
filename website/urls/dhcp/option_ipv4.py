@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.dhcp_option_ipv4.create import DhcpOptionIpV4CreateView
-from website.views.dhcp_option_ipv4.delete import DhcpOptionIpV4DeleteView
-from website.views.dhcp_option_ipv4.detail import DhcpOptionIpV4DetailView
-from website.views.dhcp_option_ipv4.list import DhcpOptionIpV4ListView
+from website.views.dhcp_option_ipv4.create import ObjectCreateView
+from website.views.dhcp_option_ipv4.delete import ObjectDeleteView
+from website.views.dhcp_option_ipv4.detail import ObjectDetailView
+from website.views.dhcp_option_ipv4.list import ObjectListView
 
 
 urlpatterns = []
 
 # DHCP option IPv4 addresses create page
 urlpatterns.append(path(route='create',
-                        view=DhcpOptionIpV4CreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.dhcp.option_ipv4.create'))
 # DHCP option IPv4 addresses delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=DhcpOptionIpV4DeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.dhcp.option_ipv4.delete'))
 # DHCP option IPv4 addresses detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=DhcpOptionIpV4DetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.dhcp.option_ipv4.detail'))
 # DHCP option IPv4 addresses list page
 urlpatterns.append(path(route='list',
-                        view=DhcpOptionIpV4ListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.dhcp.option_ipv4.list'))

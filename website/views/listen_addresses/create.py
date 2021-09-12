@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class ListenAddressesCreateView(RequireLoginMixin,
-                                GenericMixin,
-                                CreateView):
+class ObjectCreateView(RequireLoginMixin,
+                       GenericMixin,
+                       CreateView):
     model = ListenAddress
     fields = ['address', 'description', 'order', 'is_active']
     success_url = reverse_lazy('website.listen_addresses.list')

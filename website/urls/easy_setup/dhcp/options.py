@@ -22,25 +22,25 @@ from django.urls import path
 
 from dnsmasq.constants import MODE_EASY_SETUP
 
-from website.views.dhcp_options.create import DhcpOptionsCreateView
-from website.views.dhcp_options.delete import DhcpOptionsDeleteView
-from website.views.dhcp_options.detail import DhcpOptionsDetailView
+from website.views.dhcp_options.create import ObjectCreateView
+from website.views.dhcp_options.delete import ObjectDeleteView
+from website.views.dhcp_options.detail import ObjectDetailView
 
 
 urlpatterns = []
 
 # Easy Setup DHCP options create page
 urlpatterns.append(path(route='create',
-                        view=DhcpOptionsCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.easy_setup.dhcp.options.create',
                         kwargs={'mode': MODE_EASY_SETUP}))
 # Easy Setup DHCP options delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=DhcpOptionsDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.easy_setup.dhcp.options.delete',
                         kwargs={'mode': MODE_EASY_SETUP}))
 # Easy Setup DHCP options detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=DhcpOptionsDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.easy_setup.dhcp.options.detail',
                         kwargs={'mode': MODE_EASY_SETUP}))

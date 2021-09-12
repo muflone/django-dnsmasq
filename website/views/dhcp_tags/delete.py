@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpTagsDeleteView(RequireLoginMixin,
-                         GenericMixin,
-                         DeleteView):
+class ObjectDeleteView(RequireLoginMixin,
+                       GenericMixin,
+                       DeleteView):
     model = DhcpTag
     success_url = reverse_lazy('website.dhcp.tags.list')
     template_name = 'website/dhcp_tags/delete.html'

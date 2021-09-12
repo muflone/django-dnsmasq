@@ -26,9 +26,9 @@ from website.views.generic import GenericMixin
 from website.views.require_superuser import RequireSuperUserMixin
 
 
-class UsersDeleteView(RequireSuperUserMixin,
-                      GenericMixin,
-                      DeleteView):
+class ObjectDeleteView(RequireSuperUserMixin,
+                       GenericMixin,
+                       DeleteView):
     model = User
     success_url = reverse_lazy('website.users.list')
     template_name = 'website/users/delete.html'

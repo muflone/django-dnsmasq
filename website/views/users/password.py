@@ -28,9 +28,9 @@ from website.views.generic import GenericMixin
 from website.views.require_superuser import RequireSuperUserMixin
 
 
-class UsersPasswordView(RequireSuperUserMixin,
-                        GenericMixin,
-                        UpdateView):
+class ObjectPasswordView(RequireSuperUserMixin,
+                         GenericMixin,
+                         UpdateView):
     model = User
     form_class = UserPasswordForm
     template_name = 'website/users/password.html'

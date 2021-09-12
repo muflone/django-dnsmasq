@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class SettingsDeleteView(RequireLoginMixin,
-                         GenericMixin,
-                         DeleteView):
+class ObjectDeleteView(RequireLoginMixin,
+                       GenericMixin,
+                       DeleteView):
     model = Setting
     success_url = reverse_lazy('website.settings.list')
     template_name = 'website/settings/delete.html'

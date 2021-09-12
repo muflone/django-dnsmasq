@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class InterfacesDeleteView(RequireLoginMixin,
-                           GenericMixin,
-                           DeleteView):
+class ObjectDeleteView(RequireLoginMixin,
+                       GenericMixin,
+                       DeleteView):
     model = Interface
     success_url = reverse_lazy('website.interfaces.list')
     template_name = 'website/interfaces/delete.html'

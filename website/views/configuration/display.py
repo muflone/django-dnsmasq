@@ -28,9 +28,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class ConfigurationDisplayView(RequireLoginMixin,
-                               GenericMixin,
-                               FormView):
+class ObjectDisplayView(RequireLoginMixin,
+                        GenericMixin,
+                        FormView):
     form_class = ConfigurationDisplayForm
     template_name = 'website/configuration/display.html'
     page_title = 'Display configuration'

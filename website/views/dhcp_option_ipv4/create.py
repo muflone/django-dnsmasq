@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpOptionIpV4CreateView(RequireLoginMixin,
-                               GenericMixin,
-                               CreateView):
+class ObjectCreateView(RequireLoginMixin,
+                       GenericMixin,
+                       CreateView):
     model = DhcpOptionIpV4
     fields = ['option', 'address', 'order', 'is_active']
     success_url = reverse_lazy('website.dhcp.option_ipv4.list')

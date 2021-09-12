@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.listen_addresses.create import ListenAddressesCreateView
-from website.views.listen_addresses.delete import ListenAddressesDeleteView
-from website.views.listen_addresses.detail import ListenAddressesDetailView
-from website.views.listen_addresses.list import ListenAddressesListView
+from website.views.listen_addresses.create import ObjectCreateView
+from website.views.listen_addresses.delete import ObjectDeleteView
+from website.views.listen_addresses.detail import ObjectDetailView
+from website.views.listen_addresses.list import ObjectListView
 
 
 urlpatterns = []
 
 # Listening addresses create page
 urlpatterns.append(path(route='create',
-                        view=ListenAddressesCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.listen_addresses.create'))
 # Listening addresses delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=ListenAddressesDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.listen_addresses.delete'))
 # Listening addresses detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=ListenAddressesDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.listen_addresses.detail'))
 # Listening addresses list page
 urlpatterns.append(path(route='list',
-                        view=ListenAddressesListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.listen_addresses.list'))

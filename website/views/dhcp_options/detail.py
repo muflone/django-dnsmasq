@@ -28,9 +28,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpOptionsDetailView(RequireLoginMixin,
-                            GenericMixin,
-                            UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = DhcpOption
     fields = ['tag', 'option', 'description',
               'character_value', 'numeric_value', 'forced', 'order',

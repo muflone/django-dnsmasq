@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpHostsDetailView(RequireLoginMixin,
-                          GenericMixin,
-                          UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = DhcpHost
     fields = ['name', 'description',
               'mac_address', 'address', 'hostname', 'lease_time',

@@ -20,17 +20,17 @@
 
 from django.urls import path
 
-from website.views.configuration.display import ConfigurationDisplayView
-from website.views.configuration.export import ConfigurationExportView
+from website.views.configuration.display import ObjectDisplayView
+from website.views.configuration.export import ObjectExportView
 
 
 urlpatterns = []
 
 # Configuration display page
 urlpatterns.append(path(route='display',
-                        view=ConfigurationDisplayView.as_view(),
+                        view=ObjectDisplayView.as_view(),
                         name='website.configuration.display'))
 # Configuration export page
 urlpatterns.append(path(route='export',
-                        view=ConfigurationExportView.as_view(),
+                        view=ObjectExportView.as_view(),
                         name='website.configuration.export'))

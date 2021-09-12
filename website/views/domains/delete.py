@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DomainsDeleteView(RequireLoginMixin,
-                        GenericMixin,
-                        DeleteView):
+class ObjectDeleteView(RequireLoginMixin,
+                       GenericMixin,
+                       DeleteView):
     model = Domain
     success_url = reverse_lazy('website.domains.list')
     template_name = 'website/domains/delete.html'

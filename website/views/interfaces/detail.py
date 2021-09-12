@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class InterfacesDetailView(RequireLoginMixin,
-                           GenericMixin,
-                           UpdateView):
+class ObjectDetailView(RequireLoginMixin,
+                       GenericMixin,
+                       UpdateView):
     model = Interface
     fields = ['name', 'description', 'order',
               'excluded', 'disable_dhcp', 'is_active']

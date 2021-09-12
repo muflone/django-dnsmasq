@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.domains.create import DomainsCreateView
-from website.views.domains.delete import DomainsDeleteView
-from website.views.domains.detail import DomainsDetailView
-from website.views.domains.list import DomainsListView
+from website.views.domains.create import ObjectCreateView
+from website.views.domains.delete import ObjectDeleteView
+from website.views.domains.detail import ObjectDetailView
+from website.views.domains.list import ObjectListView
 
 
 urlpatterns = []
 
 # Domains create page
 urlpatterns.append(path(route='create',
-                        view=DomainsCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.domains.create'))
 # Domains delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=DomainsDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.domains.delete'))
 # Domains detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=DomainsDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.domains.detail'))
 # Domains list page
 urlpatterns.append(path(route='list',
-                        view=DomainsListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.domains.list'))

@@ -27,9 +27,9 @@ from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
-class DhcpOptionIpV4DeleteView(RequireLoginMixin,
-                               GenericMixin,
-                               DeleteView):
+class ObjectDeleteView(RequireLoginMixin,
+                       GenericMixin,
+                       DeleteView):
     model = DhcpOptionIpV4
     success_url = reverse_lazy('website.dhcp.option_ipv4.list')
     template_name = 'website/dhcp_option_ipv4/delete.html'

@@ -20,27 +20,27 @@
 
 from django.urls import path
 
-from website.views.options.create import OptionsCreateView
-from website.views.options.delete import OptionsDeleteView
-from website.views.options.detail import OptionsDetailView
-from website.views.options.list import OptionsListView
+from website.views.options.create import ObjectCreateView
+from website.views.options.delete import ObjectDeleteView
+from website.views.options.detail import ObjectDetailView
+from website.views.options.list import ObjectListView
 
 
 urlpatterns = []
 
 # Options create page
 urlpatterns.append(path(route='create',
-                        view=OptionsCreateView.as_view(),
+                        view=ObjectCreateView.as_view(),
                         name='website.options.create'))
 # Options delete page
 urlpatterns.append(path(route='delete/<int:pk>',
-                        view=OptionsDeleteView.as_view(),
+                        view=ObjectDeleteView.as_view(),
                         name='website.options.delete'))
 # Options detail page
 urlpatterns.append(path(route='detail/<int:pk>',
-                        view=OptionsDetailView.as_view(),
+                        view=ObjectDetailView.as_view(),
                         name='website.options.detail'))
 # Options list page
 urlpatterns.append(path(route='list',
-                        view=OptionsListView.as_view(),
+                        view=ObjectListView.as_view(),
                         name='website.options.list'))

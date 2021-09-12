@@ -5,61 +5,61 @@
     {% include 'website/dashboard/section_header.html' with title='Server configuration' %}
     <div class="row">
         {% url 'website.options.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Options' items=options url=destination_url tint='primary' icon='fa-cogs' %}
+        {% include 'website/dashboard/section_card.html' with title='Options' items=options tint='primary' icon='fa-cogs' %}
 
         {% url 'website.interfaces.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Interfaces' items=interfaces url=destination_url tint='primary' icon='fa-network-wired' %}
+        {% include 'website/dashboard/section_card.html' with title='Interfaces' items=interfaces tint='primary' icon='fa-network-wired' %}
 
         {% url 'website.listen_addresses.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Listening addresses' items=listen_addresses url=destination_url tint='primary' icon='fa-signal' %}
+        {% include 'website/dashboard/section_card.html' with title='Listening addresses' items=listen_addresses tint='primary' icon='fa-signal' %}
 
         {% url 'website.domains.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Domains' items=domains url=destination_url tint='primary' icon='fa-city' %}
+        {% include 'website/dashboard/section_card.html' with title='Domains' items=domains tint='primary' icon='fa-city' %}
 
         {% url 'website.dhcp.hosts.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP hosts' items=dhcp_hosts url=destination_url tint='primary' icon='fa-laptop' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP hosts' items=dhcp_hosts tint='primary' icon='fa-laptop' %}
 
         {% url 'website.dhcp.options.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP options' items=dhcp_options url=destination_url tint='primary' icon='fa-toggle-on' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP options' items=dhcp_options tint='primary' icon='fa-toggle-on' %}
 
         {% url 'website.dhcp.option_ipv4.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP option IPv4 addresses' items=dhcp_option_ipv4 url=destination_url tint='primary' icon='fa-exchange-alt' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP option IPv4 addresses' items=dhcp_option_ipv4 tint='primary' icon='fa-exchange-alt' %}
 
         {% url 'website.dhcp.option_types.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP option types' items=dhcp_option_types url=destination_url tint='primary' icon='fa-shapes' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP option types' items=dhcp_option_types tint='primary' icon='fa-shapes' %}
 
         {% url 'website.dhcp.ranges.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP ranges' items=dhcp_ranges url=destination_url tint='primary' icon='fa-sliders-h' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP ranges' items=dhcp_ranges tint='primary' icon='fa-sliders-h' %}
 
         {% url 'website.dhcp.tags.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP tags' items=dhcp_tags url=destination_url tint='primary' icon='fa-tags' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP tags' items=dhcp_tags tint='primary' icon='fa-tags' %}
     </div>
 
     {% include 'website/dashboard/section_header.html' with title='Easy Setup' %}
     <div class="row">
         {% url 'website.easy_setup.dhcp.default_policy' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP Default policy' url=destination_url tint='info' icon='fa-balance-scale' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP Default policy' tint='info' icon='fa-balance-scale' %}
 
         {% url 'website.easy_setup.dhcp.default_options' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='DHCP Default options' url=destination_url tint='info' icon='fa-list-ul' %}
+        {% include 'website/dashboard/section_card.html' with title='DHCP Default options' tint='info' icon='fa-list-ul' %}
     </div>
 
 
     {% include 'website/dashboard/section_header.html' with title='Tools' %}
     <div class="row">
         {% url 'website.configuration.display' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Display configuration' url=destination_url tint='success' icon='fa-file-import' %}
+        {% include 'website/dashboard/section_card.html' with title='Display configuration' tint='success' icon='fa-file-import' %}
 
         {% url 'website.configuration.export' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Export configuration' url=destination_url tint='success' icon='fa-file-export' %}
+        {% include 'website/dashboard/section_card.html' with title='Export configuration' tint='success' icon='fa-file-export' %}
     </div>
 
     {% include 'website/dashboard/section_header.html' with title='System configuration' %}
     <div class="row">
         {% url 'website.users.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Users' items=users url=destination_url tint='secondary' icon='fa-user' %}
+        {% include 'website/dashboard/section_card.html' with title='Users' items=users tint='secondary' icon='fa-user' %}
 
         {% url 'website.settings.list' as destination_url %}
-        {% include 'website/dashboard/section_card.html' with title='Settings' items=settings url=destination_url tint='secondary' icon='fa-bolt' %}
+        {% include 'website/dashboard/section_card.html' with title='Settings' items=settings tint='secondary' icon='fa-bolt' %}
     </div>
 {% endblock %}

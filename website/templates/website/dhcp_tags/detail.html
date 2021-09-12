@@ -46,9 +46,9 @@
                         </div>
                     </div>
                 </div>
-                {% url 'website.dhcp.tags.list' as destination_url_cancel %}
-                {% url 'website.dhcp.tags.delete' pk=object.pk as destination_url_delete %}
-                {% include 'website/includes/crud/toolbar_detail.html' with url_cancel=destination_url_cancel url_delete=destination_url_delete %}
+                {% url 'website.dhcp.tags.list' as url_cancel %}
+                {% url 'website.dhcp.tags.delete' pk=object.pk as url_delete %}
+                {% include 'website/includes/crud/toolbar_detail.html' %}
             </form>
         </div>
     </div>

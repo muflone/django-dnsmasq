@@ -16,7 +16,9 @@
                 {% csrf_token %}
                 {{ form.non_field_errors }}
                 <input type="hidden" name="name" value="{{ tag_name }}">
-                {% include 'website/includes/crud/toolbar_detail.html' with url_cancel=None url_delete=None %}
+                {% assign None as url_cancel %}
+                {% assign None as url_delete %}
+                {% include 'website/includes/crud/toolbar_detail.html' %}
             </form>
         </div>
     </div>

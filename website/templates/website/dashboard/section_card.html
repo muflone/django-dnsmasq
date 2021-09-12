@@ -5,17 +5,17 @@
                         <div class="col mr-2">
 {% if items %}
                             <div class="font-weight-bold mb-1">
-                                <a class="text-{{ tint }} text-uppercase" href="{{ url }}">{{ title }}</a></div>
+                                <a class="text-{{ tint }} text-uppercase" href="{{ destination_url }}">{{ title }}</a></div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <a class="text-{{ tint }}" href="{{ url }}">
+                                <a class="text-{{ tint }}" href="{{ destination_url }}">
                                     {{ items.0|length }} ({{ items.1|length }} enabled / {{ items.2|length }} disabled)</a></div>
 {% else %}
                             <div class="h5 font-weight-bold mb-1">
-                                <a class="text-{{ tint }} text-uppercase" href="{{ url }}">{{ title }}</a></div>
+                                <a class="text-{{ tint }} text-uppercase" href="{{ destination_url }}">{{ title }}</a></div>
 {% endif %}
                         </div>
                         <div class="col-auto">
-                            <a href="{{ url }}"><i class="fas {{ icon }} fa-2x text-{{ tint }}"></i></a>
+                            <a href="{{ destination_url }}"><i class="fas {{ icon }} fa-2x text-{{ tint }}"></i></a>
                         </div>
                     </div>
                 </div>

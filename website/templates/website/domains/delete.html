@@ -48,8 +48,8 @@
                     </div>
                 </div>
             </div>
-            {% url 'website.domains.detail' pk=object.pk as destination_url %}
-            {% include 'website/includes/crud/toolbar_delete.html' with url=destination_url %}
+            {% url 'website.domains.detail' pk=object.pk as url_cancel %}
+            {% include 'website/includes/crud/toolbar_delete.html' %}
         </div>
     </div>
 {% endblock %}

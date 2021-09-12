@@ -1,10 +1,10 @@
 {% extends 'website/includes/crud/toolbar_detail.html' %}
 
 {% block after_save %}
-    {% if pk %}
+    {% if object.pk %}
                             <!-- Password button -->
                             <div class="col-sm-2">
-                                <a href="{% url 'website.users.password' pk=pk %}" class="btn btn-success col-sm">Set password</a>
+                                <a href="{% url 'website.users.password' pk=object.pk %}" class="btn btn-success col-sm">Set password</a>
                             </div>
     {% endif %}
 {% endblock %}

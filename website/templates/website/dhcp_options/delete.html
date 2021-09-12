@@ -27,11 +27,11 @@
                 </div>
             </div>
   {% if mode == easy_setup %}
-            {% url 'website.easy_setup.dhcp.options.detail' pk=object.pk as destination_url %}
+            {% url 'website.easy_setup.dhcp.options.detail' pk=object.pk as url_cancel %}
   {% else %}
-            {% url 'website.dhcp.options.detail' pk=object.pk as destination_url %}
+            {% url 'website.dhcp.options.detail' pk=object.pk as url_cancel %}
   {% endif %}
-            {% include 'website/includes/crud/toolbar_delete.html' with url=destination_url %}
+            {% include 'website/includes/crud/toolbar_delete.html' %}
         </div>
     </div>
 {% endblock %}

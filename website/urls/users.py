@@ -23,6 +23,8 @@ from django.urls import path
 from website.views.users.create import ObjectCreateView
 from website.views.users.delete import ObjectDeleteView
 from website.views.users.detail import ObjectDetailView
+from website.views.users.disable import ObjectDisableView
+from website.views.users.enable import ObjectEnableView
 from website.views.users.list import ObjectListView
 from website.views.users.password import ObjectPasswordView
 
@@ -41,6 +43,14 @@ urlpatterns.append(path(route='delete/<int:pk>',
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),
                         name='website.users.detail'))
+# Users disable page
+urlpatterns.append(path(route='disable/<int:pk>',
+                        view=ObjectDisableView.as_view(),
+                        name='website.users.disable'))
+# Users enable page
+urlpatterns.append(path(route='enable/<int:pk>',
+                        view=ObjectEnableView.as_view(),
+                        name='website.users.enable'))
 # Users list page
 urlpatterns.append(path(route='list',
                         view=ObjectListView.as_view(),

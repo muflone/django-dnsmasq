@@ -23,6 +23,8 @@ from django.urls import path
 from website.views.listen_addresses.create import ObjectCreateView
 from website.views.listen_addresses.delete import ObjectDeleteView
 from website.views.listen_addresses.detail import ObjectDetailView
+from website.views.listen_addresses.disable import ObjectDisableView
+from website.views.listen_addresses.enable import ObjectEnableView
 from website.views.listen_addresses.list import ObjectListView
 
 
@@ -40,6 +42,14 @@ urlpatterns.append(path(route='delete/<int:pk>',
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),
                         name='website.listen_addresses.detail'))
+# Listening addresses disable page
+urlpatterns.append(path(route='disable/<int:pk>',
+                        view=ObjectDisableView.as_view(),
+                        name='website.listen_addresses.disable'))
+# Listening addresses enable page
+urlpatterns.append(path(route='enable/<int:pk>',
+                        view=ObjectEnableView.as_view(),
+                        name='website.listen_addresses.enable'))
 # Listening addresses list page
 urlpatterns.append(path(route='list',
                         view=ObjectListView.as_view(),

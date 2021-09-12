@@ -3,6 +3,8 @@
 
 {% block content %}
   {% url 'website.settings.create' as url_create %}
+  {% assign 'website.settings.enable' as url_enable %}
+  {% assign 'website.settings.disable' as url_disable %}
   {% assign 'website/settings/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='setting' %}
 {% endblock %}

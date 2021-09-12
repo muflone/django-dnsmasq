@@ -12,6 +12,15 @@
                             {{ item.description }}
 {% endblock %}
                         </div>
+{% block column_enable_disable %}
+                        <div class="enable-disable">
+  {% if item.is_active and url_disable %}
+                            <a href="{% url url_disable pk=item.pk %}" class="btn btn-danger button-disable">Disable</a>
+  {% elif url_enable %}
+                            <a href="{% url url_enable pk=item.pk %}" class="btn btn-success button-enable">Enable</a>
+  {% endif %}
+                        </div>
+{% endblock %}
 {% block column_order %}
   {% if item.order is not None %}
                         <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>

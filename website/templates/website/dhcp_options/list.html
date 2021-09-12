@@ -3,6 +3,8 @@
 
 {% block content %}
   {% url 'website.dhcp.options.create' as url_create %}
+  {% assign 'website.dhcp.options.enable' as url_enable %}
+  {% assign 'website.dhcp.options.disable' as url_disable %}
   {% assign 'website/dhcp_options/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='DHCP option' %}
 {% endblock %}

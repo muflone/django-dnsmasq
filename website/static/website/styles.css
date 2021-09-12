@@ -50,6 +50,10 @@ div.sidebar-brand-text {
     text-transform: none;
 }
 
+div.enable-disable {
+    padding-right: 0.5rem;
+}
+
 @media (max-width: 576px) {
     .login-form form{
         padding: 50px 20px;

@@ -3,6 +3,8 @@
 
 {% block content %}
   {% url 'website.domains.create' as url_create %}
+  {% assign 'website.domains.enable' as url_enable %}
+  {% assign 'website.domains.disable' as url_disable %}
   {% assign 'website/domains/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='domain' %}
 {% endblock %}

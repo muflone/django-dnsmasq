@@ -3,6 +3,8 @@
 
 {% block content %}
   {% url 'website.users.create' as url_create %}
+  {% assign 'website.users.enable' as url_enable %}
+  {% assign 'website.users.disable' as url_disable %}
   {% assign 'website/users/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='user' %}
 {% endblock %}

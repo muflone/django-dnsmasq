@@ -23,6 +23,8 @@ from django.urls import path
 from website.views.dhcp_tags.create import ObjectCreateView
 from website.views.dhcp_tags.delete import ObjectDeleteView
 from website.views.dhcp_tags.detail import ObjectDetailView
+from website.views.dhcp_tags.disable import ObjectDisableView
+from website.views.dhcp_tags.enable import ObjectEnableView
 from website.views.dhcp_tags.list import ObjectListView
 
 
@@ -40,6 +42,14 @@ urlpatterns.append(path(route='delete/<int:pk>',
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),
                         name='website.dhcp.tags.detail'))
+# DHCP tags disable page
+urlpatterns.append(path(route='disable/<int:pk>',
+                        view=ObjectDisableView.as_view(),
+                        name='website.dhcp.tags.disable'))
+# DHCP tags enable page
+urlpatterns.append(path(route='enable/<int:pk>',
+                        view=ObjectEnableView.as_view(),
+                        name='website.dhcp.tags.enable'))
 # DHCP tags list page
 urlpatterns.append(path(route='list',
                         view=ObjectListView.as_view(),

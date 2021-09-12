@@ -23,6 +23,8 @@ from django.urls import path
 from website.views.interfaces.create import ObjectCreateView
 from website.views.interfaces.delete import ObjectDeleteView
 from website.views.interfaces.detail import ObjectDetailView
+from website.views.interfaces.disable import ObjectDisableView
+from website.views.interfaces.enable import ObjectEnableView
 from website.views.interfaces.list import ObjectListView
 
 
@@ -40,6 +42,14 @@ urlpatterns.append(path(route='delete/<int:pk>',
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),
                         name='website.interfaces.detail'))
+# Interfaces disable page
+urlpatterns.append(path(route='disable/<int:pk>',
+                        view=ObjectDisableView.as_view(),
+                        name='website.interfaces.disable'))
+# Interfaces enable page
+urlpatterns.append(path(route='enable/<int:pk>',
+                        view=ObjectEnableView.as_view(),
+                        name='website.interfaces.enable'))
 # Interfaces list page
 urlpatterns.append(path(route='list',
                         view=ObjectListView.as_view(),

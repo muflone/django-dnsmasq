@@ -2,7 +2,7 @@
 {% load assign %}
 
 {% block content %}
-  {% url 'website.options.create' as create_url %}
+  {% url 'website.options.create' as url_create %}
   {% assign 'website/options/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='option' %}
 {% endblock %}

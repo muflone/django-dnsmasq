@@ -2,7 +2,7 @@
 {% load assign %}
 
 {% block content %}
-  {% url 'website.dhcp.option_types.create' as create_url %}
+  {% url 'website.dhcp.option_types.create' as url_create %}
   {% assign 'website/dhcp_option_types/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='DHCP option type' %}
 {% endblock %}

@@ -60,7 +60,9 @@ div.row-item-record {
     align-items: center !important;
 }
 
-div.row-item-textarea {
+div.row-item-textarea div.col-textarea {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
 }
 
 @media (max-width: 576px) {

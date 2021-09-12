@@ -12,12 +12,12 @@
                     <!-- Name -->
                     <div class="row row-item-label">
                         <div class="col-sm-2 col-form-label">Name</div>
-                        <div class="col-sm-2">{{ object.name }}</div>
+                        <div class="col">{{ object.name }}</div>
                     </div>
                     <!-- Description -->
                     <div class="row row-item-label">
                         <div class="col-sm-2 col-form-label">Description</div>
-                        <div class="col-sm-2">{{ object.description }}</div>
+                        <div class="col">{{ object.description }}</div>
                     </div>
                 </div>
             </div>
@@ -29,22 +29,22 @@
                     <!-- Subnet IP -->
                     <div class="row row-item-label">
                         <div class="col-sm-2 col-form-label">Subnet IP</div>
-                        <div class="col-sm-2">{{ object.subnet_ip|default_if_none:'' }}</div>
+                        <div class="col">{{ object.subnet_ip|default_if_none:'' }}</div>
                     </div>
                     <!-- Subnet CIDR -->
                     <div class="row row-item-label">
                         <div class="col-sm-2 col-form-label">Subnet CIDR</div>
-                        <div class="col-sm-2">{{ object.subnet_cidr }}</div>
+                        <div class="col">{{ object.subnet_cidr }}</div>
                     </div>
                     <!-- Starting IP -->
                     <div class="row row-item-label">
                         <div class="col-sm-2 col-form-label">Starting IP</div>
-                        <div class="col-sm-2">{{ object.starting_ip|default_if_none:'' }}</div>
+                        <div class="col">{{ object.starting_ip|default_if_none:'' }}</div>
                     </div>
                     <!-- Ending IP -->
                     <div class="row row-item-label">
                         <div class="col-sm-2 col-form-label">Ending IP</div>
-                        <div class="col-sm-2">{{ object.ending_ip|default_if_none:'' }}</div>
+                        <div class="col">{{ object.ending_ip|default_if_none:'' }}</div>
                     </div>
                 </div>
             </div>

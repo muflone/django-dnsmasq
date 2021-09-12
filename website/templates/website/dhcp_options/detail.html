@@ -17,32 +17,32 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.tag.id_for_label }}" class="col-form-label">{{ form.tag.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.tag }}</div>
+                            <div class="col">{{ form.tag }}</div>
   {# Add a hidden field when the tag was pre-selected as disabled fields won't be submitted #}
   {% if mode == easy_setup %}
                             <input type="hidden" name="{{ form.tag.name }}" value="{{ form.tag.value }}">
   {% endif %}
-                            <div class="col-sm">{{ form.tag.errors }}</div>
+                            <div class="col">{{ form.tag.errors }}</div>
                         </div>
                         <!-- Option -->
                         <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.option.id_for_label }}" class="col-form-label">{{ form.option.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.option }}</div>
+                            <div class="col">{{ form.option }}</div>
   {# Add a hidden field when the tag was pre-selected as disabled fields won't be submitted #}
   {% if mode == easy_setup and form.option.value %}
                             <input type="hidden" name="{{ form.option.name }}" value="{{ form.option.value }}">
   {% endif %}
-                            <div class="col-sm">{{ form.option.errors }}</div>
+                            <div class="col">{{ form.option.errors }}</div>
                         </div>
                         <!-- Description -->
                         <div class="row row-item-textarea">
                             <div class="col-sm-2">
                                 <label for="{{ form.description.id_for_label }}" class="col-form-label">{{ form.description.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.description }}</div>
-                            <div class="col-sm">{{ form.description.errors }}</div>
+                            <div class="col col-textarea">{{ form.description }}</div>
+                            <div class="col">{{ form.description.errors }}</div>
                         </div>
   {# Hide the character value field in easy setup mode for non character fields #}
   {% if mode == easy_setup and object.option.is_type_character or not object or not mode %}
@@ -51,8 +51,8 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.character_value.id_for_label }}" class="col-form-label">{{ form.character_value.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.character_value }}</div>
-                            <div class="col-sm">{{ form.character_value.errors }}</div>
+                            <div class="col">{{ form.character_value }}</div>
+                            <div class="col">{{ form.character_value.errors }}</div>
                         </div>
   {% endif %}
   {# Hide the numeric value field in easy setup mode for non numeric fields #}
@@ -62,8 +62,8 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.numeric_value.id_for_label }}" class="col-form-label">{{ form.numeric_value.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.numeric_value }}</div>
-                            <div class="col-sm">{{ form.numeric_value.errors }}</div>
+                            <div class="col">{{ form.numeric_value }}</div>
+                            <div class="col">{{ form.numeric_value.errors }}</div>
                         </div>
   {% endif %}
   {# Hide the boolean value field in easy setup mode for non boolean fields #}
@@ -97,24 +97,24 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.forced.id_for_label }}" class="col-form-label">{{ form.forced.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.forced }}</div>
-                            <div class="col-sm">{{ form.forced.errors }}</div>
+                            <div class="col">{{ form.forced }}</div>
+                            <div class="col">{{ form.forced.errors }}</div>
                         </div>
                         <!-- Order -->
                         <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.order.id_for_label }}" class="col-form-label">{{ form.order.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.order }}</div>
-                            <div class="col-sm">{{ form.order.errors }}</div>
+                            <div class="col">{{ form.order }}</div>
+                            <div class="col">{{ form.order.errors }}</div>
                         </div>
                         <!-- Active status -->
                         <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.is_active.id_for_label }}" class="col-form-label">{{ form.is_active.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.is_active }}</div>
-                            <div class="col-sm">{{ form.is_active.errors }}</div>
+                            <div class="col">{{ form.is_active }}</div>
+                            <div class="col">{{ form.is_active.errors }}</div>
                         </div>
                     </div>
                 </div>

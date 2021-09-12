@@ -18,13 +18,13 @@
                             <div class="col-sm-2">
                                 <div class="col-form-label">Username</div>
                             </div>
-                            <div class="col-sm-2">{{ object.username }}</div>
+                            <div class="col">{{ object.username }}</div>
 {% else %}
                             <div class="col-sm-2">
                                 <label for="{{ form.username.id_for_label }}" class="col-form-label">{{ form.username.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.username }}</div>
-                            <div class="col-sm">{{ form.username.errors }}</div>
+                            <div class="col">{{ form.username }}</div>
+                            <div class="col">{{ form.username.errors }}</div>
 {% endif %}
                         </div>
                         <!-- First name -->
@@ -32,16 +32,16 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.first_name.id_for_label }}" class="col-form-label">{{ form.first_name.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.first_name }}</div>
-                            <div class="col-sm">{{ form.first_name.errors }}</div>
+                            <div class="col">{{ form.first_name }}</div>
+                            <div class="col">{{ form.first_name.errors }}</div>
                         </div>
                         <!-- Last name -->
                         <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.last_name.id_for_label }}" class="col-form-label">{{ form.last_name.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.last_name }}</div>
-                            <div class="col-sm">{{ form.last_name.errors }}</div>
+                            <div class="col">{{ form.last_name }}</div>
+                            <div class="col">{{ form.last_name.errors }}</div>
                         </div>
                     </div>
                 </div>
@@ -55,24 +55,24 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.is_active.id_for_label }}" class="col-form-label">{{ form.is_active.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.is_active }}</div>
-                            <div class="col-sm-2">{{ form.is_active.errors }}</div>
+                            <div class="col">{{ form.is_active }}</div>
+                            <div class="col">{{ form.is_active.errors }}</div>
                         </div>
                         <!-- Staff status -->
                         <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.is_staff.id_for_label }}" class="col-form-label">{{ form.is_staff.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.is_staff }}</div>
-                            <div class="col-sm-2">{{ form.is_staff.errors }}</div>
+                            <div class="col">{{ form.is_staff }}</div>
+                            <div class="col">{{ form.is_staff.errors }}</div>
                         </div>
                         <!-- Superuser status -->
                         <div class="row row-item-field">
                             <div class="col-sm-2">
                                 <label for="{{ form.is_superuser.id_for_label }}" class="col-form-label">{{ form.is_superuser.label }}</label>
                             </div>
-                            <div class="col-sm-2">{{ form.is_superuser }}</div>
-                            <div class="col-sm-2">{{ form.is_superuser.errors }}</div>
+                            <div class="col">{{ form.is_superuser }}</div>
+                            <div class="col">{{ form.is_superuser.errors }}</div>
                         </div>
                     </div>
                 </div>

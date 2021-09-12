@@ -1,5 +1,6 @@
 {% extends 'website/base/base_admin.html' %}
 {% load static %}
+{% load assign %}
 
 {% block content %}
     <div class="row">
@@ -47,7 +48,9 @@
                         </div>
                     </div>
                 </div>
-                {% include 'website/includes/crud/toolbar_form.html' %}
+                {% assign None as url_cancel %}
+                {% assign None as url_delete %}
+                {% include 'website/includes/crud/toolbar_detail.html' %}
             </form>
         </div>
     </div>

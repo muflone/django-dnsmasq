@@ -1,6 +1,6 @@
 {% extends 'website/base/base_admin.html' %}
 
 {% block content %}
-  {% url 'website.domains.create' as destination_url_create %}
-  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='domain' list_detail_include='website/domains/list_detail.html' %}
+  {% url 'website.domains.create' as create_url %}
+  {% include 'website/includes/crud/records_list.html' with title='domain' list_detail_include='website/domains/list_detail.html' %}
 {% endblock %}

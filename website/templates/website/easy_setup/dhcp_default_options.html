@@ -3,9 +3,9 @@
 
 {% block content %}
   {% if object.id %}
-    {% url 'website.easy_setup.dhcp.options.create' as destination_url_create %}
+    {% url 'website.easy_setup.dhcp.options.create' as create_url %}
   {% endif %}
-  {% include 'website/includes/crud/records_list.html' with create_url=destination_url_create title='DHCP option' list_detail_include='website/dhcp_options/list_detail.html' %}
+  {% include 'website/includes/crud/records_list.html' with title='DHCP option' list_detail_include='website/dhcp_options/list_detail.html' %}
     <div class="row">
         <div class="col">
             <form method="post">

@@ -124,6 +124,14 @@ class DhcpOptionType(BaseModel):
         """
         return self.type == self.CHARACTER
 
+    def is_type_ipv4_address(self):
+        """
+        Check if the option type is an IPv4 address
+        """
+        return self.type in (self.IPV4_X1,
+                             self.IPV4_X2,
+                             self.IPV4_MANY)
+
     def is_type_numeric(self):
         """
         Check if the option type is numeric

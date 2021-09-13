@@ -88,6 +88,16 @@ class DhcpOption(BaseModel):
                                                   OPTION=self.option.option,
                                                   NAME=self.option.name)
 
+    def get_expected_ipv4_addresses_count(self):
+        """
+        Get the number of expected IPv4 addresses for the option type
+        """
+        expected_addresses_count = {
+            self.option.IPV4_X1: 1,
+            self.option.IPV4_X2: 2,
+            self.option.IPV4_MANY: 9999}.get(self.option.type, 0)
+        return expected_addresses_count
+
 
 class DhcpOptionAdmin(BaseModelAdmin):
     pass

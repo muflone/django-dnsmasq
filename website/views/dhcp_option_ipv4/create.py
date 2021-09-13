@@ -21,7 +21,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from dnsmasq.models import DhcpOptionIpV4
+from dnsmasq.constants import MODE_EASY_SETUP
+from dnsmasq.models import DhcpOption, DhcpOptionIpV4
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -35,3 +36,32 @@ class ObjectCreateView(RequireLoginMixin,
     success_url = reverse_lazy('website.dhcp.option_ipv4.list')
     template_name = 'website/dhcp_option_ipv4/detail.html'
     page_title = 'Create new DHCP option IPv4 address'
+
+    def get_context_data(self, **kwargs):
+        """
+        Get the context data (extra_content is loaded only in GenericMixin)
+        """
+        context = super().get_context_data(**kwargs)
+        # If the mode is passed set it as disabled/fixed
+        if 'mode' in self.kwargs:
+            form = context['form']
+            form.fields['option'].widget.attrs['disabled'] = 'disabled'
+        return context
+
+    def get_initial(self):
+        initial = super().get_initial()
+        # If the mode is passed set the current tag as default
+        if 'mode' in self.kwargs:
+            initial['option'] = DhcpOption.objects.get(pk=self.kwargs['pk'])
+        return initial
+
+    def get_success_url(self):
+        """
+        Get the success URL to redirect after a successfull post.
+        When the tag is passed redirect to the Easy Setup default options page
+        """
+        url = super().get_success_url()
+        if self.kwargs.get('mode', None) == MODE_EASY_SETUP:
+            url = reverse_lazy('website.easy_setup.dhcp.options.detail',
+                               kwargs={'pk': self.object.option.pk})
+        return url

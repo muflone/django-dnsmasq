@@ -119,7 +119,14 @@
                     </div>
   {% if mode == easy_setup and object.option.is_type_ipv4_address %}
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Related IP addresses</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Related IP addresses
+    {% if object.dhcpoptionipv4_set.all.count < object.get_expected_ipv4_addresses_count %}
+                            <a href="{% url 'website.easy_setup.dhcp.option_ipv4.create' pk=object.pk %}" class="btn btn-primary btn-sm float-right">
+                                <i class="fas fa-fw fa-plus"></i>
+                                Create new DHCP option IPv4
+                            </a>
+    {% endif %}
+                        </h6>
                     </div>
                     <div class="card-body">
     {% for item in object.dhcpoptionipv4_set.all %}

@@ -22,11 +22,17 @@ from django.urls import path
 
 from dnsmasq.constants import MODE_EASY_SETUP
 
+from website.views.dhcp_option_ipv4.create import ObjectCreateView
 from website.views.dhcp_option_ipv4.detail import ObjectDetailView
 
 
 urlpatterns = []
 
+# Easy Setup DHCP options create page
+urlpatterns.append(path(route='create/<int:pk>',
+                        view=ObjectCreateView.as_view(),
+                        name='website.easy_setup.dhcp.option_ipv4.create',
+                        kwargs={'mode': MODE_EASY_SETUP}))
 # Easy Setup DHCP options detail page
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),

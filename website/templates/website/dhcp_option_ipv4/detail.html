@@ -18,6 +18,10 @@
                                 <label for="{{ form.option.id_for_label }}" class="col-form-label">{{ form.option.label }}</label>
                             </div>
                             <div class="col">{{ form.option }}</div>
+  {# Add a hidden field when the option was pre-selected as disabled fields won't be submitted #}
+  {% if mode == easy_setup %}
+                            <input type="hidden" name="{{ form.option.name }}" value="{{ form.option.value }}">
+  {% endif %}
                             <div class="col">{{ form.option.errors }}</div>
                         </div>
                         <!-- Address -->

@@ -18,21 +18,17 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import include, path
+from django.urls import path
+
+from dnsmasq.constants import MODE_EASY_SETUP
+
+from website.views.dhcp_option_ipv4.detail import ObjectDetailView
 
 
 urlpatterns = []
 
-
-# Root module
-urlpatterns.append(path(
-    route='',
-    view=include('website.urls.easy_setup.dhcp.root')))
-# Option IPv4 module
-urlpatterns.append(path(
-    route='option_ipv4/',
-    view=include('website.urls.easy_setup.dhcp.option_ipv4')))
-# Options module
-urlpatterns.append(path(
-    route='options/',
-    view=include('website.urls.easy_setup.dhcp.options')))
+# Easy Setup DHCP options detail page
+urlpatterns.append(path(route='detail/<int:pk>',
+                        view=ObjectDetailView.as_view(),
+                        name='website.easy_setup.dhcp.option_ipv4.detail',
+                        kwargs={'mode': MODE_EASY_SETUP}))

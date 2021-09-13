@@ -117,6 +117,26 @@
                             <div class="col">{{ form.is_active.errors }}</div>
                         </div>
                     </div>
+  {% if mode == easy_setup and object.option.is_type_ipv4_address %}
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Related IP addresses</h6>
+                    </div>
+                    <div class="card-body">
+    {% for item in object.dhcpoptionipv4_set.all %}
+                        <div class="row row-item-label">
+                            <div class="col-sm-2">IPv4 Address {{ forloop.counter }}</div>
+                            <div class="col">
+                                <label class="col-form-label">
+                                    <a href="{% url 'website.easy_setup.dhcp.option_ipv4.detail' pk=item.id %}">{{ item.address }}</a>
+                                </label>
+                            </div>
+                        </div>
+      {% if not forloop.last %}
+                        <hr />
+      {% endif %}
+    {% endfor %}
+                    </div>
+  {% endif %}
                 </div>
   {% if mode == easy_setup %}
                 {% url 'website.easy_setup.dhcp.default_options' as url_cancel %}

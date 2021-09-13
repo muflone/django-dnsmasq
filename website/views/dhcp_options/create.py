@@ -35,6 +35,7 @@ class ObjectCreateView(RequireLoginMixin,
     fields = ['tag', 'option', 'description',
               'character_value', 'numeric_value', 'forced',
               'order', 'is_active']
+    success_url = reverse_lazy('website.dhcp.options.list')
     template_name = 'website/dhcp_options/detail.html'
     page_title = 'Create new DHCP option'
 
@@ -66,8 +67,7 @@ class ObjectCreateView(RequireLoginMixin,
         Get the success URL to redirect after a successfull post.
         When the tag is passed redirect to the Easy Setup default options page
         """
-        success_url = reverse_lazy(
-            'website.easy_setup.dhcp.default_options'
-            if self.kwargs.get('mode', None) == MODE_EASY_SETUP
-            else 'website.dhcp.options.list')
-        return success_url
+        url = super().get_success_url()
+        if self.kwargs.get('mode', None) == MODE_EASY_SETUP:
+            url = reverse_lazy('website.easy_setup.dhcp.default_options')
+        return url

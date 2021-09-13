@@ -20,6 +20,7 @@
 
 from django.urls import reverse_lazy
 
+from dnsmasq.constants import MODE_EASY_SETUP
 from dnsmasq.models import DhcpOptionIpV4
 
 from website.views.item_disable import ItemDisableView
@@ -30,3 +31,14 @@ class ObjectDisableView(RequireLoginMixin,
                         ItemDisableView):
     model = DhcpOptionIpV4
     url = reverse_lazy('website.dhcp.option_ipv4.list')
+
+    def get_redirect_url(self, *args, **kwargs):
+        """
+        Change redirect URL if the Easy Setup mode was requested
+        """
+        url = super().get_redirect_url(*args, **kwargs)
+        if self.kwargs.get('mode', None) == MODE_EASY_SETUP:
+            item = self.model.objects.get(pk=self.kwargs['pk'])
+            url = reverse_lazy('website.easy_setup.dhcp.options.detail',
+                               kwargs={'pk': item.option.pk})
+        return url

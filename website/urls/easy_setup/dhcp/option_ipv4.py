@@ -24,6 +24,8 @@ from dnsmasq.constants import MODE_EASY_SETUP
 
 from website.views.dhcp_option_ipv4.create import ObjectCreateView
 from website.views.dhcp_option_ipv4.detail import ObjectDetailView
+from website.views.dhcp_option_ipv4.disable import ObjectDisableView
+from website.views.dhcp_option_ipv4.enable import ObjectEnableView
 
 
 urlpatterns = []
@@ -37,4 +39,14 @@ urlpatterns.append(path(route='create/<int:pk>',
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),
                         name='website.easy_setup.dhcp.option_ipv4.detail',
+                        kwargs={'mode': MODE_EASY_SETUP}))
+# Easy Setup DHCP options disable page
+urlpatterns.append(path(route='disable/<int:pk>',
+                        view=ObjectDisableView.as_view(),
+                        name='website.easy_setup.dhcp.option_ipv4.disable',
+                        kwargs={'mode': MODE_EASY_SETUP}))
+# Easy Setup DHCP options enable page
+urlpatterns.append(path(route='enable/<int:pk>',
+                        view=ObjectEnableView.as_view(),
+                        name='website.easy_setup.dhcp.option_ipv4.enable',
                         kwargs={'mode': MODE_EASY_SETUP}))

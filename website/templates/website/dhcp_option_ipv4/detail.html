@@ -50,8 +50,13 @@
                         </div>
                     </div>
                 </div>
+  {% if mode == easy_setup %}
+                {% url 'website.easy_setup.dhcp.options.detail' pk=object.option.pk as url_cancel %}
+                {% url 'website.easy_setup.dhcp.option_ipv4.delete' pk=object.pk as url_delete %}
+  {% else %}
                 {% url 'website.dhcp.option_ipv4.list' as url_cancel %}
                 {% url 'website.dhcp.option_ipv4.delete' pk=object.pk as url_delete %}
+  {% endif %}
                 {% include 'website/includes/crud/toolbar_detail.html' %}
             </form>
         </div>

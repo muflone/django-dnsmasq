@@ -23,6 +23,7 @@ from django.urls import path
 from dnsmasq.constants import MODE_EASY_SETUP
 
 from website.views.dhcp_option_ipv4.create import ObjectCreateView
+from website.views.dhcp_option_ipv4.delete import ObjectDeleteView
 from website.views.dhcp_option_ipv4.detail import ObjectDetailView
 from website.views.dhcp_option_ipv4.disable import ObjectDisableView
 from website.views.dhcp_option_ipv4.enable import ObjectEnableView
@@ -30,22 +31,27 @@ from website.views.dhcp_option_ipv4.enable import ObjectEnableView
 
 urlpatterns = []
 
-# Easy Setup DHCP options create page
+# Easy Setup DHCP options IPv4 address create page
 urlpatterns.append(path(route='create/<int:pk>',
                         view=ObjectCreateView.as_view(),
                         name='website.easy_setup.dhcp.option_ipv4.create',
                         kwargs={'mode': MODE_EASY_SETUP}))
-# Easy Setup DHCP options detail page
+# Easy Setup DHCP options IPv4 address delete page
+urlpatterns.append(path(route='delete/<int:pk>',
+                        view=ObjectDeleteView.as_view(),
+                        name='website.easy_setup.dhcp.option_ipv4.delete',
+                        kwargs={'mode': MODE_EASY_SETUP}))
+# Easy Setup DHCP options IPv4 address detail page
 urlpatterns.append(path(route='detail/<int:pk>',
                         view=ObjectDetailView.as_view(),
                         name='website.easy_setup.dhcp.option_ipv4.detail',
                         kwargs={'mode': MODE_EASY_SETUP}))
-# Easy Setup DHCP options disable page
+# Easy Setup DHCP options IPv4 address disable page
 urlpatterns.append(path(route='disable/<int:pk>',
                         view=ObjectDisableView.as_view(),
                         name='website.easy_setup.dhcp.option_ipv4.disable',
                         kwargs={'mode': MODE_EASY_SETUP}))
-# Easy Setup DHCP options enable page
+# Easy Setup DHCP options IPv4 address enable page
 urlpatterns.append(path(route='enable/<int:pk>',
                         view=ObjectEnableView.as_view(),
                         name='website.easy_setup.dhcp.option_ipv4.enable',

@@ -137,7 +137,7 @@
                                     <a href="{% url 'website.easy_setup.dhcp.option_ipv4.detail' pk=item.id %}">{{ item.address }}</a>
                                 </label>
                             </div>
-                            <div class="enable-disable">
+                            <div class="col-enable-disable">
       {% if item.is_active %}
                                     <a href="{% url 'website.easy_setup.dhcp.option_ipv4.disable' pk=item.pk %}" class="btn btn-danger button-disable">Disable</a>
       {% else %}

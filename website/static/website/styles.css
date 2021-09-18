@@ -50,8 +50,8 @@ div.sidebar-brand-text {
     text-transform: none;
 }
 
-div.enable-disable {
-    padding-right: 0.5rem;
+div.col-enable-disable {
+    padding-right: 0.75rem;
 }
 
 div.row-item-field,

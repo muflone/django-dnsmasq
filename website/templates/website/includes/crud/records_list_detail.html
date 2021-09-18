@@ -13,7 +13,7 @@
 {% endblock %}
                         </div>
 {% block column_enable_disable %}
-                        <div class="enable-disable">
+                        <div class="col-enable-disable">
   {% if item.is_active and url_disable %}
                             <a href="{% url url_disable pk=item.pk %}" class="btn btn-danger button-disable">Disable</a>
   {% elif url_enable %}

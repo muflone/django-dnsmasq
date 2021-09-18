@@ -35,4 +35,5 @@ class ObjectListView(RequireLoginMixin,
     template_name = 'website/domains/list.html'
     page_title = 'Domains'
     column_headers = [('Name', 'col-sm-3'),
-                      ('Description', 'col-sm')]
+                      ('Description', 'col-sm'),
+                      ('Order', 'col-order')]

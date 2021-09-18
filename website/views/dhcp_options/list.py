@@ -37,4 +37,5 @@ class ObjectListView(RequireLoginMixin,
     column_headers = [('Tag', 'col-sm-3'),
                       ('Option', 'col-sm-2'),
                       ('Type', 'col-sm-2'),
-                      ('Description', 'col-sm')]
+                      ('Description', 'col-sm'),
+                      ('Order', 'col-order')]

@@ -37,7 +37,8 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
     page_title = 'DHCP default options'
     column_headers = [('Option', 'col-sm-3'),
                       ('Type', 'col-sm-2'),
-                      ('Description', 'col-sm')]
+                      ('Description', 'col-sm'),
+                      ('Order', 'col-order')]
 
     def get_context_data(self, **kwargs):
         """

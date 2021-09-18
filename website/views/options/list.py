@@ -36,4 +36,5 @@ class ObjectListView(RequireLoginMixin,
     page_title = 'Options'
     column_headers = [('Name', 'col-sm-3'),
                       ('Option', 'col-sm-2'),
-                      ('Description', 'col-sm')]
+                      ('Description', 'col-sm'),
+                      ('Order', 'col-order')]

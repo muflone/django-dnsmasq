@@ -35,4 +35,5 @@ class ObjectListView(RequireLoginMixin,
     template_name = 'website/dhcp_option_ipv4/list.html'
     page_title = 'DHCP option IPv4 addresses'
     column_headers = [('Option', 'col-sm-3'),
-                      ('Address', 'col-sm')]
+                      ('Address', 'col-sm'),
+                      ('Order', 'col-order')]

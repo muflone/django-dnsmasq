@@ -35,4 +35,5 @@ class ObjectListView(RequireLoginMixin,
     template_name = 'website/dhcp_tags/list.html'
     page_title = 'DHCP tags'
     column_headers = [('Name', 'col-sm-3'),
-                      ('Description', 'col-sm')]
+                      ('Description', 'col-sm'),
+                      ('Order', 'col-order')]

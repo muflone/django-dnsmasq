@@ -144,6 +144,9 @@
                                     <a href="{% url 'website.easy_setup.dhcp.option_ipv4.enable' pk=item.pk %}" class="btn btn-success button-enable">Enable</a>
       {% endif %}
                             </div>
+                            <div class="col-order">
+                                <div class="item-order bg-gradient-primary text-white">{{ item.order }}</div>
+                            </div>
                         </div>
       {% if not forloop.last %}
                         <hr />

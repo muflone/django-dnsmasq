@@ -2,9 +2,11 @@
 
 {% block column_order %}
   {% if item.option.tag.order is not None %}
-                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.option.tag.order }}&nbsp;</strong></div>
-                        &nbsp;&gt;&nbsp;
-                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
+                        <div class="col-order">
+                            <div class="item-order bg-gradient-primary text-white">{{ item.option.tag.order }}</div>
+                            &nbsp;&gt;&nbsp;
+                            <div class="item-order bg-gradient-primary text-white">{{ item.order }}</div>
+                        </div>
   {% endif %}
 {% endblock %}
 

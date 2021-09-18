@@ -3,13 +3,15 @@
 
 {% block column_order %}
   {% if item.tag.order is not None %}
+                        <div class="col-order">
     {# When mode is not set hide the tag order #}
     {% if not mode %}
-                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.tag.order }}&nbsp;</strong></div>
-                        &nbsp;&gt;&nbsp;
+                            <div class="item-order bg-gradient-primary text-white">{{ item.tag.order }}</div>
+                            &nbsp;&gt;&nbsp;
     {% endif %}
-                        <div class="col-xs bg-gradient-primary text-white"><strong>&nbsp;{{ item.order }}&nbsp;</strong></div>
+                            <div class="item-order bg-gradient-primary text-white">{{ item.order }}</div>
   {% endif %}
+                        </div>
 {% endblock %}
 
 {% block column_first %}

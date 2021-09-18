@@ -106,7 +106,8 @@ class ConfigurationGenerator(object):
             # Format values
             results = ','.join(option.address
                                for option
-                               in options)
+                               in options
+                               if option.is_active)
         elif option.option.type == DhcpOptionType.CHARACTER:
             results = option.character_value
         else:

@@ -139,9 +139,9 @@
                             </div>
                             <div class="col-enable-disable">
       {% if item.is_active %}
-                                    <a href="{% url 'website.easy_setup.dhcp.option_ipv4.disable' pk=item.pk %}" class="btn btn-danger button-disable">Disable</a>
+                                <a href="{% url 'website.easy_setup.dhcp.option_ipv4.disable' pk=item.pk %}" class="btn btn-danger button-disable">Disable</a>
       {% else %}
-                                    <a href="{% url 'website.easy_setup.dhcp.option_ipv4.enable' pk=item.pk %}" class="btn btn-success button-enable">Enable</a>
+                                <a href="{% url 'website.easy_setup.dhcp.option_ipv4.enable' pk=item.pk %}" class="btn btn-success button-enable">Enable</a>
       {% endif %}
                             </div>
                             <div class="col-order">

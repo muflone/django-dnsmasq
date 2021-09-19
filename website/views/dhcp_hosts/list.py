@@ -37,5 +37,6 @@ class ObjectListView(RequireLoginMixin,
     column_headers = [('Name', 'col-sm-3'),
                       ('MAC address', 'col-sm-10-percent'),
                       ('IP address', 'col-sm-10-percent'),
+                      ('Tag', 'col-sm-2'),
                       ('Description', 'col-sm'),
                       ('Order', 'col-order')]

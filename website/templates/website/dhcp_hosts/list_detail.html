@@ -12,4 +12,9 @@
                         <div class="col-sm-10-percent">
                             {{ item.address | default_if_none:'' }}
                         </div>
+                        <div class="col-sm-2">
+  {% if item.tag %}
+                            <a href="{% url 'website.dhcp.tags.detail' pk=item.tag_id %}">{{ item.tag.name }}</a>
+  {% endif %}
+                        </div>
 {% endblock %}

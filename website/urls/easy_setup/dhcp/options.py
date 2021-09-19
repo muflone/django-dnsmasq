@@ -22,11 +22,11 @@ from django.urls import path
 
 from dnsmasq.constants import MODE_EASY_SETUP
 
-from website.views.dhcp_options.create import ObjectCreateView
-from website.views.dhcp_options.delete import ObjectDeleteView
-from website.views.dhcp_options.detail import ObjectDetailView
-from website.views.dhcp_options.disable import ObjectDisableView
-from website.views.dhcp_options.enable import ObjectEnableView
+from website.views.dhcp.dhcp_options.create import ObjectCreateView
+from website.views.dhcp.dhcp_options.delete import ObjectDeleteView
+from website.views.dhcp.dhcp_options.detail import ObjectDetailView
+from website.views.dhcp.dhcp_options.disable import ObjectDisableView
+from website.views.dhcp.dhcp_options.enable import ObjectEnableView
 
 
 urlpatterns = []

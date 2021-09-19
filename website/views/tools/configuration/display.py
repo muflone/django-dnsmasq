@@ -32,7 +32,7 @@ class ObjectDisplayView(RequireLoginMixin,
                         GenericMixin,
                         FormView):
     form_class = ConfigurationDisplayForm
-    template_name = 'website/configuration/display.html'
+    template_name = 'website/tools/configuration/display.html'
     page_title = 'Display configuration'
 
     def form_valid(self, form):

@@ -17,20 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-from django.urls import path
-
-from website.views.configuration.display import ObjectDisplayView
-from website.views.configuration.export import ObjectExportView
-
-
-urlpatterns = []
-
-# Configuration display page
-urlpatterns.append(path(route='display',
-                        view=ObjectDisplayView.as_view(),
-                        name='website.configuration.display'))
-# Configuration export page
-urlpatterns.append(path(route='export',
-                        view=ObjectExportView.as_view(),
-                        name='website.configuration.export'))

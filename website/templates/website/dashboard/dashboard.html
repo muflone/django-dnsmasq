@@ -47,10 +47,10 @@
 
     {% include 'website/dashboard/section_header.html' with title='Tools' %}
     <div class="row">
-        {% url 'website.configuration.display' as destination_url %}
+        {% url 'website.tools.configuration.display' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='Display configuration' tint='success' icon='fa-file-import' %}
 
-        {% url 'website.configuration.export' as destination_url %}
+        {% url 'website.tools.configuration.export' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='Export configuration' tint='success' icon='fa-file-export' %}
     </div>
 

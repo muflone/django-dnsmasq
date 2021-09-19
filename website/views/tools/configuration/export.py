@@ -41,7 +41,7 @@ class ObjectExportView(RequireLoginMixin,
                        GenericMixin,
                        FormView):
     form_class = ConfigurationExportForm
-    template_name = 'website/configuration/export.html'
+    template_name = 'website/tools/configuration/export.html'
     page_title = 'Export configuration'
 
     def form_valid(self, form):

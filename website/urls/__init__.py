@@ -26,9 +26,9 @@ urlpatterns = []
 # Root module
 urlpatterns.append(path(route='',
                         view=include('website.urls.root')))
-# Configuration module
-urlpatterns.append(path(route='configuration/',
-                        view=include('website.urls.configuration')))
+# Tools module
+urlpatterns.append(path(route='tools/',
+                        view=include('website.urls.tools')))
 # DHCP module
 urlpatterns.append(path(route='dhcp/',
                         view=include('website.urls.dhcp')))

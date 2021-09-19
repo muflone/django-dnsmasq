@@ -19,6 +19,7 @@
 ##
 
 SETTING_CONFIGURATION_PATH = 'configuration_path'
+SETTING_LEASES_PATH = 'leases_path'
 SETTING_CONFIGURATION_FILE_PREFIX = 'configuration_file_'
 
 DISABLED_OPTION_PREFIX = '# '

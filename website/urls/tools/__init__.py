@@ -23,6 +23,6 @@ from django.urls import include, path
 
 urlpatterns = []
 
-# DHCP module
+# Configuration module
 urlpatterns.append(path(route='configuration/',
                         view=include('website.urls.tools.configuration')))

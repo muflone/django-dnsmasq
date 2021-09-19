@@ -25,7 +25,7 @@ for dnsmasq.
 
 # Usage
 
-To generare a dnsmasq configuration file you can use the integrated
+To generate a dnsmasq configuration file you can use the integrated
 management command:
 
     python manage.py create_configuration --filename <filename> [--description]

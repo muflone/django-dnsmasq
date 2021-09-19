@@ -80,6 +80,11 @@ div.item-order {
     border-radius: .35rem;
 }
 
+.col-sm-10-percent {
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
 @media (max-width: 576px) {
     .login-form form{
         padding: 50px 20px;

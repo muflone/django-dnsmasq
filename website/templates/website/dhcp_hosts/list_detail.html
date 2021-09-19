@@ -4,3 +4,12 @@
                             <span class="fas fa-fw {% if not item.ignored %}fa-check{% else %}fa-ban{% endif %}"></span>
                             <strong><a href="{% url 'website.dhcp.hosts.detail' pk=item.pk %}">{{ item.name }}</a></strong>
 {% endblock %}
+
+{% block column_middle %}
+                        <div class="col-sm-10-percent">
+                            {{ item.mac_address }}
+                        </div>
+                        <div class="col-sm-10-percent">
+                            {{ item.address | default_if_none:'' }}
+                        </div>
+{% endblock %}

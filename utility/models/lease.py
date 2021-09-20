@@ -89,3 +89,10 @@ class Lease(object):
         :return: DhcpHost object matching the lease address
         """
         return DhcpHost.objects.filter(address=self.address).first()
+
+    def get_host_for_mac_address(self) -> DhcpHost:
+        """
+        Get a DhcpHost object for the lease MAC address
+        :return: DhcpHost object matching the lease MAC address
+        """
+        return DhcpHost.objects.filter(mac_address=self.mac_address).first()

@@ -12,7 +12,15 @@
 {% endblock %}
 
 {% block column_middle %}
-                        <div class="col-leases-mac_address">{{ item.mac_address }}</div>
+                        <div class="col-leases-mac_address">
+  {% with item.get_host_for_mac_address as host %}
+    {% if host %}
+                            <a href="{% url 'website.dhcp.hosts.detail' pk=host.id %}"><strong>{{ item.mac_address }}</strong></a>
+    {% else %}
+                            <strong>{{ item.mac_address }}</strong>
+    {% endif %}
+  {% endwith %}
+                        </div>
                         <div class="col-leases-expiration-date">
                             {{ item.expiration_date | date:'Y-m-d H:i.s T'}}
                         </div>

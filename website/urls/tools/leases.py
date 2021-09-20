@@ -20,6 +20,7 @@
 
 from django.urls import path
 
+from website.views.tools.leases.delete import ObjectDeleteView
 from website.views.tools.leases.list import ObjectListView
 
 
@@ -29,3 +30,7 @@ urlpatterns = []
 urlpatterns.append(path(route='list',
                         view=ObjectListView.as_view(),
                         name='website.tools.leases.list'))
+# Leases delete page
+urlpatterns.append(path(route='delete/<str:address>/<str:mac_address>',
+                        view=ObjectDeleteView.as_view(),
+                        name='website.tools.leases.delete'))

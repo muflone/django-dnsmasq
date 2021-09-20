@@ -32,3 +32,10 @@
   {% endif %}
                         </div>
 {% endblock %}
+
+{% block column_enable_disable %}
+                        <div class="col-enable-disable">
+                            <a href="{% url 'website.tools.leases.delete' address=item.address mac_address=item.mac_address %}"
+                               class="btn btn-danger button-disable">Remove</a>
+                        </div>
+{% endblock %}

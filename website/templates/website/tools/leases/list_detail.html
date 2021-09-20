@@ -2,7 +2,13 @@
 {% load tz %}
 
 {% block column_first %}
-                            {{ item.address }}
+  {% with item.get_host_for_address as host %}
+    {% if host %}
+                            <a href="{% url 'website.dhcp.hosts.detail' pk=host.id %}"><strong>{{ item.address }}</strong></a>
+    {% else %}
+                            <strong>{{ item.address }}</strong>
+    {% endif %}
+  {% endwith %}
 {% endblock %}
 
 {% block column_middle %}

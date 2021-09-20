@@ -85,6 +85,21 @@ div.item-order {
     max-width: 10%;
 }
 
+.col-leases-mac_address {
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
+.col-leases-expiration-date {
+    flex: 0 0 13%;
+    max-width: 13%;
+}
+
+.col-leases-expiration {
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
 @media (max-width: 576px) {
     .login-form form{
         padding: 50px 20px;

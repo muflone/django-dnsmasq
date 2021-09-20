@@ -1,0 +1,20 @@
+{% extends 'website/includes/crud/records_list_detail.html' %}
+{% load tz %}
+
+{% block column_first %}
+                            {{ item.address }}
+{% endblock %}
+
+{% block column_middle %}
+                        <div class="col-leases-mac_address">{{ item.mac_address }}</div>
+                        <div class="col-leases-expiration-date">
+                            {{ item.expiration_date | date:'Y-m-d H:i.s T'}}
+                        </div>
+                        <div class="col-leases-expiration">
+  {% if item.expire_difference %}
+                            {{ item.expire_difference }}
+  {% else %}
+                            Expired
+  {% endif %}
+                        </div>
+{% endblock %}

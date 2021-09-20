@@ -1,6 +1,6 @@
 ##
-#     Project: Django website
-# Description: A Django application to create website configuration
+#     Project: Django dnsmasq
+# Description: A Django application to create dnsmasq configuration
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2021 Fabio Castelli
 #     License: GPL-3+
@@ -17,15 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-from django.urls import include, path
-
-
-urlpatterns = []
-
-# Configuration module
-urlpatterns.append(path(route='configuration/',
-                        view=include('website.urls.tools.configuration')))
-# Leases module
-urlpatterns.append(path(route='leases/',
-                        view=include('website.urls.tools.leases')))

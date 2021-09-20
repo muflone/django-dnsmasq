@@ -52,6 +52,9 @@
 
         {% url 'website.tools.configuration.export' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='Export configuration' tint='success' icon='fa-file-export' %}
+
+        {% url 'website.tools.leases.list' as destination_url %}
+        {% include 'website/dashboard/section_card.html' with title='Leases' tint='success' icon='fa-history' %}
     </div>
 
     {% include 'website/dashboard/section_header.html' with title='System configuration' %}

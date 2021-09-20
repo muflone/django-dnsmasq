@@ -1,0 +1,10 @@
+{% extends 'website/base/base_admin.html' %}
+{% load assign %}
+
+{% block content %}
+  {% assign None as url_create %}
+  {% assign None as url_enable %}
+  {% assign None as url_disable %}
+  {% assign 'website/tools/leases/list_detail.html' as list_detail_include %}
+  {% include 'website/includes/crud/records_list.html' with title='setting' %}
+{% endblock %}

@@ -18,14 +18,14 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import include, path
+from django.urls import path
+
+from website.views.tools.leases.list import ObjectListView
 
 
 urlpatterns = []
 
-# Configuration module
-urlpatterns.append(path(route='configuration/',
-                        view=include('website.urls.tools.configuration')))
-# Leases module
-urlpatterns.append(path(route='leases/',
-                        view=include('website.urls.tools.leases')))
+# Leases list page
+urlpatterns.append(path(route='list',
+                        view=ObjectListView.as_view(),
+                        name='website.tools.leases.list'))

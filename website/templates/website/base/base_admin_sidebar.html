@@ -107,6 +107,13 @@
                     <span>Export configuration</span></a>
             </li>
 
+            <!-- Nav Item - Leases -->
+            <li class="nav-item{% if request_name == 'website.tools.leases.list' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.tools.leases.list' %}">
+                    <i class="fas fa-fw fa-history"></i>
+                    <span>Leases</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 

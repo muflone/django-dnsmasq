@@ -45,10 +45,11 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
         Get the context data (extra_content is loaded only in GenericMixin)
         """
         context = super().get_context_data(**kwargs)
+        related = ['tag', 'option']
         context['object_enabled_list'] = DhcpOption.objects_enabled.filter(
-            tag__name=DhcpTag.DEFAULT_TAG)
+            tag__name=DhcpTag.DEFAULT_TAG).select_related(*related)
         context['object_disabled_list'] = DhcpOption.objects_disabled.filter(
-            tag__name=DhcpTag.DEFAULT_TAG)
+            tag__name=DhcpTag.DEFAULT_TAG).select_related(*related)
         context['tag_name'] = DhcpTag.DEFAULT_TAG
         return context
 

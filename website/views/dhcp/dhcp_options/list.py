@@ -22,13 +22,11 @@ from django.views.generic import ListView
 
 from dnsmasq.models import DhcpOption
 
-from website.views.enabled_disabled_mixin import EnabledDisabledMixin
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
 
 
 class ObjectListView(RequireLoginMixin,
-                     EnabledDisabledMixin,
                      GenericMixin,
                      ListView):
     model = DhcpOption
@@ -39,3 +37,17 @@ class ObjectListView(RequireLoginMixin,
                       ('Type', 'col-sm-2'),
                       ('Description', 'col-sm'),
                       ('Order', 'col-order')]
+
+    def get_context_data(self, **kwargs):
+        """
+        Get the context data (extra_content is loaded only in GenericMixin)
+        """
+        context = super().get_context_data(**kwargs)
+        # Add objects_enabled using ObjectsEnabled
+        queryset = self.model.objects_enabled.all()
+        related = ['tag', 'option']
+        context['object_enabled_list'] = queryset.select_related(*related)
+        # Add objects_disabled using ObjectsDisabled
+        queryset = self.model.objects_disabled.all()
+        context['object_disabled_list'] = queryset.select_related(*related)
+        return context

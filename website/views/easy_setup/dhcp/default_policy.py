@@ -33,7 +33,7 @@ class EasySetupDhcpDefaultPolicyView(RequireLoginMixin,
     model = DhcpHost
     fields = ['name', 'ignored', 'is_active']
     success_url = reverse_lazy('website.easy_setup.dhcp.default_policy')
-    template_name = 'website/easy_setup/dhcp_default_policy.html'
+    template_name = 'website/easy_setup/dhcp/default_policy.html'
     page_title = 'DHCP default policy'
 
     def get_object(self, queryset=None):

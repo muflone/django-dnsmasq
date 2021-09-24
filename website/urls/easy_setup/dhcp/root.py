@@ -22,9 +22,9 @@ from django.urls import path
 
 from dnsmasq.constants import MODE_EASY_SETUP
 
-from website.views.easy_setup.dhcp_default_options import (
+from website.views.easy_setup.dhcp.default_options import (
     EasySetupDhcpDefaultOptionsView)
-from website.views.easy_setup.dhcp_default_policy import (
+from website.views.easy_setup.dhcp.default_policy import (
     EasySetupDhcpDefaultPolicyView)
 
 

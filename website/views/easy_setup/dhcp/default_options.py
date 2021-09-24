@@ -33,7 +33,7 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
     model = DhcpTag
     fields = ['name']
     success_url = reverse_lazy('website.easy_setup.dhcp.default_options')
-    template_name = 'website/easy_setup/dhcp_default_options.html'
+    template_name = 'website/easy_setup/dhcp/default_options.html'
     page_title = 'DHCP default options'
     column_headers = [('Option', 'col-sm-3'),
                       ('Type', 'col-sm-2'),

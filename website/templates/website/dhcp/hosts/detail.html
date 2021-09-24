@@ -94,8 +94,13 @@
                         </div>
                     </div>
                 </div>
+  {% if mode == easy_setup %}
+                {% url 'website.easy_setup.dhcp.hosts.list' as url_cancel %}
+                {% url 'website.easy_setup.dhcp.hosts.delete' pk=object.pk as url_delete %}
+  {% else %}
                 {% url 'website.dhcp.hosts.list' as url_cancel %}
                 {% url 'website.dhcp.hosts.delete' pk=object.pk as url_delete %}
+  {% endif %}
                 {% include 'website/includes/crud/toolbar_detail.html' %}
             </form>
         </div>

@@ -2,9 +2,15 @@
 {% load assign %}
 
 {% block content %}
-  {% url 'website.dhcp.hosts.create' as url_create %}
-  {% assign 'website.dhcp.hosts.enable' as url_enable %}
-  {% assign 'website.dhcp.hosts.disable' as url_disable %}
+  {% if mode == easy_setup %}
+    {% url 'website.easy_setup.dhcp.hosts.create' as url_create %}
+    {% assign 'website.easy_setup.dhcp.hosts.enable' as url_enable %}
+    {% assign 'website.easy_setup.dhcp.hosts.disable' as url_disable %}
+  {% else %}
+    {% url 'website.dhcp.hosts.create' as url_create %}
+    {% assign 'website.dhcp.hosts.enable' as url_enable %}
+    {% assign 'website.dhcp.hosts.disable' as url_disable %}
+  {% endif %}
   {% assign 'website/dhcp/hosts/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='DHCP host' %}
 {% endblock %}

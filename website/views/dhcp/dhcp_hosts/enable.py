@@ -20,6 +20,7 @@
 
 from django.urls import reverse_lazy
 
+from dnsmasq.constants import MODE_EASY_SETUP
 from dnsmasq.models import DhcpHost
 
 from website.views.item_enable import ItemEnableView
@@ -30,3 +31,13 @@ class ObjectEnableView(RequireLoginMixin,
                        ItemEnableView):
     model = DhcpHost
     url = reverse_lazy('website.dhcp.hosts.list')
+
+    def get_redirect_url(self, *args, **kwargs):
+        """
+        Get the URL to redirect after a successfull post.
+        When the tag is passed redirect to the Easy Setup hosts page
+        """
+        url = super().get_redirect_url()
+        if self.kwargs.get('mode', None) == MODE_EASY_SETUP:
+            url = reverse_lazy('website.easy_setup.dhcp.hosts.list')
+        return url

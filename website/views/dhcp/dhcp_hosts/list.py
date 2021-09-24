@@ -46,9 +46,14 @@ class ObjectListView(RequireLoginMixin,
         context = super().get_context_data(**kwargs)
         # Add objects_enabled using ObjectsEnabled
         queryset = self.model.objects_enabled.all()
+        # If the mode is passed hide the default host
+        if 'mode' in self.kwargs:
+            queryset = queryset.exclude(mac_address=DhcpHost.MAC_ADDRESS_ZERO)
         related = ['tag']
         context['object_enabled_list'] = queryset.select_related(*related)
-        # Add objects_disabled using ObjectsDisabled
+        # If the mode is passed hide the default host
         queryset = self.model.objects_disabled.all()
+        if 'mode' in self.kwargs:
+            queryset = queryset.exclude(mac_address=DhcpHost.MAC_ADDRESS_ZERO)
         context['object_disabled_list'] = queryset.select_related(*related)
         return context

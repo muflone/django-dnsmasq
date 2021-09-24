@@ -28,6 +28,10 @@ urlpatterns = []
 urlpatterns.append(path(
     route='',
     view=include('website.urls.easy_setup.dhcp.root')))
+# Hosts module
+urlpatterns.append(path(
+    route='hosts/',
+    view=include('website.urls.easy_setup.dhcp.hosts')))
 # Option IPv4 module
 urlpatterns.append(path(
     route='option_ipv4/',

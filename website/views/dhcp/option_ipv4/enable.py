@@ -37,7 +37,7 @@ class ObjectEnableView(RequireLoginMixin,
         Change redirect URL if the Easy Setup mode was requested
         """
         url = super().get_redirect_url(*args, **kwargs)
-        if self.kwargs.get('mode', None) == MODE_EASY_SETUP:
+        if self.kwargs.get('mode') == MODE_EASY_SETUP:
             item = self.model.objects.get(pk=self.kwargs['pk'])
             url = reverse_lazy('website.easy_setup.dhcp.options.detail',
                                kwargs={'pk': item.option.pk})

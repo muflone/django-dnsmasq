@@ -66,6 +66,6 @@ class ObjectDetailView(RequireLoginMixin,
         When the tag is passed redirect to the Easy Setup default options page
         """
         url = super().get_success_url()
-        if self.kwargs.get('mode', None) == MODE_EASY_SETUP:
+        if self.kwargs.get('mode') == MODE_EASY_SETUP:
             url = reverse_lazy('website.easy_setup.dhcp.default_options')
         return url

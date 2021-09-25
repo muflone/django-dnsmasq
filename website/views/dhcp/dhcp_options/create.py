@@ -57,9 +57,10 @@ class ObjectCreateView(RequireLoginMixin,
 
     def get_initial(self):
         initial = super().get_initial()
-        # If the mode is passed set the current tag as default
-        if 'mode' in self.kwargs:
-            initial['tag'] = DhcpTag.get_default()
+        # If the tag is passed set the current tag to the template
+        if 'tag' in self.kwargs:
+            tag = DhcpTag.objects.filter(pk=int(self.kwargs['tag'])).first()
+            initial['tag'] = tag
         return initial
 
     def get_success_url(self):

@@ -4,7 +4,7 @@
 
 {% block content %}
   {% if object.id %}
-    {% url 'website.easy_setup.dhcp.options.create' as url_create %}
+    {% url 'website.easy_setup.dhcp.options.create' tag=object.id as url_create %}
     {% assign 'website.easy_setup.dhcp.options.enable' as url_enable %}
     {% assign 'website.easy_setup.dhcp.options.disable' as url_disable %}
   {% endif %}

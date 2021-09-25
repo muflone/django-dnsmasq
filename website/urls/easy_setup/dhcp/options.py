@@ -32,7 +32,7 @@ from website.views.dhcp.dhcp_options.enable import ObjectEnableView
 urlpatterns = []
 
 # Easy Setup DHCP options create page
-urlpatterns.append(path(route='create',
+urlpatterns.append(path(route='create/<int:tag>',
                         view=ObjectCreateView.as_view(),
                         name='website.easy_setup.dhcp.options.create',
                         kwargs={'mode': MODE_EASY_SETUP}))

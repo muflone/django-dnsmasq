@@ -1,5 +1,6 @@
 {% extends 'website/base/base_admin.html' %}
 {% load static %}
+{% load get_option_type_name %}
 
 {% block content %}
     <div class="row">
@@ -45,6 +46,47 @@
                             <div class="col">{{ form.is_active.errors }}</div>
                         </div>
                     </div>
+  {% if mode == easy_setup and object %}
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">Related options
+                            <a href="{% url 'website.easy_setup.dhcp.options.create' tag=object.id %}" class="btn btn-primary btn-sm float-right">
+                                <i class="fas fa-fw fa-plus"></i>
+                                Create new DHCP option
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+    {% for item in object.dhcpoption_set.all %}
+                        <div class="row row-item-label">
+                            <div class="col-sm-2">DHCP Option {{ forloop.counter }}</div>
+                            <div class="col-sm-2">
+                                <label class="col-form-label">
+                                    <a href="{% url 'website.easy_setup.dhcp.options.detail' pk=item.id %}">{{ item.option }}</a>
+                                </label>
+                            </div>
+                            <div class="col-sm-2">
+                                {{ item.option.type | get_option_type_name }}
+                            </div>
+                            <div class="col-sm">
+                                {{ item.description }}
+                            </div>
+                            <div class="col-enable-disable">
+      {% if item.is_active %}
+                                <a href="{% url 'website.easy_setup.dhcp.options.disable' pk=item.pk %}" class="btn btn-danger button-disable">Disable</a>
+      {% else %}
+                                <a href="{% url 'website.easy_setup.dhcp.options.enable' pk=item.pk %}" class="btn btn-success button-enable">Enable</a>
+      {% endif %}
+                            </div>
+                            <div class="col-order">
+                                <div class="item-order bg-gradient-primary text-white">{{ item.order }}</div>
+                            </div>
+                        </div>
+      {% if not forloop.last %}
+                        <hr />
+      {% endif %}
+    {% endfor %}
+                    </div>
+  {% endif %}
                 </div>
   {% if mode == easy_setup %}
                 {% url 'website.easy_setup.dhcp.tags.list' as url_cancel %}

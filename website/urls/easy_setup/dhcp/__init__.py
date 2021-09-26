@@ -40,3 +40,7 @@ urlpatterns.append(path(
 urlpatterns.append(path(
     route='options/',
     view=include('website.urls.easy_setup.dhcp.options')))
+# Options module
+urlpatterns.append(path(
+    route='tags/',
+    view=include('website.urls.easy_setup.dhcp.tags')))

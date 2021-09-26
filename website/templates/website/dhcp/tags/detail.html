@@ -46,8 +46,13 @@
                         </div>
                     </div>
                 </div>
+  {% if mode == easy_setup %}
+                {% url 'website.easy_setup.dhcp.tags.list' as url_cancel %}
+                {% url 'website.easy_setup.dhcp.tags.delete' pk=object.pk as url_delete %}
+  {% else %}
                 {% url 'website.dhcp.tags.list' as url_cancel %}
                 {% url 'website.dhcp.tags.delete' pk=object.pk as url_delete %}
+  {% endif %}
                 {% include 'website/includes/crud/toolbar_detail.html' %}
             </form>
         </div>

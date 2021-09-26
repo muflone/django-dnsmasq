@@ -1,5 +1,9 @@
 {% extends 'website/includes/crud/records_list_detail.html' %}
 
 {% block column_first %}
+  {% if mode == easy_setup %}
+                            <strong><a href="{% url 'website.easy_setup.dhcp.tags.detail' pk=item.pk %}">{{ item.name }}</a></strong>
+  {% else %}
                             <strong><a href="{% url 'website.dhcp.tags.detail' pk=item.pk %}">{{ item.name }}</a></strong>
+  {% endif %}
 {% endblock %}

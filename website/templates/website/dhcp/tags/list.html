@@ -2,9 +2,15 @@
 {% load assign %}
 
 {% block content %}
-  {% url 'website.dhcp.tags.create' as url_create %}
-  {% assign 'website.dhcp.tags.enable' as url_enable %}
-  {% assign 'website.dhcp.tags.disable' as url_disable %}
+  {% if mode == easy_setup %}
+      {% url 'website.easy_setup.dhcp.tags.create' as url_create %}
+      {% assign 'website.easy_setup.dhcp.tags.enable' as url_enable %}
+      {% assign 'website.easy_setup.dhcp.tags.disable' as url_disable %}
+  {% else %}
+      {% url 'website.dhcp.tags.create' as url_create %}
+      {% assign 'website.dhcp.tags.enable' as url_enable %}
+      {% assign 'website.dhcp.tags.disable' as url_disable %}
+  {% endif %}
   {% assign 'website/dhcp/tags/list_detail.html' as list_detail_include %}
   {% include 'website/includes/crud/records_list.html' with title='DHCP tag' %}
 {% endblock %}

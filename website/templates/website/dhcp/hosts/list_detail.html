@@ -19,7 +19,12 @@
                         </div>
                         <div class="col-sm-2">
   {% if item.tag %}
-                            <a href="{% url 'website.dhcp.tags.detail' pk=item.tag_id %}">{{ item.tag.name }}</a>
+    {% if mode == easy_setup %}
+      {% url 'website.easy_setup.dhcp.tags.detail' pk=item.tag_id as url_detail %}
+    {% else %}
+      {% url 'website.dhcp.hosts.detail' pk=item.tag_id as url_detail %}
+    {% endif %}
+                            <a href="{{ url_detail }}">{{ item.tag.name }}</a>
   {% endif %}
                         </div>
 {% endblock %}

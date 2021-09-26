@@ -21,7 +21,11 @@
                     </div>
                 </div>
             </div>
+  {% if mode == easy_setup %}
+            {% url 'website.easy_setup.dhcp.tags.detail' pk=object.pk as url_cancel %}
+  {% else %}
             {% url 'website.dhcp.tags.detail' pk=object.pk as url_cancel %}
+  {% endif %}
             {% include 'website/includes/crud/toolbar_delete.html' %}
         </div>
     </div>

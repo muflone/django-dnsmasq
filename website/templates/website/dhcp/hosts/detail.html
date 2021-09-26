@@ -67,7 +67,12 @@
                             </div>
                             <div class="col">
                                 {{ form.tag }}
-                                <a href="{% url 'website.dhcp.tags.create' %}" class="btn btn-primary btn-sm">
+  {% if mode == easy_setup %}
+                {% url 'website.easy_setup.dhcp.tags.create' as url_create %}
+  {% else %}
+                {% url 'website.dhcp.tags.create' as url_create %}
+  {% endif %}
+                                <a href="{{ url_create }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-fw fa-plus"></i>
                                     Create new Tag
                                 </a>

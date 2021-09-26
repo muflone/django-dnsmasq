@@ -21,6 +21,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
 
+from dnsmasq.constants import MODE_EASY_SETUP
 from dnsmasq.models import DhcpTag
 
 from website.views.generic import GenericMixin
@@ -34,3 +35,13 @@ class ObjectDeleteView(RequireLoginMixin,
     success_url = reverse_lazy('website.dhcp.tags.list')
     template_name = 'website/dhcp/tags/delete.html'
     page_title = 'DHCP tag deletion'
+
+    def get_success_url(self):
+        """
+        Get the success URL to redirect after a successfull post.
+        When the tag is passed redirect to the Easy Setup default options page
+        """
+        url = super().get_success_url()
+        if self.kwargs.get('mode') == MODE_EASY_SETUP:
+            url = reverse_lazy('website.easy_setup.dhcp.tags.list')
+        return url

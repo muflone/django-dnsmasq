@@ -22,7 +22,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DeleteView
 
 from dnsmasq.constants import MODE_EASY_SETUP
-from dnsmasq.models import DhcpOption
+from dnsmasq.models import DhcpOption, DhcpTag
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -43,5 +43,8 @@ class ObjectDeleteView(RequireLoginMixin,
         """
         url = super().get_success_url()
         if self.kwargs.get('mode') == MODE_EASY_SETUP:
-            url = reverse_lazy('website.easy_setup.dhcp.default_options')
+            url = (reverse_lazy('website.easy_setup.dhcp.default_options')
+                   if self.object.tag.name == DhcpTag.DEFAULT_TAG_NAME
+                   else reverse_lazy('website.easy_setup.dhcp.tags.detail',
+                                     kwargs={'pk': self.object.tag_id}))
         return url

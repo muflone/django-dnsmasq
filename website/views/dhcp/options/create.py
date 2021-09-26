@@ -45,12 +45,13 @@ class ObjectCreateView(RequireLoginMixin,
         """
         context = super().get_context_data(**kwargs)
         # If the mode is passed set the current tag as disabled/fixed
-        if 'mode' in self.kwargs:
+        if 'tag' in self.kwargs:
             form = context['form']
             form.fields['tag'].widget.attrs['disabled'] = 'disabled'
             # Exclude options already present for the same tag_id
             options = DhcpOption.objects.filter(
-                tag_id=DhcpTag.get_default().id)
+                tag_id=DhcpTag.objects.filter(
+                    pk=int(self.kwargs['tag'])).first())
             form.fields['option'].queryset = DhcpOptionType.objects.exclude(
                 option__in=options.values_list('option__option', flat=True))
         return context
@@ -70,5 +71,8 @@ class ObjectCreateView(RequireLoginMixin,
         """
         url = super().get_success_url()
         if self.kwargs.get('mode') == MODE_EASY_SETUP:
-            url = reverse_lazy('website.easy_setup.dhcp.default_options')
+            url = (reverse_lazy('website.easy_setup.dhcp.default_options')
+                   if int(self.kwargs['tag']) == DhcpTag.get_default().id
+                   else reverse_lazy('website.easy_setup.dhcp.hosts.detail',
+                                     {'pk': self.kwargs['tag']}))
         return url

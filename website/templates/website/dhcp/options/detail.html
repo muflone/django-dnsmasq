@@ -156,7 +156,11 @@
   {% endif %}
                 </div>
   {% if mode == easy_setup %}
+    {% if object.tag.name == default_tag_name %}
                 {% url 'website.easy_setup.dhcp.default_options' as url_cancel %}
+    {% else %}
+                {% url 'website.easy_setup.dhcp.hosts.list' as url_cancel %}
+    {% endif %}
                 {% url 'website.easy_setup.dhcp.options.delete' pk=object.pk as url_delete %}
   {% else %}
                 {% url 'website.dhcp.options.list' as url_cancel %}

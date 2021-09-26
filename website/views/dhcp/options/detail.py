@@ -22,7 +22,7 @@ from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 
 from dnsmasq.constants import MODE_EASY_SETUP
-from dnsmasq.models import DhcpOption
+from dnsmasq.models import DhcpOption, DhcpTag
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -51,6 +51,7 @@ class ObjectDetailView(RequireLoginMixin,
             # If the object has an option set set the field as disabled/fixed
             if self.object.option:
                 form.fields['option'].widget.attrs['disabled'] = 'disabled'
+            context['default_tag_name'] = DhcpTag.DEFAULT_TAG
         return context
 
     def get_initial(self):
@@ -67,5 +68,7 @@ class ObjectDetailView(RequireLoginMixin,
         """
         url = super().get_success_url()
         if self.kwargs.get('mode') == MODE_EASY_SETUP:
-            url = reverse_lazy('website.easy_setup.dhcp.default_options')
+            url = (reverse_lazy('website.easy_setup.dhcp.default_options')
+                   if self.object.tag.name == DhcpTag.DEFAULT_TAG
+                   else reverse_lazy('website.easy_setup.dhcp.hosts.list'))
         return url

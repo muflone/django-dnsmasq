@@ -73,6 +73,6 @@ class ObjectCreateView(RequireLoginMixin,
         if self.kwargs.get('mode') == MODE_EASY_SETUP:
             url = (reverse_lazy('website.easy_setup.dhcp.default_options')
                    if int(self.kwargs['tag']) == DhcpTag.get_default().id
-                   else reverse_lazy('website.easy_setup.dhcp.hosts.detail',
-                                     {'pk': self.kwargs['tag']}))
+                   else reverse_lazy('website.easy_setup.dhcp.tags.detail',
+                                     kwargs={'pk': self.kwargs['tag']}))
         return url

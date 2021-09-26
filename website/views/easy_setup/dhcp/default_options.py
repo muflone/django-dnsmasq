@@ -50,7 +50,7 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
             tag__name=DhcpTag.DEFAULT_TAG).select_related(*related)
         context['object_disabled_list'] = DhcpOption.objects_disabled.filter(
             tag__name=DhcpTag.DEFAULT_TAG).select_related(*related)
-        context['tag_name'] = DhcpTag.DEFAULT_TAG
+        context['default_tag_name'] = DhcpTag.DEFAULT_TAG
         return context
 
     def get_object(self, queryset=None):

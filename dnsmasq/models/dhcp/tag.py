@@ -29,7 +29,7 @@ class DhcpTag(BaseModel):
     """
     DHCP Tag for grouping options
     """
-    DEFAULT_TAG = 'default'
+    DEFAULT_TAG_NAME = 'default'
 
     name = models.SlugField(max_length=255,
                             unique=True,
@@ -70,7 +70,7 @@ class DhcpTag(BaseModel):
         """
         Get the default DhcpTag object
         """
-        return DhcpTag.objects.filter(name=DhcpTag.DEFAULT_TAG).first()
+        return DhcpTag.objects.filter(name=DhcpTag.DEFAULT_TAG_NAME).first()
 
 
 class DhcpTagAdmin(BaseModelAdmin):

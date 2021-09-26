@@ -51,7 +51,7 @@ class ObjectDetailView(RequireLoginMixin,
             # If the object has an option set set the field as disabled/fixed
             if self.object.option:
                 form.fields['option'].widget.attrs['disabled'] = 'disabled'
-            context['default_tag_name'] = DhcpTag.DEFAULT_TAG
+            context['DEFAULT_TAG_NAME'] = DhcpTag.DEFAULT_TAG_NAME
         return context
 
     def get_initial(self):
@@ -69,6 +69,6 @@ class ObjectDetailView(RequireLoginMixin,
         url = super().get_success_url()
         if self.kwargs.get('mode') == MODE_EASY_SETUP:
             url = (reverse_lazy('website.easy_setup.dhcp.default_options')
-                   if self.object.tag.name == DhcpTag.DEFAULT_TAG
+                   if self.object.tag.name == DhcpTag.DEFAULT_TAG_NAME
                    else reverse_lazy('website.easy_setup.dhcp.hosts.list'))
         return url

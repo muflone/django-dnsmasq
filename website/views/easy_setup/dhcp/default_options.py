@@ -47,10 +47,10 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
         context = super().get_context_data(**kwargs)
         related = ['tag', 'option']
         context['object_enabled_list'] = DhcpOption.objects_enabled.filter(
-            tag__name=DhcpTag.DEFAULT_TAG).select_related(*related)
+            tag__name=DhcpTag.DEFAULT_TAG_NAME).select_related(*related)
         context['object_disabled_list'] = DhcpOption.objects_disabled.filter(
-            tag__name=DhcpTag.DEFAULT_TAG).select_related(*related)
-        context['default_tag_name'] = DhcpTag.DEFAULT_TAG
+            tag__name=DhcpTag.DEFAULT_TAG_NAME).select_related(*related)
+        context['DEFAULT_TAG_NAME'] = DhcpTag.DEFAULT_TAG_NAME
         return context
 
     def get_object(self, queryset=None):
@@ -58,7 +58,8 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
         Get the record to update, if existing
         :return: DhcpTag with the default name
         """
-        result = self.model.objects.filter(name=DhcpTag.DEFAULT_TAG).first()
+        result = self.model.objects.filter(
+            name=DhcpTag.DEFAULT_TAG_NAME).first()
         return result
 
     def form_valid(self, form):
@@ -67,6 +68,6 @@ class EasySetupDhcpDefaultOptionsView(RequireLoginMixin,
         """
         if not form.instance.pk:
             # Initialize data if the object doesn't exist
-            form.instance.name = DhcpTag.DEFAULT_TAG
+            form.instance.name = DhcpTag.DEFAULT_TAG_NAME
             form.instance.order = 0
         return super().form_valid(form)

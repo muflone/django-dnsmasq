@@ -282,7 +282,7 @@ class ConfigurationGenerator(object):
         manager = (DhcpOption.objects
                    if self.show_disabled
                    else DhcpOption.objects_enabled)
-        if queryset := manager.filter(tag__name=DhcpTag.DEFAULT_TAG,
+        if queryset := manager.filter(tag__name=DhcpTag.DEFAULT_TAG_NAME,
                                       forced=False):
             results.append(self.add_header('DHCP default options'))
             for item in queryset:
@@ -295,7 +295,7 @@ class ConfigurationGenerator(object):
                 line_items.append(f'dhcp-option={item.option.option},{value}')
                 results.append(''.join(line_items))
         # DHCP forced default options
-        if queryset := manager.filter(tag__name=DhcpTag.DEFAULT_TAG,
+        if queryset := manager.filter(tag__name=DhcpTag.DEFAULT_TAG_NAME,
                                       forced=True):
             results.append(self.add_header('DHCP forced default options'))
             for item in queryset:
@@ -310,7 +310,7 @@ class ConfigurationGenerator(object):
                 results.append(''.join(line_items))
         # DHCP options for tags
         if queryset := manager.filter(forced=False).exclude(
-                tag__name=DhcpTag.DEFAULT_TAG):
+                tag__name=DhcpTag.DEFAULT_TAG_NAME):
             results.append(self.add_header('DHCP options for tags'))
             last_tag_id = None
             for item in queryset:
@@ -333,7 +333,7 @@ class ConfigurationGenerator(object):
                 results.append(''.join(line_items))
         # DHCP forced options for tags
         if queryset := manager.filter(forced=True).exclude(
-                tag__name=DhcpTag.DEFAULT_TAG):
+                tag__name=DhcpTag.DEFAULT_TAG_NAME):
             results.append(self.add_header('DHCP forced options for tags'))
             last_tag_id = None
             for item in queryset:
@@ -393,7 +393,7 @@ class ConfigurationGenerator(object):
                 if not item.is_active:
                     line_items.append(DISABLED_OPTION_PREFIX)
                 line_items.append(f'dhcp-host={mac_address}')
-                if item.tag and item.tag.name != DhcpTag.DEFAULT_TAG:
+                if item.tag and item.tag.name != DhcpTag.DEFAULT_TAG_NAME:
                     # Add tag
                     line_items.append(f',set:{item.tag}')
                 if item.address:

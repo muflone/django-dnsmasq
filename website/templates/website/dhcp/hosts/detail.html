@@ -65,7 +65,13 @@
                             <div class="col-sm-2">
                                 <label for="{{ form.tag.id_for_label }}" class="col-form-label">{{ form.tag.label }}</label>
                             </div>
-                            <div class="col">{{ form.tag }}</div>
+                            <div class="col">
+                                {{ form.tag }}
+                                <a href="{% url 'website.dhcp.tags.create' %}" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-fw fa-plus"></i>
+                                    Create new Tag
+                                </a>
+                            </div>
                             <div class="col">{{ form.tag.errors }}</div>
                         </div>
                         <!-- Order -->

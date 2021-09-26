@@ -20,12 +20,12 @@
 
 from django.urls import path
 
-from website.views.dhcp.dhcp_tags.create import ObjectCreateView
-from website.views.dhcp.dhcp_tags.delete import ObjectDeleteView
-from website.views.dhcp.dhcp_tags.detail import ObjectDetailView
-from website.views.dhcp.dhcp_tags.disable import ObjectDisableView
-from website.views.dhcp.dhcp_tags.enable import ObjectEnableView
-from website.views.dhcp.dhcp_tags.list import ObjectListView
+from website.views.dhcp.tags.create import ObjectCreateView
+from website.views.dhcp.tags.delete import ObjectDeleteView
+from website.views.dhcp.tags.detail import ObjectDetailView
+from website.views.dhcp.tags.disable import ObjectDisableView
+from website.views.dhcp.tags.enable import ObjectEnableView
+from website.views.dhcp.tags.list import ObjectListView
 
 
 urlpatterns = []

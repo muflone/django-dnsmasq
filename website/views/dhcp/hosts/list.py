@@ -44,6 +44,7 @@ class ObjectListView(RequireLoginMixin,
         Get the context data (extra_content is loaded only in GenericMixin)
         """
         context = super().get_context_data(**kwargs)
+        context['MAC_ADDRESS_ZERO'] = DhcpHost.MAC_ADDRESS_ZERO
         # Add objects_enabled using ObjectsEnabled
         queryset = self.model.objects_enabled.all()
         # If the mode is passed hide the default host

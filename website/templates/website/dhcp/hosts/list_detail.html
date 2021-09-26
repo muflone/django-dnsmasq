@@ -25,6 +25,11 @@
       {% url 'website.dhcp.hosts.detail' pk=item.tag_id as url_detail %}
     {% endif %}
                             <a href="{{ url_detail }}">{{ item.tag.name }}</a>
+  {% elif item.mac_address != MAC_ADDRESS_ZERO %}
+                            <a href="{% url 'website.easy_setup.dhcp.tags.create' %}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-fw fa-plus"></i>
+                                Create new DHCP tag
+                            </a>
   {% endif %}
                         </div>
 {% endblock %}

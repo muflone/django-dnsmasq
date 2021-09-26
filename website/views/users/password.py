@@ -41,7 +41,7 @@ class ObjectPasswordView(RequireSuperUserMixin,
         Get the returning page after processing the form
         """
         return reverse_lazy('website.users.detail',
-                            args=[self.kwargs['pk']])
+                            kwargs={'pk': self.kwargs['pk']})
 
     def form_valid(self, form):
         """

@@ -24,7 +24,10 @@ from django.contrib import messages
 from django.views.generic.edit import FormView
 
 from dnsmasq.constants import (SETTING_CONFIGURATION_FILE_PREFIX,
-                               SETTING_CONFIGURATION_PATH)
+                               SETTING_CONFIGURATION_PATH,
+                               SETTING_EXPORT_INCLUDE_DESCRIPTIONS,
+                               SETTING_EXPORT_MULTIPLE_FILES,
+                               SETTING_EXPORT_SHOW_DISABLED_OPTIONS)
 from dnsmasq.misc.configuration_generator import (ConfigurationGenerator,
                                                   SECTION_HEADERS)
 from dnsmasq.models import Setting
@@ -98,3 +101,20 @@ class ObjectExportView(RequireLoginMixin,
         context['configuration_path'] = Setting.objects_enabled.filter(
             name=SETTING_CONFIGURATION_PATH).first()
         return context
+
+    def get_initial(self):
+        """
+        Set initial values for form
+        :return: dict with initial values
+        """
+        initial = super().get_initial()
+        initial['include_descriptions'] = get_setting_value(
+            name=SETTING_EXPORT_INCLUDE_DESCRIPTIONS,
+            default_value='0') == '1'
+        initial['show_disabled'] = get_setting_value(
+            name=SETTING_EXPORT_SHOW_DISABLED_OPTIONS,
+            default_value='0') == '1'
+        initial['multiple_files'] = get_setting_value(
+            name=SETTING_EXPORT_MULTIPLE_FILES,
+            default_value='0') == '1'
+        return initial

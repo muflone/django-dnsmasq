@@ -23,6 +23,9 @@ SETTING_LEASES_PATH = 'leases_path'
 SETTING_CONFIGURATION_FILE_PREFIX = 'configuration_file_'
 SETTING_DISPLAY_INCLUDE_DESCRIPTIONS = 'display_include_descriptions'
 SETTING_DISPLAY_SHOW_DISABLED_OPTIONS = 'display_show_disabled_options'
+SETTING_EXPORT_MULTIPLE_FILES = 'export_multiple_files'
+SETTING_EXPORT_INCLUDE_DESCRIPTIONS = 'export_include_descriptions'
+SETTING_EXPORT_SHOW_DISABLED_OPTIONS = 'export_show_disabled_options'
 
 DISABLED_OPTION_PREFIX = '# '
 

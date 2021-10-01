@@ -17,13 +17,3 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
-SETTING_CONFIGURATION_PATH = 'configuration_path'
-SETTING_LEASES_PATH = 'leases_path'
-SETTING_CONFIGURATION_FILE_PREFIX = 'configuration_file_'
-SETTING_DISPLAY_INCLUDE_DESCRIPTIONS = 'display_include_descriptions'
-SETTING_DISPLAY_SHOW_DISABLED_OPTIONS = 'display_show_disabled_options'
-
-DISABLED_OPTION_PREFIX = '# '
-
-MODE_EASY_SETUP = 'easy_setup'

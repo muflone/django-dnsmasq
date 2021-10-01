@@ -20,7 +20,11 @@
 
 from django.views.generic.edit import FormView
 
+from dnsmasq.constants import (SETTING_DISPLAY_INCLUDE_DESCRIPTIONS,
+                               SETTING_DISPLAY_SHOW_DISABLED_OPTIONS)
 from dnsmasq.misc.configuration_generator import ConfigurationGenerator
+
+from utility.misc.get_setting_value import get_setting_value
 
 from website.forms.configuration.display import ConfigurationDisplayForm
 
@@ -50,3 +54,17 @@ class ObjectDisplayView(RequireLoginMixin,
             results.extend(method())
         return self.render_to_response(self.get_context_data(
             results=generator.format_results(results)))
+
+    def get_initial(self):
+        """
+        Set initial values for form
+        :return: dict with initial values
+        """
+        initial = super().get_initial()
+        initial['include_descriptions'] = get_setting_value(
+            name=SETTING_DISPLAY_INCLUDE_DESCRIPTIONS,
+            default_value='0') == '1'
+        initial['show_disabled'] = get_setting_value(
+            name=SETTING_DISPLAY_SHOW_DISABLED_OPTIONS,
+            default_value='0') == '1'
+        return initial

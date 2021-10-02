@@ -55,7 +55,7 @@ class DhcpHost(BaseModel):
                                            verbose_name=pgettext_lazy(
                                                'DhcpHost',
                                                'address'))
-    hostname = models.SlugField(max_length=255,
+    hostname = models.CharField(max_length=255,
                                 blank=True,
                                 null=True,
                                 verbose_name=pgettext_lazy(

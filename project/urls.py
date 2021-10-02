@@ -22,9 +22,6 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-if settings.DEBUG:
-    import debug_toolbar
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +29,10 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)),)
+    try:
+        # Try to add the Django Debug Toolbar path
+        import debug_toolbar
+        urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)),)
+    except ImportError:
+        # Module not found, don't add the Django Debug Toolbar path
+        pass

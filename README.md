@@ -21,7 +21,7 @@ for dnsmasq.
 * Python 3.x
 * Django 3.2.3 (https://pypi.org/project/Django/)
 * django-macaddress 1.8.0 (https://pypi.org/project/django-macaddress/)
-* Font Awesome free (https://pypi.org/project/fontawesome-free/)
+* Font Awesome free 5.15.4 (https://pypi.org/project/fontawesome-free/)
 
 # Usage
 

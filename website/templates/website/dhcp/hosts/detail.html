@@ -108,7 +108,7 @@
   {% if mode == easy_setup and object.tag %}
                     <div class="card-header">
                         <h6 class="m-0 font-weight-bold text-primary">Related options
-                            <a href="{% url 'website.easy_setup.dhcp.options.create' tag=object.id %}" class="btn btn-primary btn-sm float-right">
+                            <a href="{% url 'website.easy_setup.dhcp.options.create' tag=object.tag_id %}" class="btn btn-primary btn-sm float-right">
                                 <i class="fas fa-fw fa-plus"></i>
                                 Create new DHCP option
                             </a>

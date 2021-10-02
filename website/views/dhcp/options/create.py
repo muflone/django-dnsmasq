@@ -22,7 +22,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from dnsmasq.constants import MODE_EASY_SETUP
-from dnsmasq.models import DhcpHost, DhcpOption, DhcpOptionType, DhcpTag
+from dnsmasq.models import DhcpOption, DhcpOptionType, DhcpTag
 
 from website.views.generic import GenericMixin
 from website.views.require_login import RequireLoginMixin
@@ -49,8 +49,9 @@ class ObjectCreateView(RequireLoginMixin,
             form = context['form']
             form.fields['tag'].widget.attrs['disabled'] = 'disabled'
             # Exclude options already present for the same tag_id
-            host = DhcpHost.objects.get(pk=int(self.kwargs['tag']))
-            options = DhcpOption.objects.filter(tag_id=host.tag_id)
+            options = DhcpOption.objects.filter(
+                tag_id=DhcpTag.objects.filter(
+                    pk=int(self.kwargs['tag'])).first())
             form.fields['option'].queryset = DhcpOptionType.objects.exclude(
                 option__in=options.values_list('option__option', flat=True))
         return context
@@ -59,8 +60,8 @@ class ObjectCreateView(RequireLoginMixin,
         initial = super().get_initial()
         # If the tag is passed set the current tag to the template
         if 'tag' in self.kwargs:
-            host = DhcpHost.objects.get(pk=int(self.kwargs['tag']))
-            initial['tag'] = host.tag
+            tag = DhcpTag.objects.filter(pk=int(self.kwargs['tag'])).first()
+            initial['tag'] = tag
         return initial
 
     def get_success_url(self):

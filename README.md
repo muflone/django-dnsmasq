@@ -19,7 +19,7 @@ for dnsmasq.
 # System Requirements
 
 * Python 3.x
-* Django 3.2.3 (https://pypi.org/project/Django/)
+* Django 3.2.7 (https://pypi.org/project/Django/)
 * django-macaddress 1.8.0 (https://pypi.org/project/django-macaddress/)
 * Font Awesome free 5.15.4 (https://pypi.org/project/fontawesome-free/)
 

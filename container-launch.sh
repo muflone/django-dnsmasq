@@ -22,4 +22,5 @@
 cd /app
 export DJANGO_SETTINGS_MODULE='project.settings_container'
 python manage.py migrate
+python manage.py collectstatic --noinput
 python manage.py runserver 0.0.0.0:${SERVER_PORT:-8080}

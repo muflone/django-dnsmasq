@@ -91,18 +91,18 @@ div.item-order {
 }
 
 .col-leases-host {
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 16%;
+    max-width: 16%;
 }
 
 .col-leases-expiration-date {
-    flex: 0 0 13%;
-    max-width: 13%;
+    flex: 0 0 12%;
+    max-width: 12%;
 }
 
 .col-leases-expiration {
-    flex: 0 0 10%;
-    max-width: 10%;
+    flex: 0 0 6%;
+    max-width: 6%;
 }
 
 @media (max-width: 576px) {

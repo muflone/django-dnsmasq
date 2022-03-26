@@ -1,6 +1,6 @@
 ##
-#     Project: Django website
-# Description: A Django application to create website configuration
+#     Project: Django dnsmasq
+# Description: A Django application to create dnsmasq configuration
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2021 Fabio Castelli
 #     License: GPL-3+

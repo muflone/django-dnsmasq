@@ -44,5 +44,7 @@
                         <div class="col-enable-disable">
                             <a href="{% url 'website.tools.leases.delete' address=item.address mac_address=item.mac_address %}"
                                class="btn btn-danger button-disable">Remove</a>
+                            <a href="{% url 'website.tools.leases.expire' address=item.address %}"
+                               class="btn btn-danger button-disable">Expire</a>
                         </div>
 {% endblock %}

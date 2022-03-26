@@ -19,6 +19,7 @@ for dnsmasq.
 # System Requirements
 
 * Python >= 3.9
+* dbus Python 1.2.x (https://pypi.org/project/dbus-python/)
 * Django 4.0.x (https://pypi.org/project/Django/)
 * django-macaddress 1.8.0 (https://pypi.org/project/django-macaddress/)
 * Font Awesome free 5.15.4 (https://pypi.org/project/fontawesome-free/)

@@ -18,24 +18,20 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import path
+from django.urls import reverse_lazy
+from django.views.generic import RedirectView
 
-from website.views.tools.leases.delete import ObjectDeleteView
-from website.views.tools.leases.expire import ObjectExpireView
-from website.views.tools.leases.list import ObjectListView
+from dnsmasq.misc.dbus_command import DbusConfiguration
+
+from website.views.require_login import RequireLoginMixin
 
 
-urlpatterns = []
+class ObjectExpireView(RequireLoginMixin,
+                       RedirectView):
 
-# Leases list page
-urlpatterns.append(path(route='list',
-                        view=ObjectListView.as_view(),
-                        name='website.tools.leases.list'))
-# Leases delete page
-urlpatterns.append(path(route='delete/<str:address>/<str:mac_address>',
-                        view=ObjectDeleteView.as_view(),
-                        name='website.tools.leases.delete'))
-# Leases expire page
-urlpatterns.append(path(route='expire/<str:address>',
-                        view=ObjectExpireView.as_view(),
-                        name='website.tools.leases.expire'))
+    def get_redirect_url(self, *args, **kwargs):
+        address = self.kwargs['address']
+        dbus_dnsmasq = DbusConfiguration()
+        if dbus_dnsmasq.connect():
+            dbus_dnsmasq.dhcp_delete_lease(address=address)
+        return reverse_lazy('website.tools.leases.list')

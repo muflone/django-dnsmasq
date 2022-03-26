@@ -3,7 +3,7 @@
 **Description:** A Django application to create 
 [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) configuration
 
-**Copyright:** 2021 Fabio Castelli (Muflone) <muflone@muflone.com>
+**Copyright:** 2021-2022 Fabio Castelli (Muflone) <muflone@muflone.com>
 
 **License:** GPL-3+
 

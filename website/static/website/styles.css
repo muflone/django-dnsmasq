@@ -90,6 +90,11 @@ div.item-order {
     max-width: 10%;
 }
 
+.col-leases-host {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
 .col-leases-expiration-date {
     flex: 0 0 13%;
     max-width: 13%;

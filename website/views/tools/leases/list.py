@@ -36,6 +36,7 @@ class ObjectListView(RequireLoginMixin,
     page_title = 'Leases'
     column_headers = [('Address', 'col-sm-3'),
                       ('MAC address', 'col-leases-mac_address'),
+                      ('Host', 'col-leases-host'),
                       ('Expiration', 'col-leases-expiration-date'),
                       ('', 'col-leases-expiration'),
                       ('Description', 'col-sm')]

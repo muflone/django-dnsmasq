@@ -26,6 +26,8 @@ SETTING_DISPLAY_SHOW_DISABLED_OPTIONS = 'display_show_disabled_options'
 SETTING_EXPORT_MULTIPLE_FILES = 'export_multiple_files'
 SETTING_EXPORT_INCLUDE_DESCRIPTIONS = 'export_include_descriptions'
 SETTING_EXPORT_SHOW_DISABLED_OPTIONS = 'export_show_disabled_options'
+SETTING_SERVER_SERVICE_NAME = 'server_service_name'
+SETTING_SERVER_USE_SUDO = 'server_use_sudo'
 
 DISABLED_OPTION_PREFIX = '# '
 

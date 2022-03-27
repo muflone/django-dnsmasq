@@ -116,6 +116,13 @@
                     <span>Leases</span></a>
             </li>
 
+            <!-- Nav Item - Server -->
+            <li class="nav-item{% if request_name == 'website.tools.server.control' %} active{% endif %}">
+                <a class="nav-link" href="{% url 'website.tools.server.control' %}">
+                    <i class="fas fa-fw fa-server"></i>
+                    <span>Server control</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 

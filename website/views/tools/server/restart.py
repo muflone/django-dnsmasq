@@ -18,17 +18,11 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from django.urls import include, path
+from website.views.server_service_command import ServerServiceCommandView
 
 
-urlpatterns = []
-
-# Configuration module
-urlpatterns.append(path(route='configuration/',
-                        view=include('website.urls.tools.configuration')))
-# Leases module
-urlpatterns.append(path(route='leases/',
-                        view=include('website.urls.tools.leases')))
-# Server module
-urlpatterns.append(path(route='server/',
-                        view=include('website.urls.tools.server')))
+class ServerRestartView(ServerServiceCommandView):
+    def get_redirect_url(self, *args, **kwargs):
+        server = self.get_server()
+        server.restart()
+        return super().get_redirect_url(*args, **kwargs)

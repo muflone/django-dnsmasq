@@ -1,0 +1,33 @@
+{% extends 'website/base/base_admin.html' %}
+{% load assign %}
+
+{% block content %}
+      <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4 border-left-success">
+                <div class="card-header">
+                    <div class="row">
+                        <h4 class="col-sm m-0 font-weight-bold text-primary">Current status:
+                          <strong>{{ is_active | yesno:'Active,Inactive' }}</strong></h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <div class="col-sm-3">
+                    <div class="row row-item-record mb-3">
+                      <a href="{% url 'website.tools.server.start' %}" class="btn btn-primary">
+                        Start server&nbsp;<span class="fa fa-play"></span></a>
+                    </div>
+                    <div class="row row-item-record mb-3">
+                      <a href="{% url 'website.tools.server.stop' %}" class="btn btn-danger">
+                        Stop server&nbsp;<span class="fa fa-stop"></span></a>
+                    </div>
+                    <div class="row row-item-record mb-3">
+                      <a href="{% url 'website.tools.server.restart' %}" class="btn btn-warning">
+                        Restart server&nbsp;<span class="fa fa-play"></span></a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

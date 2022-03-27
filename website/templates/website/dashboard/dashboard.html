@@ -55,6 +55,9 @@
 
         {% url 'website.tools.leases.list' as destination_url %}
         {% include 'website/dashboard/section_card.html' with title='Leases' tint='success' icon='fa-history' %}
+
+        {% url 'website.tools.server.control' as destination_url %}
+        {% include 'website/dashboard/section_card.html' with title='Server control' tint='success' icon='fa-server' %}
     </div>
 
     {% include 'website/dashboard/section_header.html' with title='System configuration' %}

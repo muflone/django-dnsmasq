@@ -8,22 +8,22 @@
                 <div class="card-header">
                     <div class="row">
                         <h4 class="col-sm m-0 font-weight-bold text-primary">Current status:
-                          <strong>{{ is_active | yesno:'Active,Inactive' }}</strong></h4>
+                          <span class="fa {{ is_active | yesno:'fa-play,fa-stop' }}"></span>
+                          {{ is_active | yesno:'Running,Stopped' }}</h4>
                     </div>
                 </div>
                 <div class="card-body">
+                  <h4>Server control actions</h4>
                   <div class="col-sm-3">
                     <div class="row row-item-record mb-3">
-                      <a href="{% url 'website.tools.server.start' %}" class="btn btn-primary">
-                        Start server&nbsp;<span class="fa fa-play"></span></a>
-                    </div>
-                    <div class="row row-item-record mb-3">
+                      <a href="{% url 'website.tools.server.start' %}" class="btn btn-success">
+                        <span class="fa fa-play"></span> Start</a>
+                      &nbsp;
                       <a href="{% url 'website.tools.server.stop' %}" class="btn btn-danger">
-                        Stop server&nbsp;<span class="fa fa-stop"></span></a>
-                    </div>
-                    <div class="row row-item-record mb-3">
+                        <span class="fa fa-stop"></span> Stop</a>
+                      &nbsp;
                       <a href="{% url 'website.tools.server.restart' %}" class="btn btn-warning">
-                        Restart server&nbsp;<span class="fa fa-play"></span></a>
+                        <span class="fa fa-play"></span> Restart</a>
                     </div>
                   </div>
                 </div>

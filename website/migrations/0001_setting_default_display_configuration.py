@@ -4,8 +4,6 @@ from dnsmasq.constants import (SETTING_DISPLAY_INCLUDE_DESCRIPTIONS,
                                SETTING_DISPLAY_SHOW_DISABLED_OPTIONS)
 from dnsmasq.misc.configuration_generator import ConfigurationGenerator
 
-NEW_SETTINGS = ()
-
 def insert_configuration_settings(apps, schema_editor):
     """
     Insert some configuration settings
